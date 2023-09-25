@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const animalSchema = new Schema({
   name: String,
-  type: String,
+  type: String
 }, {
   timestamps: true
 });
