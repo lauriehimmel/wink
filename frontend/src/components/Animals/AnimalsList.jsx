@@ -7,7 +7,6 @@ export default function AnimalsList(props) {
 
   async function handleRequest() {
     const animalData = await getAnimals();
-    console.log(animalData);
     if (animalData.length) {
       setAnimals(animalData);
       setIsLoading(false);
@@ -19,7 +18,6 @@ export default function AnimalsList(props) {
   }, []);
 
   useEffect(() => {
-    console.log("animals", animals);
     if (animals) {
       setIsLoading(false);
     }
@@ -33,7 +31,7 @@ export default function AnimalsList(props) {
     <>
       <div>
         {animals.map((animal) => (
-          <h1>{animal.name} the {animal.type}</h1>
+          <h1 key={animal._id}>{animal.name} the {animal.type}</h1>
         ))}
         {/* {animals[0].name} */}
       </div>

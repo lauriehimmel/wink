@@ -8,3 +8,12 @@ export async function getAnimals() {
     return new Error(err);
   }
 }
+
+export async function createAnimal() {
+  try {
+    const data = await animalAPI.create();
+    return data;
+  } catch (err) {
+    return new Error(err);
+  }
+}
