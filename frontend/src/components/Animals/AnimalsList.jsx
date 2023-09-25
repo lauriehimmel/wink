@@ -1,33 +1,34 @@
 import { useEffect, useState } from "react";
+import { getAnimals } from "../../utilities/animal-service";
 
 export default function AnimalsList(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [animals, setAnimals] = useState(null)
 
-  const BASE_URL = "http://localhost:4000/animals";
-  // this base url variable will be replaced with an environmental variables once we migrate the fetch to service modules
 
-  const getAnimals = async () => {
+  async function handleRequest(){
     try {
-      const response = await fetch(BASE_URL);
-      const allAnimals = await response.json();
-      setAnimals(allAnimals);
-      setIsLoading(false);
+      const animalData = await etAnimals();
+      if(animalData.length){
+        setAnimals(animalData);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        throw Error(peopleData)
+      }
     } catch (err) {
-      console.log(err);
-    }
+        console.log(err);
+      }
   };
 
 
   useEffect(()=> {
-    getAnimals();
-
-    console.log('there are ${animals.length} animals to render')
+    handleRequest();
   }, [])
+  
   return (
     <section className="animals-list">
-      <div>
-      </div>
+     <h1>Hiiii</h1>
     </section>
   )
 }
