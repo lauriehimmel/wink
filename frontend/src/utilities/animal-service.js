@@ -9,9 +9,9 @@ export async function getAnimals() {
   }
 }
 
-export async function createAnimal() {
+export async function createAnimal(animalData) {
   try {
-    const data = await animalAPI.create();
+    const data = await animalAPI.create(animalData);
     return data;
   } catch (err) {
     return new Error(err);

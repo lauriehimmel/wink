@@ -19,7 +19,7 @@ async function index(req, res) {
 
 async function create(req, res) {
   try {
-    res.json(await Animal.create(req.body));
+    res.status(201).json(await Animal.create(req.body));
   } catch (error) {
     res.status(400).json(error);
   }

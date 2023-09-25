@@ -6,21 +6,20 @@ export default function NewAnimalForm() {
     name: "",
     type: "",
   };
+
+
   const [newForm, setNewForm] = useState(initState);
 
   function handleChange(e) {
     const formData = {
       ...newForm,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     };
-    console.log('formData', formData)
     setNewForm(formData);
-    console.log('newform - handleChange', newForm)
   }
   
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log('newform - handleSubmit', newForm)
     await createAnimal(newForm);
     setNewForm(initState);
   }
@@ -43,12 +42,9 @@ export default function NewAnimalForm() {
         <label htmlFor="type">
           <div className="labeltext">What kind of animal are you adopting?</div>
           <select
-            type="text"
             name="type"
-            id="type"
             value={newForm.type}
             onChange={handleChange}
-            required
           >
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
