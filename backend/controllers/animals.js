@@ -9,7 +9,7 @@ module.exports = {
 
 async function index(req,res,next) {
 	try { 
-    res.json(await Animals.find({}));
+    res.json(await Animals.find());
   } catch (error) {
     res.status(400).json(error);
   }

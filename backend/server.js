@@ -8,8 +8,7 @@ var animalRouter = require('./routes/animals')
 var { PORT } = process.env;
 var app = express();
 
-
-app.use('/animals', animalRouter)
+app.use('/animals',animalRouter)
 app.use(express.urlencoded({extended:true}))
 app.use(express.json()); 
 
