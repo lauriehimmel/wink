@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+
+const animalSchema = new Schema({
+  name: String,
+  type: String,
+}, {
+  timestamps: true
+});
+
+module.exports = mongoose.model('Animal', animalSchema);
+
+
+// images: {type:[Schema.Types.ObjectId], ref: "Image"},
+// activities: {type:[Schema.Types.ObjectId], ref: "Activity"},
+// foods: {type:[Schema.Types.ObjectId], ref: "Food"},
+
+//   health: Number,
+  // happiness: Number
