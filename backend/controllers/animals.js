@@ -13,7 +13,7 @@ async function index(req, res) {
   try {
     res.json(await Animal.find({}));
   } catch (error) {
-    res.status(400).json({error: error.message});
+    res.status(400).json('hi', {error: error.message});
   }
 }
 

@@ -4,7 +4,9 @@ const Schema = mongoose.Schema;
 
 const animalSchema = new Schema({
   name: String,
-  type: String
+  type: {
+    type: String,
+    enum: ['Dog', 'Cat', 'Frog']}
 }, {
   timestamps: true
 });

@@ -1,11 +1,10 @@
-import * as animalApi from "./animal-api"
+import * as animalAPI from "./animal-api";
 
 export async function getAnimals() {
   try {
-    const data = await animalApi.animalIndex();
+    const data = await animalAPI.index();
     return data;
-  } catch(err) {
-    console.log(err);
-    return err;
+  } catch (err) {
+    return new Error(err);
   }
 }
