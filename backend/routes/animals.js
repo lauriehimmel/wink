@@ -1,11 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const animalCtrl = require('../controllers/animals');
+router.get("/", async (req,res) => {
+  res.status(200).json({message: "animal index route"})
+});
 
-router.get('/', animalCtrl.index);
-router.get('/', animalCtrl.create)
-
+router.post("/", async (req,res) => {
+  res.status(202).json({message: "animal create route"})
+});
 
 router.get("/:id", (req, res) => {
 	res.status(200).json({message: "people show route: " + req.params.id })
@@ -14,6 +16,7 @@ router.get("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
 	res.status(200).json({message: "animal delete route: " + req.params.id })
 });
+
 
 router.put("/:id", (req, res) => {
 	console.log(req.body)
