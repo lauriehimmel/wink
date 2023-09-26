@@ -33,10 +33,10 @@ export default function AnimalsList(props) {
   ) : (
     <>
         {animals.map((animal) => (
-          <div key={animal._id} className="animal">
-            <h1>
+          <div key={animal._id} className="animalslist">
+            <p>
               {animal.name} the {animal.type}
-            </h1>
+            </p>
             <button onClick={() => navigate(`/animals/${animal._id}`)}>
               hi!
             </button>

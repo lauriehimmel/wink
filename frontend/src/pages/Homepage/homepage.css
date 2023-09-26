@@ -2,9 +2,11 @@
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  text-shadow: 3px 3px 0px #65489d;
+  text-shadow: 2px 2px 0px #65489d;
   font-weight: bold;
   font-style: italic;
+  display: flex;
+  justify-content: space-around;
 }
 
 .home-animallist {
@@ -14,4 +16,8 @@
   width: 33vw;
   align-items: center;
   justify-content: space-around;
+}
+
+.homepage h1 {
+  font-family: 'Ranchers', cursive;
 }
