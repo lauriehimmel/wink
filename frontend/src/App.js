@@ -8,6 +8,9 @@ import { Link, Route, Routes } from "react-router-dom";
 import Animal from './components/Animals/Animal.jsx'
 import NewAnimalForm from './components/Animals/NewAnimalForm';
 import UpdateAnimal from './components/Animals/UpdateAnimal.jsx';
+import FoodList from './components/Food/FoodList';
+import Adopt from './pages/Adopt/Adopt';
+
 
 function App() {
   return (
@@ -18,7 +21,7 @@ function App() {
         <Route path="/animals" element={<AnimalsList />} />
         <Route path="/animals/:id" element={<Animal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />
-        <Route path="/adopt" element={<NewAnimalForm />} />
+        <Route path="/adopt" element={<Adopt />} />
       </Routes>
     </div>
   );
