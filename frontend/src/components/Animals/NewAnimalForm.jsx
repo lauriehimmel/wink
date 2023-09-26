@@ -11,8 +11,6 @@ export default function NewAnimalForm() {
   const [newForm, setNewForm] = useState(initState);
 
   function handleChange(e) {
-    console.log("name", e.target.name);
-    console.log("value", e.target.value);
     const formData = {
       ...newForm,
       [e.target.name]: e.target.value,
@@ -22,7 +20,6 @@ export default function NewAnimalForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(newForm);
     await createAnimal(newForm);
     setNewForm(initState);
   }

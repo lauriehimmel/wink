@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal } from "../../utilities/animal-service";
 
 export default function OneAnimal() {
   const {id} = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getAnimal() {
       const animal = await showAnimal(id)
-      console.log(animal)
       setAnimal(animal);
     };
     getAnimal();
@@ -27,7 +27,10 @@ export default function OneAnimal() {
   ) : (
     <>
       <div>
-        {animal?.name}
+        {animal?.name} the {animal?.type}
+        <button onClick={() => navigate(`/animals/${animal._id}/update`)}>
+              Edit
+            </button>
       </div>
     </>
   );

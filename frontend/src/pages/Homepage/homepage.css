@@ -21,3 +21,10 @@
 .homepage h1 {
   font-family: 'Ranchers', cursive;
 }
+
+.home-adopt {
+  cursor: pointer;
+}
+.home-adopt img{
+  width: 33vw
+}
