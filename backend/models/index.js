@@ -1,3 +1,4 @@
 module.exports = {
-  Animal: require('./Animal')
+  Animal: require('./Animal'),
+  Food: require('./Food')
 }

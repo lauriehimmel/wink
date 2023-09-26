@@ -22,7 +22,7 @@
   font-family: 'Ranchers', cursive;
 }
 
-.home-adopt {
+.home-adopt, .homeheaders {
   cursor: pointer;
 }
 .home-adopt img{
