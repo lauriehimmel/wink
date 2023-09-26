@@ -1,0 +1,24 @@
+.header {
+  width: 100vw;
+  background-color: #65489d;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-title {
+  margin: none;
+  font-family: "puffin-arcade-liquid", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  color: white;
+  font-size: 9rem;
+  text-decoration: none;
+  padding-top: .8rem;
+}
+
+.header-nav {
+  font-family: 'Ranchers', cursive;
+  color: white;
+  font-size: 2.5rem;
+}

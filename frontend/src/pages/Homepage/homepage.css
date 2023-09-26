@@ -1,0 +1,17 @@
+.homepage {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 3px 3px 0px #65489d;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.home-animallist {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  width: 33vw;
+  align-items: center;
+  justify-content: space-around;
+}

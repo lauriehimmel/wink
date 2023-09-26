@@ -10,9 +10,7 @@ import Animal from './components/Animals/Animal.jsx'
 function App() {
   return (
     <div className="App">
-      <Link to="/" element={<Homepage />} >
-          <Header />
-          </Link>
+      <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/animals/:id" element={<Animal />} />

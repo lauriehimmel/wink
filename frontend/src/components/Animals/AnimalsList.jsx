@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAnimals } from "../../utilities/animal-service";
 import { Link, useNavigate } from "react-router-dom";
+import './animals.css'
 
 export default function AnimalsList(props) {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,9 +32,8 @@ export default function AnimalsList(props) {
     </>
   ) : (
     <>
-      <div>
         {animals.map((animal) => (
-          <div key={animal._id}>
+          <div key={animal._id} className="animal">
             <h1>
               {animal.name} the {animal.type}
             </h1>
@@ -42,7 +42,6 @@ export default function AnimalsList(props) {
             </button>
           </div>
         ))}
-      </div>
     </>
   );
 }
