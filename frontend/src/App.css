@@ -8,6 +8,9 @@
   height: 100vh;
 }
 
+button {
+  cursor: pointer;
+}
 
 /* .App-logo {
   height: 40vmin;

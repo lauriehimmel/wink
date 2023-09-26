@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AnimalsList from "../../components/Animals/AnimalsList";
 import NewAnimalForm from "../../components/Animals/NewAnimalForm";
 import Header from "../../components/Header/header";
 import AnimalOfTheDay from "../../components/Animals/animalOfTheDay"
+import dog from '../../assets/dog-02.png'
 import "./homepage.css";
 
+
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="homepage">
@@ -23,8 +26,8 @@ export default function Home() {
         </div>
         <div>
           <h1>Adopt a Pet</h1>
-        <div className="home-animalform">
-          <NewAnimalForm />
+        <div onClick={() => navigate('/adopt')} className="home-adopt">
+          <img src={dog} />
         </div>
         </div>
       </div>

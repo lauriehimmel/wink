@@ -35,3 +35,13 @@ export async function showAnimal(id) {
     throw err;
   }
 }
+
+export async function updateAnimal(id, data) {
+  try {
+    const animal = await animalAPI.update(id, data);
+    return animal;
+  } catch (err) {
+    throw err;
+  }
+}
+

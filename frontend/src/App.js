@@ -6,6 +6,8 @@ import AnimalsList from './components/Animals/AnimalsList';
 import Homepage from './pages/Homepage/homepage.jsx'
 import { Link, Route, Routes } from "react-router-dom";
 import Animal from './components/Animals/Animal.jsx'
+import NewAnimalForm from './components/Animals/NewAnimalForm';
+import UpdateAnimal from './components/Animals/UpdateAnimal.jsx';
 
 function App() {
   return (
@@ -13,7 +15,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/animals" element={<AnimalsList />} />
         <Route path="/animals/:id" element={<Animal />} />
+        <Route path="/animals/:id/update" element={<UpdateAnimal />} />
+        <Route path="/adopt" element={<NewAnimalForm />} />
       </Routes>
     </div>
   );
