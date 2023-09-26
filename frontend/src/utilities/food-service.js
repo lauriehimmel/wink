@@ -8,3 +8,12 @@ export async function foodIndex() {
     return new Error(err);
   }
 }
+
+export async function createFood() {
+  try {
+    const data = await foodAPI.createFood();
+    return data;
+  } catch (err) {
+    return new Error(err)
+;  }
+}

@@ -1,13 +1,15 @@
+import { useRef, useState } from "react";
 import NewAnimalForm from "../../components/Animals/NewAnimalForm";
-import FoodList from "../../components/Food/FoodList";
+import NewFoodForm from "../../components/Food/NewFoodForm";
 
 
 export default function Adopt() {
-
+  const submitRef = useRef();
   return (
     <>
-    <NewAnimalForm />
-    <FoodList />
+    <NewAnimalForm submitRef={submitRef}/>
+    <NewFoodForm submitRef={submitRef}/>
+    <button onClick={() => submitRef.current.click()}>Adopt!</button>
     </>
   )
 }
