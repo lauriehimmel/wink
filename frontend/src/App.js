@@ -6,6 +6,8 @@ import AnimalsList from './components/Animals/AnimalsList';
 import Homepage from './pages/Homepage/homepage.jsx'
 import { Link, Route, Routes } from "react-router-dom";
 import Animal from './components/Animals/Animal.jsx'
+import NewAnimalForm from './components/Animals/NewAnimalForm';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/animals/:id" element={<Animal />} />
+        <Route path="/adopt" element={<NewAnimalForm />} />
       </Routes>
     </div>
   );

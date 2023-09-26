@@ -2,24 +2,27 @@ import { useEffect, useState } from "react";
 import { createAnimal } from "../../utilities/animal-service";
 
 export default function NewAnimalForm() {
+
   let initState = {
     name: "",
-    type: "",
+    type: "Dog"
   };
-
 
   const [newForm, setNewForm] = useState(initState);
 
   function handleChange(e) {
+    console.log("name", e.target.name);
+    console.log("value", e.target.value);
     const formData = {
       ...newForm,
       [e.target.name]: e.target.value,
     };
     setNewForm(formData);
   }
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(newForm);
     await createAnimal(newForm);
     setNewForm(initState);
   }
@@ -41,20 +44,13 @@ export default function NewAnimalForm() {
         </label>
         <label htmlFor="type">
           <div className="labeltext">What kind of animal are you adopting?</div>
-          <select
-            name="type"
-            value={newForm.type}
-            onChange={handleChange}
-          >
-            <option value="Dog">Dog</option>
+          <select name="type" value={newForm.type} onChange={handleChange}>
+            <option selected value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Frog">Frog</option>
           </select>
         </label>
-        <input
-          type="submit"
-          value="Adopt!"
-        />
+        <input type="submit" value="Adopt!" />
       </form>
     </div>
   );

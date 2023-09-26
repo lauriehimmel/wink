@@ -3,3 +3,12 @@ export default function AnimalOfTheDay() {
     <p>placeholder</p>
   )
 }
+
+// add timer for pet detail page
+// useEffect, setTimeout
+
+// useRef - keeping track of timer
+// - data that persists btw renders
+
+
+// samson, summer --> dogs
