@@ -30,7 +30,6 @@ export async function deleteAnimal(id) {
 export async function showAnimal(id) {
   try {
     const animal = await animalAPI.show(id);
-    console.log('animal-service', animal)
     return animal;
   } catch (err) {
     throw err;

@@ -3,16 +3,14 @@ import { useParams } from "react-router-dom";
 import { showAnimal } from "../../utilities/animal-service";
 
 export default function OneAnimal() {
-  const id = useParams();
+  const {id} = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState(null);
 
   useEffect(() => {
     async function getAnimal() {
-      const ids = [id];
-      console.log('ids', ids)
+      const ids = [id.id];
       const animal = await showAnimal(ids)
-      console.log('animal', animal)
       setAnimal(animal[0]);
     };
     getAnimal();
@@ -29,7 +27,7 @@ export default function OneAnimal() {
   ) : (
     <>
       <div>
-        {animal.name}
+        {animal?.name}
       </div>
     </>
   );
