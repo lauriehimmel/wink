@@ -10,6 +10,8 @@ import NewAnimalForm from './components/Animals/NewAnimalForm';
 import UpdateAnimal from './components/Animals/UpdateAnimal.jsx';
 import FoodList from './components/Food/FoodList';
 import Adopt from './pages/Adopt/Adopt';
+import ShowAnimal from './pages/Show/show';
+
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/animals" element={<AnimalsList />} />
-        <Route path="/animals/:id" element={<Animal />} />
+        <Route path="/animals/:id" element={<ShowAnimal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />
         <Route path="/adopt" element={<Adopt />} />
       </Routes>

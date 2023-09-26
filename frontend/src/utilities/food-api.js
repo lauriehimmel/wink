@@ -8,3 +8,12 @@ export async function foodIndex() {
     throw new Error("Invalid Request");
   }
 }
+
+export async function createFood() {
+  const res = await fetch(`${BASE_URL}/food`, {method: "post"});
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}
