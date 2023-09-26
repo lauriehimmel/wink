@@ -22,3 +22,26 @@ export async function create(data) {
     throw new Error("Invalid Request");
   }
 }
+
+export async function destroy(id) {
+  const res = await fetch(`${BASE_URL}/animals/${id}`,{
+    method: "DELETE",
+  }
+  );
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}
+
+export async function show(id) {
+  console.log('id api', id)
+  const res = await fetch(`${BASE_URL}/animals/${id}`, {method: "GET"});
+  console.log('res api', res)
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}

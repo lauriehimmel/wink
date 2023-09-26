@@ -17,3 +17,22 @@ export async function createAnimal(animalData) {
     return new Error(err);
   }
 }
+
+export async function deleteAnimal(id) {
+  try {
+    const deletedAnimal = await animalAPI.destroy(id);
+    return deletedAnimal;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export async function showAnimal(id) {
+  try {
+    const animal = await animalAPI.show(id);
+    console.log('animal-service', animal)
+    return animal;
+  } catch (err) {
+    throw err;
+  }
+}
