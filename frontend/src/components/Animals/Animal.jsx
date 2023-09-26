@@ -9,9 +9,9 @@ export default function OneAnimal() {
 
   useEffect(() => {
     async function getAnimal() {
-      const ids = [id.id];
-      const animal = await showAnimal(ids)
-      setAnimal(animal[0]);
+      const animal = await showAnimal(id)
+      console.log(animal)
+      setAnimal(animal);
     };
     getAnimal();
   }, []);

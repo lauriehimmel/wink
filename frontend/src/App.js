@@ -4,15 +4,17 @@ import Header from '/Users/lauriehimmel/sei/projects/wink/frontend/src/component
 // import Main from '/Users/lauriehimmel/sei/projects/wink/frontend/src/components/Nav/nav.jsx';
 import AnimalsList from './components/Animals/AnimalsList';
 import Homepage from './pages/Homepage/homepage.jsx'
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Animal from './components/Animals/Animal.jsx'
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Link to="/" element={<Homepage />} >
+          <Header />
+          </Link>
       <Routes>
-        <Route path="/animals" element={<Homepage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/animals/:id" element={<Animal />} />
       </Routes>
     </div>
