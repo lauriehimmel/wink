@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createAnimal } from "../../utilities/animal-service";
+import { useNavigate } from "react-router";
 
 export default function NewAnimalForm() {
 
@@ -9,6 +10,7 @@ export default function NewAnimalForm() {
   };
 
   const [newForm, setNewForm] = useState(initState);
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const formData = {
@@ -22,6 +24,7 @@ export default function NewAnimalForm() {
     e.preventDefault();
     await createAnimal(newForm);
     setNewForm(initState);
+    navigate('/animals')
   }
 
   return (
@@ -42,7 +45,7 @@ export default function NewAnimalForm() {
         <label htmlFor="type">
           <div className="labeltext">What kind of animal are you adopting?</div>
           <select name="type" value={newForm.type} onChange={handleChange}>
-            <option selected value="Dog">Dog</option>
+            <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Frog">Frog</option>
           </select>

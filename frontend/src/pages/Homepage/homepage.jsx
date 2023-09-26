@@ -12,22 +12,22 @@ export default function Home() {
   return (
     <>
       <div className="homepage">
-        <div>
+        <div className="homeheaders" onClick={() => navigate('/animals')}>
           <h1>Visit the Pets</h1>
         <div className="home-animallist">
           <AnimalsList />
         </div>
         </div>
-        <div>
+        <div onClick={() => navigate('/adopt')} className="homeheaders">
           <h1>Pet of the Day</h1>
         <div className="home-animalofday">
           <AnimalOfTheDay />
         </div>
         </div>
-        <div>
+        <div onClick={() => navigate('/adopt')} className="homeheaders">
           <h1>Adopt a Pet</h1>
-        <div onClick={() => navigate('/adopt')} className="home-adopt">
-          <img src={dog} />
+        <div className="home-adopt">
+          <img className="homeheaders" src={dog} />
         </div>
         </div>
       </div>

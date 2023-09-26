@@ -1,24 +1,25 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-const animalSchema = new Schema({
-  name: String,
-  type: {
-    type: String,
-    enum: ["Dog", "Cat", "Frog"],
-    default: "Dog"
+const animalSchema = new Schema(
+  {
+    name: String,
+    type: {
+      type: String,
+      enum: ["Dog", "Cat", "Frog"],
+      default: "Dog",
+    },
+    foods: { type: [Schema.Types.ObjectId], ref: "Food" },
+  },
+  {
+    timestamps: true,
   }
-}, {
-  timestamps: true
-});
+);
 
-module.exports = mongoose.model('Animal', animalSchema);
-
+module.exports = mongoose.model("Animal", animalSchema);
 
 // images: {type:[Schema.Types.ObjectId], ref: "Image"},
 // activities: {type:[Schema.Types.ObjectId], ref: "Activity"},
-// foods: {type:[Schema.Types.ObjectId], ref: "Food"},
 
 //   health: Number,
-  // happiness: Number
+// happiness: Number
