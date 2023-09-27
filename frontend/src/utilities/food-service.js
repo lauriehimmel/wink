@@ -9,9 +9,9 @@ export async function foodIndex() {
   }
 }
 
-export async function createFood() {
+export async function createFood(foodData) {
   try {
-    const data = await foodAPI.createFood();
+    const data = await foodAPI.createFood(foodData);
     return data;
   } catch (err) {
     return new Error(err)

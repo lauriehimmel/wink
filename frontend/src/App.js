@@ -11,6 +11,7 @@ import UpdateAnimal from './components/Animals/UpdateAnimal.jsx';
 import FoodList from './components/Food/FoodList';
 import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
+import NewFoodForm from './components/Food/NewFoodForm';
 
 
 
@@ -24,6 +25,8 @@ function App() {
         <Route path="/animals/:id" element={<ShowAnimal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />
         <Route path="/adopt" element={<Adopt />} />
+        <Route path="/newfood" element={<NewFoodForm />} />
+        <Route path="/foodlist" element={<FoodList />} />
       </Routes>
     </div>
   );
