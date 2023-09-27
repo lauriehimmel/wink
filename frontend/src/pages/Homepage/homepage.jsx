@@ -16,7 +16,9 @@ export default function Home() {
             Visit the Pets
           </h1>
           <div className="home-animallist">
+            <div className="home-animal">
             <AnimalsList />
+            </div>
           </div>
         </div>
         <div>

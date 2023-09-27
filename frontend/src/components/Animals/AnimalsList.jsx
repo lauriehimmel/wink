@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAnimals } from "../../utilities/animal-service";
 import { Link, useNavigate } from "react-router-dom";
 import './animals.css'
+import dog from "../../assets/dog-02.png";
 
 export default function AnimalsList(props) {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,12 +35,12 @@ export default function AnimalsList(props) {
     <>
         {animals.map((animal) => (
           <div key={animal._id} className="animalslist">
-            <p>
+            <div onClick={() => navigate(`/animals/${animal._id}`)}>
+              <img src={dog}/>
+            </div>
+            <div onClick={() => navigate(`/animals/${animal._id}`)}>
               {animal.name} the {animal.type}
-            </p>
-            <button onClick={() => navigate(`/animals/${animal._id}`)}>
-              hi!
-            </button>
+            </div>
           </div>
         ))}
     </>
