@@ -40,18 +40,18 @@ export default function NewFoodForm({ foodForm, foodInitState }) {
         <div className="labeltext">What kind of food?</div>
         <select name="category" value={foodForm.category} onChange={handleChange}>
           {foods.map((food) => (
-            <option name="name" id="category" value={food.foodCategory} key={food._id}>
+            <option name="category" id="category" value={food.foodCategory} key={food._id}>
               {food.foodCategory}
             </option>
           ))}
         </select>
       </label>
-      <label htmlFor="name">
+      <label htmlFor="foodName">
         <div className="labeltext">Tell us more!</div>
         <input
           type="text"
-          name="name"
-          id="name"
+          name="foodName"
+          id="foodName"
           placeholder="Yum!"
           onChange={handleChange}
           required

@@ -8,11 +8,12 @@ import { createAnimal } from "../../utilities/animal-service";
 export default function Adopt() {
   let foodInitState = {
     name: "",
+    category: ""
   };
 
   let animalInitState = {
     name: "",
-    type: "Dog",
+    type: ""
   };
   const navigate = useNavigate();
   const [animalForm, setNewAnimalForm] = useState(animalInitState);
@@ -21,10 +22,14 @@ export default function Adopt() {
   async function handleSubmit(e) {
     e.preventDefault();
     e.currentTarget.disabled = true;
+    console.log('foodForm', foodForm)
     await createFood(foodForm);
+    console.log('animalForm', animalForm)
     await createAnimal(animalForm);
     setFoodForm(foodInitState);
+    console.log('foodForm', foodForm)
     setNewAnimalForm(animalInitState);
+    console.log('animalForm', animalForm)
     navigate("/animals");
   }
 
