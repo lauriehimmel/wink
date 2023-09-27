@@ -7,9 +7,11 @@ export default function Adopt() {
   const submitRef = useRef();
   return (
     <>
-    <NewAnimalForm submitRef={submitRef}/>
-    <NewFoodForm submitRef={submitRef}/>
-    <button onClick={() => submitRef.current.click()}>Adopt!</button>
+    <form>
+    <NewAnimalForm/>
+    <NewFoodForm/>
+    <button>Adopt!</button>
+    </form>
     </>
   )
 }
