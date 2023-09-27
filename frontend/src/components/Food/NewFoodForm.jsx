@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function NewFoodForm({foodForm, foodInitState}) {
-
+export default function NewFoodForm({ foodForm, foodInitState }) {
   // let initState = {
   //   name: ""
   // };
@@ -12,13 +11,13 @@ export default function NewFoodForm({foodForm, foodInitState}) {
 
   const foods = [
     // {foodName: "-"},
-    {foodName: "Pizza"},
-    {foodName: "Burger"},
-    {foodName: "Fries"},
-    {foodName: "Salad"},
-    {foodName: "Fruit"},
-    {foodName: "Vegetables"}
-  ]
+    { foodCategory: "Pizza" },
+    { foodCategory: "Burger" },
+    { foodCategory: "Fries" },
+    { foodCategory: "Salad" },
+    { foodCategory: "Fruit" },
+    { foodCategory: "Vegetables" },
+  ];
 
   function handleChange(e) {
     const formData = {
@@ -36,22 +35,28 @@ export default function NewFoodForm({foodForm, foodInitState}) {
   // }
 
   return (
-
-        <label htmlFor="name">
-          <div className="labeltext">Yummy!</div>
-          <select name="name" value={foodForm.name} onChange={handleChange}>
+    <>
+      <label htmlFor="category">
+        <div className="labeltext">What kind of food?</div>
+        <select name="category" value={foodForm.category} onChange={handleChange}>
           {foods.map((food) => (
-              <option
-                name="name"
-                id="name"
-                value={food.foodName}
-                key={food._id}
-              >
-                {food.foodName}
-              </option>
-            ))}
-          </select>
-        </label>
-
+            <option name="name" id="category" value={food.foodCategory} key={food._id}>
+              {food.foodCategory}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label htmlFor="name">
+        <div className="labeltext">Tell us more!</div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Yum!"
+          onChange={handleChange}
+          required
+        />
+      </label>
+    </>
   );
 }

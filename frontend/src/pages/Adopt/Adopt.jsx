@@ -28,12 +28,13 @@ export default function Adopt() {
     navigate("/animals");
   }
 
+
   return (
     <>
-      <form>
+      <form  onSubmit={handleSubmit}>
         <NewAnimalForm animalForm={animalForm} />
         <NewFoodForm foodForm={foodForm} />
-        <button>Adopt!</button>
+        <input type="submit" value="Adopt!" />
       </form>
     </>
   );

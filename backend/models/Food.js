@@ -5,8 +5,12 @@ const foodSchema = new Schema(
   {
     name: {
       type: String,
-      default: "Pizza",
+      default: "Pepperoni",
     },
+    category: {
+      type: String,
+      default: "Pizza",
+    }
   },
   {
     timestamps: true,
