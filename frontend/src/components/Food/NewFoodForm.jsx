@@ -1,14 +1,13 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import { createFood } from "../../utilities/food-service";
 
-export default function NewFoodForm({submitRef}) {
+export default function NewFoodForm({foodForm, foodInitState}) {
 
-  let initState = {
-    name: ""
-  };
+  // let initState = {
+  //   name: ""
+  // };
 
-  const [foodForm, setFoodForm] = useState(initState);
+  const [newFoodForm, setNewFoodForm] = useState(foodForm);
   const navigate = useNavigate();
 
   const foods = [
@@ -26,19 +25,18 @@ export default function NewFoodForm({submitRef}) {
       ...foodForm,
       [e.target.name]: e.target.value,
     };
-    setFoodForm(formData);
+    setNewFoodForm(formData);
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    e.currentTarget.disabled = true;
-    await createFood(foodForm);
-    setFoodForm(initState);
-  }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   e.currentTarget.disabled = true;
+  //   await createFood(foodForm);
+  //   setFoodForm(initState);
+  // }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+
         <label htmlFor="name">
           <div className="labeltext">Yummy!</div>
           <select name="name" value={foodForm.name} onChange={handleChange}>
@@ -54,8 +52,6 @@ export default function NewFoodForm({submitRef}) {
             ))}
           </select>
         </label>
-        <button ref={submitRef} type="submit" value="Add to pantry!" style={{ display: 'none' }}/>
-      </form>
-    </div>
+
   );
 }
