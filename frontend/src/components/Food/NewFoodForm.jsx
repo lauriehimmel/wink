@@ -2,11 +2,11 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { createFood } from "../../utilities/food-service";
 
-export default function NewFoodForm({}) {
+export default function NewFoodForm({animal}) {
 
   let initState = {
     name: "",
-    category: ""
+    meal: ""
   };
 
   const [foodForm, setFoodForm] = useState(initState);
@@ -14,12 +14,9 @@ export default function NewFoodForm({}) {
 
   const foods = [
     // {foodName: "-"},
-    {foodName: "Pizza"},
-    {foodName: "Burger"},
-    {foodName: "Fries"},
-    {foodName: "Salad"},
-    {foodName: "Fruit"},
-    {foodName: "Vegetables"}
+    {meal: "Breakfast"},
+    {meal: "Lunch"},
+    {meal: "Dinner"}
   ]
 
   function handleChange(e) {
@@ -31,38 +28,36 @@ export default function NewFoodForm({}) {
     setFoodForm(formData);
     console.log('foodForm', foodForm)
   }
-  
+  async function addFood(e) {
+    let animalFoods = animal
+  }
   async function handleSubmit(e) {
     e.preventDefault();
-    e.currentTarget.disabled = true;
-    console.log('foodForm', foodForm)
     await createFood(foodForm);
-    console.log('foodForm', foodForm)
     setFoodForm(initState);
     navigate('/foodlist')
-
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="category">
-          <div className="labeltext">Yummy!</div>
-          <select name="category" value={foodForm.category} onChange={handleChange}>
+        <label htmlFor="meal">
+          <div className="labeltext">Select a meal</div>
+          <select name="meal" value={foodForm.meal} onChange={handleChange}>
           {foods.map((food) => (
               <option
-                name="category"
-                id="category"
-                value={food.category}
+                name="meal"
+                id="meal"
+                value={food.meal}
                 key={food._id}
               >
-                {food.foodName}
+                {food.meal}
               </option>
             ))}
           </select>
         </label>
         <label htmlFor="name">
-          <div className="labeltext">Flavor</div>
+          <div className="labeltext">What is {animal.name} eating?</div>
           <input
             type="text"
             name="name"
