@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal } from "../../utilities/animal-service";
+import NewFoodForm from "../Food/NewFoodForm";
+
 
 export default function OneAnimal() {
   const {id} = useParams();
@@ -31,6 +33,9 @@ export default function OneAnimal() {
         <button onClick={() => navigate(`/animals/${animal._id}/update`)}>
               Edit
             </button>
+            <div>
+              <NewFoodForm animal={animal}/>
+            </div>
       </div>
     </>
   );

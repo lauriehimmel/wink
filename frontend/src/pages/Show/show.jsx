@@ -6,7 +6,7 @@ export default function ShowAnimal() {
   return (
     <>
     <Animal />
-    <FoodList />
+    {/* <FoodList /> */}
     </>
   )
 }

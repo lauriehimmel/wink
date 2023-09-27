@@ -7,11 +7,8 @@ export default function Adopt() {
   const submitRef = useRef();
   return (
     <>
-    <form>
     <NewAnimalForm/>
-    <NewFoodForm/>
-    <button>Adopt!</button>
-    </form>
+    {/* <NewFoodForm/> */}
     </>
   )
 }

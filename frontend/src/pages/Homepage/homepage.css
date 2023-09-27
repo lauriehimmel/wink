@@ -11,11 +11,24 @@
 
 .home-animallist {
   display: flex;
-  /* flex-direction: row; */
   flex-wrap: wrap;
   width: 33vw;
   align-items: center;
   justify-content: space-around;
+}
+
+.home-animal {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  width: 100%;
+  align-items: center;
+}
+.home-animal div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 .homepage h1 {
@@ -28,3 +41,8 @@
 .home-adopt img{
   width: 33vw
 }
+
+.home-animallist img {
+  width: 6rem;
+}
+

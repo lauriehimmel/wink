@@ -2,10 +2,11 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import { createFood } from "../../utilities/food-service";
 
-export default function NewFoodForm({submitRef}) {
+export default function NewFoodForm({animal}) {
 
   let initState = {
-    name: ""
+    name: "",
+    meal: ""
   };
 
   const [foodForm, setFoodForm] = useState(initState);
@@ -13,12 +14,9 @@ export default function NewFoodForm({submitRef}) {
 
   const foods = [
     // {foodName: "-"},
-    {foodName: "Pizza"},
-    {foodName: "Burger"},
-    {foodName: "Fries"},
-    {foodName: "Salad"},
-    {foodName: "Fruit"},
-    {foodName: "Vegetables"}
+    {meal: "Breakfast"},
+    {meal: "Lunch"},
+    {meal: "Dinner"}
   ]
 
   function handleChange(e) {
@@ -26,35 +24,51 @@ export default function NewFoodForm({submitRef}) {
       ...foodForm,
       [e.target.name]: e.target.value,
     };
+    console.log('formData', formData)
     setFoodForm(formData);
+    console.log('foodForm', foodForm)
   }
-
+  async function addFood(e) {
+    let animalFoods = animal
+  }
   async function handleSubmit(e) {
     e.preventDefault();
-    e.currentTarget.disabled = true;
     await createFood(foodForm);
     setFoodForm(initState);
+    navigate('/foodlist')
   }
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          <div className="labeltext">Yummy!</div>
-          <select name="name" value={foodForm.name} onChange={handleChange}>
+        <label htmlFor="meal">
+          <div className="labeltext">Select a meal</div>
+          <select name="meal" value={foodForm.meal} onChange={handleChange}>
           {foods.map((food) => (
               <option
-                name="name"
-                id="name"
-                value={food.foodName}
+                name="meal"
+                id="meal"
+                value={food.meal}
                 key={food._id}
               >
-                {food.foodName}
+                {food.meal}
               </option>
             ))}
           </select>
         </label>
-        <button ref={submitRef} type="submit" value="Add to pantry!" style={{ display: 'none' }}/>
+        <label htmlFor="name">
+          <div className="labeltext">What is {animal.name} eating?</div>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="yummy!"
+            value={foodForm.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <input type="submit" value="Add to pantry!"/>
       </form>
     </div>
   );

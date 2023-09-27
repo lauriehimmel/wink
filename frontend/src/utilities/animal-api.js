@@ -18,6 +18,7 @@ export async function create(data) {
     body: JSON.stringify(data),
   });
   if (res.ok) {
+    console.log(res)
     return res.json();
   } else {
     throw new Error("Invalid Request");

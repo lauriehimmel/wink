@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createAnimal } from "../../utilities/animal-service";
+import { createAnimal, showAnimal } from "../../utilities/animal-service";
 import { useNavigate } from "react-router";
 
 export default function NewAnimalForm() {
@@ -17,6 +17,7 @@ export default function NewAnimalForm() {
       ...newForm,
       [e.target.name]: e.target.value,
     };
+    console.log('formData', formData)
     setNewForm(formData);
   }
 
