@@ -17,7 +17,7 @@ export default function Home() {
           </h1>
           <div className="home-animallist">
             <div className="home-animal">
-            <AnimalsList />
+            <AnimalsList location={'homepage'}/>
             </div>
           </div>
         </div>

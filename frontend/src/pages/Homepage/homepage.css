@@ -28,6 +28,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
 }
 
 .homepage h1 {
@@ -44,3 +45,4 @@
 .home-animallist img {
   width: 6rem;
 }
+

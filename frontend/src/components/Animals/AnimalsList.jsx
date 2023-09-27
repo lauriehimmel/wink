@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './animals.css'
 import dog from "../../assets/dog-02.png";
 
-export default function AnimalsList(props) {
+export default function AnimalsList({location}) {
   const [isLoading, setIsLoading] = useState(true);
   const [animals, setAnimals] = useState(null);
   const navigate = useNavigate();
@@ -16,6 +16,11 @@ export default function AnimalsList(props) {
       setIsLoading(false);
     }
   }
+
+const firstAnimals = [];
+for (let i=0; i<4; i++) {
+  firstAnimals.push(animals[i])
+}
 
   useEffect(() => {
     handleRequest();
@@ -33,6 +38,8 @@ export default function AnimalsList(props) {
     </>
   ) : (
     <>
+    {location !== "homepage" ? (
+      <>
         {animals.map((animal) => (
           <div key={animal._id} className="animalslist">
             <div onClick={() => navigate(`/animals/${animal._id}`)}>
@@ -43,6 +50,22 @@ export default function AnimalsList(props) {
             </div>
           </div>
         ))}
+        </>
+    ) : (
+      <>
+        {firstAnimals.map((animal) => (
+          <div key={animal._id} className="animalslist">
+            <div onClick={() => navigate(`/animals/${animal._id}`)}>
+              <img src={dog}/>
+            </div>
+            <div onClick={() => navigate(`/animals/${animal._id}`)}>
+              {animal.name} the {animal.type}
+            </div>
+          </div>
+        ))}
+        </>
+    )
+  } 
     </>
   );
 }
