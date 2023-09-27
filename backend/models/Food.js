@@ -5,11 +5,11 @@ const foodSchema = new Schema(
   {
     name: {
       type: String,
-      default: "Pepperoni",
+      default: "Scrambled Eggs",
     },
-    category: {
+    meal: {
       type: String,
-      default: "Pizza",
+      default: "Breakfast",
     },
   },
   {
