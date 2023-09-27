@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAnimals } from "../../utilities/animal-service";
 import { Link, useNavigate } from "react-router-dom";
-import './animals.css'
+import "./animals.css";
 import dog from "../../assets/dog-02.png";
 
-export default function AnimalsList({location}) {
+export default function AnimalsList({ location }) {
   const [isLoading, setIsLoading] = useState(true);
   const [animals, setAnimals] = useState(null);
+  const [firstFourAnimals, setFirstFourAnimals] = useState(null);
   const navigate = useNavigate();
 
   async function handleRequest() {
@@ -17,11 +18,6 @@ export default function AnimalsList({location}) {
     }
   }
 
-const firstAnimals = [];
-for (let i=0; i<4; i++) {
-  firstAnimals.push(animals[i])
-}
-
   useEffect(() => {
     handleRequest();
   }, []);
@@ -29,6 +25,13 @@ for (let i=0; i<4; i++) {
   useEffect(() => {
     if (animals) {
       setIsLoading(false);
+
+      const firstAnimals = [];
+      console.log("firstAnimals", firstAnimals);
+      for (let i = 0; i < 4; i++) {
+        firstAnimals.push(animals[i]);
+      }
+      setFirstFourAnimals(firstAnimals);
     }
   }, [animals]);
 
@@ -38,34 +41,33 @@ for (let i=0; i<4; i++) {
     </>
   ) : (
     <>
-    {location !== "homepage" ? (
-      <>
-        {animals.map((animal) => (
-          <div key={animal._id} className="animalslist">
-            <div onClick={() => navigate(`/animals/${animal._id}`)}>
-              <img src={dog}/>
+      {location !== "homepage" ? (
+        <>
+          {animals.map((animal) => (
+            <div key={animal._id} className="animalslist">
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                <img src={dog} />
+              </div>
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                {animal.name} the {animal.type}
+              </div>
             </div>
-            <div onClick={() => navigate(`/animals/${animal._id}`)}>
-              {animal.name} the {animal.type}
-            </div>
-          </div>
-        ))}
+          ))}
         </>
-    ) : (
-      <>
-        {firstAnimals.map((animal) => (
-          <div key={animal._id} className="animalslist">
-            <div onClick={() => navigate(`/animals/${animal._id}`)}>
-              <img src={dog}/>
+      ) : (
+        <>
+          {firstFourAnimals?.map((animal) => (
+            <div key={animal._id} className="animalslist">
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                <img src={dog} />
+              </div>
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                {animal.name} the {animal.type}
+              </div>
             </div>
-            <div onClick={() => navigate(`/animals/${animal._id}`)}>
-              {animal.name} the {animal.type}
-            </div>
-          </div>
-        ))}
+          ))}
         </>
-    )
-  } 
+      )}
     </>
   );
 }
