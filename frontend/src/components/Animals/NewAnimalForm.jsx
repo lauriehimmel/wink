@@ -17,7 +17,6 @@ export default function NewAnimalForm() {
       ...newForm,
       [e.target.name]: e.target.value,
     };
-    console.log('formData', formData)
     setNewForm(formData);
   }
 

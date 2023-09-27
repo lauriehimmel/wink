@@ -10,6 +10,7 @@ import FoodList from './components/Food/FoodList';
 import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
 import NewFoodForm from './components/Food/NewFoodForm';
+import AnimalsIndex from './pages/AnimalsIndex';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />}/>
-        <Route path="/animals" element={<AnimalsList />} />
+        <Route path="/animals" element={<AnimalsIndex />} />
         <Route path="/animals/:id" element={<ShowAnimal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />
         <Route path="/adopt" element={<Adopt />} />

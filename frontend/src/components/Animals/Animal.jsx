@@ -33,9 +33,6 @@ export default function OneAnimal() {
         <button onClick={() => navigate(`/animals/${animal._id}/update`)}>
               Edit
             </button>
-            <div>
-              <NewFoodForm animal={animal}/>
-            </div>
       </div>
     </>
   );

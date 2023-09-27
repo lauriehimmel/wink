@@ -41,6 +41,7 @@ export async function updateAnimal(id, data) {
     const animal = await animalAPI.update(id, data);
     return animal;
   } catch (err) {
+    console.log('err', err)
     throw err;
   }
 }

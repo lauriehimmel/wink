@@ -1,41 +1,61 @@
-import { useRef, useState } from "react";
-import { useNavigate } from "react-router";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import { createFood } from "../../utilities/food-service";
+import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
-export default function NewFoodForm({animal}) {
 
+export default function NewFoodForm({}) {
   let initState = {
     name: "",
-    meal: ""
+    meal: "",
   };
 
+  const { id } = useParams();
   const [foodForm, setFoodForm] = useState(initState);
+  const [animal, setAnimal] = useState();
+  const [value, setValue] = useState();
   const navigate = useNavigate();
 
   const foods = [
     // {foodName: "-"},
-    {meal: "Breakfast"},
-    {meal: "Lunch"},
-    {meal: "Dinner"}
-  ]
+    { meal: "Breakfast" },
+    { meal: "Lunch" },
+    { meal: "Dinner" },
+  ];
 
+  useEffect(() => {
+    async function selectAnimal() {
+      const animal = await showAnimal(id);
+      setAnimal(animal);
+    }
+    selectAnimal();
+  }, []);
+  
   function handleChange(e) {
     const formData = {
       ...foodForm,
       [e.target.name]: e.target.value,
     };
-    console.log('formData', formData)
     setFoodForm(formData);
-    console.log('foodForm', foodForm)
+    setValue(e.target.value)
   }
-  async function addFood(e) {
-    let animalFoods = animal
+  async function addFood(id) {
+    let animalFoods = animal.foods;
+    animalFoods.push(id);
+    console.log('animalFoods', animalFoods)
+    const updatedAnimal = {
+      ...animal,
+      foods: animalFoods,
+    };
+    updateAnimal(id, updatedAnimal)
   }
+  
   async function handleSubmit(e) {
     e.preventDefault();
-    await createFood(foodForm);
+    const newFood = await createFood(foodForm);
+    addFood(newFood._id);
     setFoodForm(initState);
-    navigate('/foodlist')
+    navigate("/animals");
   }
 
   return (
@@ -44,20 +64,15 @@ export default function NewFoodForm({animal}) {
         <label htmlFor="meal">
           <div className="labeltext">Select a meal</div>
           <select name="meal" value={foodForm.meal} onChange={handleChange}>
-          {foods.map((food) => (
-              <option
-                name="meal"
-                id="meal"
-                value={food.meal}
-                key={food._id}
-              >
+            {foods.map((food) => (
+              <option name="meal" id="meal" value={food.meal} key={food._id}>
                 {food.meal}
               </option>
             ))}
           </select>
         </label>
         <label htmlFor="name">
-          <div className="labeltext">What is {animal.name} eating?</div>
+          <div className="labeltext">What are you eating?</div>
           <input
             type="text"
             name="name"
@@ -68,7 +83,7 @@ export default function NewFoodForm({animal}) {
             required
           />
         </label>
-        <input type="submit" value="Add to pantry!"/>
+        <input type="submit" value="Add to pantry!" />
       </form>
     </div>
   );

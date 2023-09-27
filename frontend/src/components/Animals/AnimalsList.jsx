@@ -27,7 +27,6 @@ export default function AnimalsList({ location }) {
       setIsLoading(false);
 
       const firstAnimals = [];
-      console.log("firstAnimals", firstAnimals);
       for (let i = 0; i < 4; i++) {
         firstAnimals.push(animals[i]);
       }

@@ -30,11 +30,10 @@ export default function NewAnimalForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // console.log(editForm);
     navigate(`/animals/${id}`);
     e.preventDefault();
     try {
-      const updateResponse = await updateAnimal(id, editForm);
+      await updateAnimal(id, editForm);
     } catch (err) {
       console.log(err);
       navigate(`/animals/update/${id}`)
@@ -53,7 +52,7 @@ export default function NewAnimalForm() {
             name="name"
             id="name"
             placeholder="name"
-            value={animal.name}
+            defaultValue={animal.name}
             onChange={handleChange}
             required
           />
@@ -70,7 +69,7 @@ export default function NewAnimalForm() {
             <option value="Frog">Frog</option>
           </select>
         </label>
-        <input type="submit" value="Adopt!" />
+        <input type="submit" value="Update!" />
       </form>
   </div>
     )
