@@ -16,29 +16,28 @@ export default function OneAnimal() {
   const [display, setDisplay] = useState(false);
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
-  const [date, setDate] = useState();
-  const dateClicked = new Date()
+  const [date, setDate] = useState(new Date());
+  const [food, setFood] = useState();
+  const [addFood, setAddFood] = useState(false)
+  const dateClicked = new Date();
 
-  function feedDate() {
-    setDate(dateClicked)
+  async function lastFed(e) {
+    const clickedFood = await showFood(e.target.id);
   }
 
-  function incrementItem () {
-    const newClicks = clickAmount+1
-    setClickAmount(newClicks)
-  };
+  function incrementItem() {
+    const newClicks = clickAmount + 1;
+    setClickAmount(newClicks);
+    const hungerClicks = {
+      ...animal,
+      hunger: clickAmount+1,
+    };
+    updateAnimal(animal._id, hungerClicks);
+  }
 
   function feedAnimal(e) {
     incrementItem();
-    feedDate()
-    const feedingDate = {
-      date: date
-    }
-    console.log('feedingDate', feedingDate)
-    console.log('e.target.id', e.target.id)
-    const food = showFood(e.target.id)
-    console.log('food', food)
-    updateFood(food._id, feedingDate)
+    lastFed(e);
   }
 
   useEffect(() => {
@@ -47,10 +46,10 @@ export default function OneAnimal() {
       setAnimal(animal);
     }
     getAnimal();
-  }, []);
+  }, [addFood]);
 
   useEffect(() => {
-    setClickAmount(animal?.hunger)
+    setClickAmount(animal?.hunger);
     setIsLoading(false);
   }, [animal]);
 
@@ -62,8 +61,12 @@ export default function OneAnimal() {
     <>
       <div className="animal-header">
         <div className="animal-name">
-          {animal?.name} the {animal?.type}
-          {clickAmount}
+          <p>
+            {animal?.name} the {animal?.type}
+          </p>
+          <p>
+            {animal?.name}'s hunger level: {clickAmount}
+          </p>
         </div>
         <div>
           <button
@@ -77,10 +80,10 @@ export default function OneAnimal() {
       <div className="animal-body">
         <div>
           <div className="foodbackground">
+            <div className="foodgrid">
             {animal?.foods.map((food) => (
               <div key={food._id}>
                 {food.name}
-                {food.date}
                 <div>
                   {(() => {
                     if (food?.meal === "Lunch") {
@@ -93,9 +96,21 @@ export default function OneAnimal() {
                         />
                       );
                     } else if (food.meal === "Breakfast") {
-                      return <img className="food-img" src={pancakes} />;
+                      return (
+                        <img
+                          onClick={feedAnimal}
+                          className="food-img"
+                          src={pancakes}
+                        />
+                      );
                     } else if (food.meal === "Dinner") {
-                      return <img className="food-img" src={pasta} />;
+                      return (
+                        <img
+                          onClick={feedAnimal}
+                          className="food-img"
+                          src={pasta}
+                        />
+                      );
                     } else {
                       return <div>catch all</div>;
                     }
@@ -104,7 +119,8 @@ export default function OneAnimal() {
               </div>
             ))}
           </div>
-          <NewFoodForm />
+          </div>
+          <NewFoodForm setAddFood={setAddFood}/>
         </div>
         <div>
           {(() => {

@@ -19,7 +19,6 @@ export async function createFood(foodData) {
 }
 
 export async function showFood(id) {
-  console.log('showid', id)
   try {
     const food = await foodAPI.showFood(id);
     return food;
@@ -29,11 +28,8 @@ export async function showFood(id) {
 }
 
 export async function updateFood(id, data) {
-  console.log('updateid', id)
-  console.log('updatedata', data)
   try {
     const food = await foodAPI.updateFood(id, data);
-    console.log('updatefood', food)
     return food;
   } catch (err) {
     throw err;

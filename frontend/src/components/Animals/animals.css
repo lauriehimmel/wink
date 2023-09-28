@@ -52,7 +52,7 @@
 }
 
 .food-img {
-  width: 2rem;
+  width: 5rem;
 }
 
 .animal-image-main {
@@ -138,4 +138,11 @@
 .dropdown {
   font-size: 1rem;
   padding: .2rem;
+}
+
+.foodgrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
 }

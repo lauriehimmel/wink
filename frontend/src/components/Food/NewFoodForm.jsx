@@ -4,7 +4,7 @@ import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
-export default function NewFoodForm({}) {
+export default function NewFoodForm({setAddFood}) {
   const foods = [
     // {foodName: "-"},
     { meal: "Breakfast" },
@@ -54,7 +54,7 @@ export default function NewFoodForm({}) {
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
     addFood(newFood._id);
     setFoodForm(initState);
-    navigate(`/animals/${animal._id}`);
+    setAddFood(prevState => !prevState)
   }
 
   return (
