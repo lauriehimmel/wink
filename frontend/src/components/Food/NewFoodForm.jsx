@@ -1,27 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { createFood } from "../../utilities/food-service";
+import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
 export default function NewFoodForm({}) {
-  let initState = {
-    name: "",
-    meal: "Breakfast",
-  };
-
-  const { id } = useParams();
-  const [foodForm, setFoodForm] = useState(initState);
-  const [animal, setAnimal] = useState();
-  const [formvalue, setFormValue] = useState();
-  const navigate = useNavigate();
-
   const foods = [
     // {foodName: "-"},
     { meal: "Breakfast" },
     { meal: "Lunch" },
     { meal: "Dinner" },
   ];
+
+  let initState = {
+    name: "",
+    meal: ""
+  };  
+
+  const { id } = useParams();
+  const [foodForm, setFoodForm] = useState(initState);
+  const [animal, setAnimal] = useState();
+  const [formvalue, setFormValue] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function selectAnimal() {
@@ -41,20 +41,19 @@ export default function NewFoodForm({}) {
   }
   async function addFood(id) {
     let animalFoods = animal.foods;
-    console.log('animalFoods', animalFoods)
-    animalFoods.push(id);
-    console.log('animalFoods', animalFoods)
+    await animalFoods.push(id);
     const updatedAnimal = {
       // ...animal,
       foods: animalFoods,
     };
     updateAnimal(animal._id, updatedAnimal)
   }
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
+    // const newIcon = generateIcon(e.target.name);
     const newFood = await createFood(foodForm);
-    console.log('newFood', newFood)
+    // newFood.icons.push(newIcon);
     addFood(newFood._id);
     setFoodForm(initState);
     navigate("/animals");
@@ -62,7 +61,7 @@ export default function NewFoodForm({}) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="newfoodform" onSubmit={handleSubmit}>
         <label htmlFor="meal">
           <div className="labeltext">Select a meal</div>
           <select name="meal" value={foodForm.meal} onChange={handleChange}>
@@ -73,6 +72,7 @@ export default function NewFoodForm({}) {
             ))}
           </select>
         </label>
+        <section className="foodname">
         <label htmlFor="name">
           <div className="labeltext">What are you eating?</div>
           <input
@@ -85,7 +85,8 @@ export default function NewFoodForm({}) {
             required
           />
         </label>
-        <input type="submit" value="Add to pantry!" />
+        <input className="purplebutton addtopantry" type="submit" value="Add to pantry!" />
+        </section>
       </form>
     </div>
   );
