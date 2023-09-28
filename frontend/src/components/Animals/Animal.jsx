@@ -19,26 +19,33 @@ export default function OneAnimal() {
   const [date, setDate] = useState();
   const dateClicked = new Date()
 
-  function feedDate() {
-    setDate(dateClicked)
-  }
+  // function feedDate() {
+  //   setDate(dateClicked)
+  // }
 
   function incrementItem () {
-    const newClicks = clickAmount+1
-    setClickAmount(newClicks)
+    const newClicks = clickAmount+1;
+    setClickAmount(newClicks);
+    console.log(clickAmount)
+    const hungerClicks = {
+      ...animal,
+      hunger: clickAmount
+    }
+    console.log(hungerClicks)
+    updateAnimal(animal._id, hungerClicks)
   };
 
   function feedAnimal(e) {
     incrementItem();
-    feedDate()
-    const feedingDate = {
-      date: date
-    }
-    console.log('feedingDate', feedingDate)
-    console.log('e.target.id', e.target.id)
-    const food = showFood(e.target.id)
-    console.log('food', food)
-    updateFood(food._id, feedingDate)
+    // feedDate()
+    // const feedingDate = {
+    //   date: date
+    // }
+    // console.log('feedingDate', feedingDate)
+    // console.log('e.target.id', e.target.id)
+    // const food = showFood(e.target.id)
+    // console.log('food', food)
+    // updateFood(food._id, feedingDate)
   }
 
   useEffect(() => {
@@ -62,8 +69,8 @@ export default function OneAnimal() {
     <>
       <div className="animal-header">
         <div className="animal-name">
-          {animal?.name} the {animal?.type}
-          {clickAmount}
+          <p>{animal?.name} the {animal?.type}</p>
+          <p>{animal?.name}'s hunger level: {clickAmount}</p>
         </div>
         <div>
           <button
@@ -93,9 +100,9 @@ export default function OneAnimal() {
                         />
                       );
                     } else if (food.meal === "Breakfast") {
-                      return <img className="food-img" src={pancakes} />;
+                      return <img onClick={feedAnimal} className="food-img" src={pancakes} />;
                     } else if (food.meal === "Dinner") {
-                      return <img className="food-img" src={pasta} />;
+                      return <img onClick={feedAnimal} className="food-img" src={pasta} />;
                     } else {
                       return <div>catch all</div>;
                     }
