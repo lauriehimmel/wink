@@ -54,7 +54,7 @@ export default function NewFoodForm({}) {
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
     addFood(newFood._id);
     setFoodForm(initState);
-    navigate("/animals");
+    navigate(`/animals/${animal._id}`);
   }
 
   return (
