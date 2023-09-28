@@ -11,7 +11,6 @@ export async function foodIndex() {
 }
 
 export async function createFood(data) {
-  console.log('data', data)
   const res = await fetch(`${BASE_URL}/food`, {
     method: "POST",
     headers: {
@@ -20,10 +19,34 @@ export async function createFood(data) {
     body: JSON.stringify(data),
   });
   if (res.ok) {
-    console.log(res);
     return res.json();
   } else {
     throw new Error("Invalid Request");
   }
 }
 
+export async function showFood(id) {
+  const res = await fetch(`${BASE_URL}/food/${id}`, {method: "GET"});
+  console.log('res', res)
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}
+
+export async function updateFood(id, formData) {
+  const res = await fetch(`${BASE_URL}/food/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+  console.log(res);
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}

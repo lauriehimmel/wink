@@ -7,6 +7,7 @@ import pup from "../../assets/pup.svg";
 import pancakes from "../../assets/pancakes.svg";
 import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
+import { showFood, updateFood } from "../../utilities/food-service";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -30,7 +31,14 @@ export default function OneAnimal() {
   function feedAnimal(e) {
     incrementItem();
     feedDate()
-    
+    const feedingDate = {
+      date: date
+    }
+    console.log('feedingDate', feedingDate)
+    console.log('e.target.id', e.target.id)
+    const food = showFood(e.target.id)
+    console.log('food', food)
+    updateFood(food._id, feedingDate)
   }
 
   useEffect(() => {
@@ -80,6 +88,7 @@ export default function OneAnimal() {
                         <img
                           onClick={feedAnimal}
                           className="food-img"
+                          id={food._id}
                           src={sandwich}
                         />
                       );
