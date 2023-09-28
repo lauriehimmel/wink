@@ -33,7 +33,7 @@ export default function NewFoodForm({}) {
   
   function handleChange(e) {
     const formData = {
-      ...foodForm,
+      // ...foodForm,
       [e.target.name]: e.target.value,
     };
     setFoodForm(formData);
@@ -45,10 +45,10 @@ export default function NewFoodForm({}) {
     animalFoods.push(id);
     console.log('animalFoods', animalFoods)
     const updatedAnimal = {
-      ...animal,
+      // ...animal,
       foods: animalFoods,
     };
-    updateAnimal(id, updatedAnimal)
+    updateAnimal(animal._id, updatedAnimal)
   }
 
   async function handleSubmit(e) {

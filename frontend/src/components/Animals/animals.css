@@ -32,3 +32,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.animal-body {
+  display: flex;
+}
+
+.animal-header {
+  margin: 2rem;
+}
