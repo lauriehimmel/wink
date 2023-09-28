@@ -6,7 +6,7 @@
   text-align: center;
   background-color: #f06592;
   height: 100%;
-  padding-bottom: 3rem;
+  /* padding-bottom: 3rem; */
 }
 
 button {
@@ -48,7 +48,7 @@ button {
   }
 }
 
-button, .purplebutton {
+button, .purplebutton, .form-submit, .dropdown {
   color: white;
   background-color: #65489d;
   text-decoration: underline;

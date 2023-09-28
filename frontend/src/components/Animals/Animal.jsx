@@ -35,7 +35,10 @@ export default function OneAnimal() {
           {animal?.name} the {animal?.type}
         </div>
         <div>
-          <button className="editbutton" onClick={() => navigate(`/animals/${animal._id}/update`)}>
+          <button
+            className="editbutton"
+            onClick={() => navigate(`/animals/${animal._id}/update`)}
+          >
             Edit
           </button>
         </div>
@@ -63,7 +66,15 @@ export default function OneAnimal() {
           <NewFoodForm />
         </div>
         <div>
-          <img className="animal-image-main" src={pup} />
+          {(() => {
+            if (animal?.type === "Dog") {
+              return <img className="animal-image-main" src={pup} />;
+            } else if (animal?.type === "Cat") {
+              return <img className="animal-image-main" src={dog} />;
+            } else {
+              return <div>catch all</div>;
+            }
+          })()}
         </div>
         <div className="foodbackground">placeholder</div>
       </div>

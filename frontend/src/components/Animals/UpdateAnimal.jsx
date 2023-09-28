@@ -30,55 +30,50 @@ export default function NewAnimalForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    navigate(`/animals/${id}`);
-    e.preventDefault();
     try {
       await updateAnimal(id, editForm);
+      navigate(`/animals/${id}`);
     } catch (err) {
       console.log(err);
-      navigate(`/animals/update/${id}`)
+      navigate(`/animals/${id}`);
     }
   }
 
   const loaded = () => {
     return (
-      <div className="person">
-      <h1>Edit</h1>
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          <div className="labeltext">Name</div>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="name"
-            defaultValue={animal.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label htmlFor="type">
-          <div className="labeltext">
-            What kind of animal are you adopting?
-          </div>
-          <select name="type" value={animal.type} onChange={handleChange}>
-            <option value="Dog">
-              Dog
-            </option>
-            <option value="Cat">Cat</option>
-            <option value="Frog">Frog</option>
-          </select>
-        </label>
-        <input type="submit" value="Update!" />
-      </form>
-  </div>
-    )
+      <div className="animal-form">
+        <h1>Update {animal?.name}'s details!</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">
+            <div className="labeltext">Name</div>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="name"
+              defaultValue={animal.name}
+              onChange={handleChange}
+              required
+            />
+          </label>
+          <label htmlFor="type">
+            <div className="labeltext">
+              What kind of animal are you adopting?
+            </div>
+            <select name="type" value={animal.type} onChange={handleChange}>
+              <option value="Dog">Dog</option>
+              <option value="Cat">Cat</option>
+              <option value="Frog">Frog</option>
+            </select>
+          </label>
+          <input className="form-submit" type="submit" value="Update!" />
+        </form>
+      </div>
+    );
   };
 
   const loading = () => {
-    return (
-      <h1>Loading.........</h1>
-    )
+    return <h1>Loading.........</h1>;
   };
 
   return animal ? loaded() : loading();

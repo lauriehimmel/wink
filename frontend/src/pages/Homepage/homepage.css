@@ -7,6 +7,8 @@
   font-style: italic;
   display: flex;
   justify-content: space-around;
+  background-color: #f06592;
+  height: 100vh;
 }
 
 .home-animallist {

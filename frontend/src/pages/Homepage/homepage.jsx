@@ -9,7 +9,6 @@ import "./homepage.css";
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <>
       <div className="homepage">
         <div>
           <h1 className="homeheaders" onClick={() => navigate("/animals")}>
@@ -36,6 +35,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
   );
 }
