@@ -16,36 +16,34 @@ export default function OneAnimal() {
   const [display, setDisplay] = useState(false);
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
-  const [date, setDate] = useState();
-  const dateClicked = new Date()
+  const [date, setDate] = useState(new Date());
+  const [food, setFood] = useState();
+  const dateClicked = new Date();
 
-  // function feedDate() {
-  //   setDate(dateClicked)
-  // }
-
+  function lastFed(e){
+    console.log('e.target.id', e.target.id)
+    const clickedFood = showFood(e.target.id)
+    console.log('clickedFood', clickedFood)
+    // setDate(dateClicked)
+    // console.log(e.target.id)
+    // await setFood(clickedFood)
+    // console.log('clickedfood', clickedFood)
+    // console.log('fooododod', food)
+    }
+  
   function incrementItem () {
     const newClicks = clickAmount+1;
     setClickAmount(newClicks);
-    console.log(clickAmount)
     const hungerClicks = {
       ...animal,
       hunger: clickAmount
     }
-    console.log(hungerClicks)
     updateAnimal(animal._id, hungerClicks)
   };
 
   function feedAnimal(e) {
     incrementItem();
-    // feedDate()
-    // const feedingDate = {
-    //   date: date
-    // }
-    // console.log('feedingDate', feedingDate)
-    // console.log('e.target.id', e.target.id)
-    // const food = showFood(e.target.id)
-    // console.log('food', food)
-    // updateFood(food._id, feedingDate)
+    lastFed(e)
   }
 
   useEffect(() => {
