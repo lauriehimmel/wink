@@ -17,6 +17,10 @@ export default function AnimalsList({ location }) {
       setIsLoading(false);
     }
   }
+// const r1 = Math.random()*animals.length-1
+// const r2 = Math.random()*animals.length-1
+// const r3 = Math.random()*animals.length-1
+// const r4 = Math.random()*animals.length-1
 
   useEffect(() => {
     handleRequest();
@@ -57,6 +61,14 @@ export default function AnimalsList({ location }) {
           </div>
       ) : (
         <>
+        {/* <div key={animals[{r1}]._id} className="animalslist">
+              <div onClick={() => navigate(`/animals/${animals[{r1}]._id}`)}>
+                <img src={dog} />
+              </div>
+              <div onClick={() => navigate(`/animals/${animals[{r1}]._id}`)}>
+                {animals[{r1}]?.name}
+              </div>
+            </div> */}
           {firstFourAnimals?.map((animal) => (
             <div key={animal._id} className="animalslist">
               <div onClick={() => navigate(`/animals/${animal._id}`)}>
