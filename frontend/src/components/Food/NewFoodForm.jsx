@@ -7,13 +7,13 @@ import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 export default function NewFoodForm({}) {
   let initState = {
     name: "",
-    meal: "",
+    meal: "Breakfast",
   };
 
   const { id } = useParams();
   const [foodForm, setFoodForm] = useState(initState);
   const [animal, setAnimal] = useState();
-  const [value, setValue] = useState();
+  const [formvalue, setFormValue] = useState();
   const navigate = useNavigate();
 
   const foods = [
@@ -37,10 +37,11 @@ export default function NewFoodForm({}) {
       [e.target.name]: e.target.value,
     };
     setFoodForm(formData);
-    setValue(e.target.value)
+    setFormValue(e.target.value)
   }
   async function addFood(id) {
     let animalFoods = animal.foods;
+    console.log('animalFoods', animalFoods)
     animalFoods.push(id);
     console.log('animalFoods', animalFoods)
     const updatedAnimal = {
@@ -49,10 +50,11 @@ export default function NewFoodForm({}) {
     };
     updateAnimal(id, updatedAnimal)
   }
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
     const newFood = await createFood(foodForm);
+    console.log('newFood', newFood)
     addFood(newFood._id);
     setFoodForm(initState);
     navigate("/animals");

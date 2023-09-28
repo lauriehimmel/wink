@@ -46,3 +46,11 @@ button {
     transform: rotate(360deg);
   }
 }
+
+button {
+  color: white;
+  background-color: #65489d;
+  border-width: 2px;
+  text-decoration: underline;
+  padding: .5rem .7rem;
+}
