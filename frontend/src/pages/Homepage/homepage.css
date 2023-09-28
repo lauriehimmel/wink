@@ -19,13 +19,34 @@
   justify-content: space-around;
 }
 
+@media (max-width: 1200px){
 .home-animal {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   width: 100%;
   align-items: center;
+  gap: 1rem;
 }
+}
+@media (min-width: 1200px){
+.home-animal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+}
+
+@media (max-width: 600px){
+.home-animal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+}
+
 .home-animal div {
   display: flex;
   align-items: center;
@@ -45,6 +66,7 @@
 }
 
 .home-animallist img {
-  width: 6rem;
+  width: 9rem;
+  /* padding: 1rem; */
 }
 

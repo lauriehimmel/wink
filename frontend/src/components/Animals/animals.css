@@ -64,6 +64,9 @@
   background-color: white;
   height: 20rem;
   width: 20rem;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .editbutton {

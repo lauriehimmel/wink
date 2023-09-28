@@ -5,6 +5,8 @@ import NewFoodForm from "../Food/NewFoodForm";
 import dog from "../../assets/dog-02.png";
 import pup from "../../assets/pup.svg";
 import pancakes from "../../assets/pancakes.svg";
+import sandwich from "../../assets/sandwich.svg";
+import pasta from "../../assets/pasta.svg";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -52,11 +54,11 @@ export default function OneAnimal() {
                 <div>
                   {(() => {
                     if (food.meal === "Lunch") {
-                      return <img className="food-img" src={pancakes} />;
+                      return <img className="food-img" src={sandwich} />;
                     } else if (food.meal === "Breakfast") {
-                      return <img className="food-img" src={dog} />;
+                      return <img className="food-img" src={pancakes} />;
                     } else if (food.meal === "Dinner") {
-                      return <img className="food-img" src={pup} />;
+                      return <img className="food-img" src={pasta} />;
                     } else {
                       return <div>catch all</div>;
                     }
