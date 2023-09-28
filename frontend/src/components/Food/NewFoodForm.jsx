@@ -51,9 +51,7 @@ export default function NewFoodForm({}) {
   
   async function handleSubmit(e) {
     e.preventDefault();
-    // const newIcon = generateIcon(e.target.name);
-    const newFood = await createFood(foodForm);
-    // newFood.icons.push(newIcon);
+    const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
     addFood(newFood._id);
     setFoodForm(initState);
     navigate("/animals");
@@ -64,7 +62,7 @@ export default function NewFoodForm({}) {
       <form className="newfoodform" onSubmit={handleSubmit}>
         <label htmlFor="meal">
           <div className="labeltext">Select a meal</div>
-          <select name="meal" value={foodForm.meal} onChange={handleChange}>
+          <select name="meal" onChange={handleChange}>
             {foods.map((food) => (
               <option name="meal" id="meal" value={food.meal} key={food._id}>
                 {food.meal}

@@ -4,7 +4,7 @@ import './index.css'
 export default function AnimalsIndex() {
   return (
     <div className="animalsIndex">
-      <AnimalsList />
+      {/* <AnimalsList /> */}
     </div>
   );
 }

@@ -55,6 +55,8 @@ export default function OneAnimal() {
                       return <img className="food-img" src={pancakes} />;
                     } else if (food.meal === "Breakfast") {
                       return <img className="food-img" src={dog} />;
+                    } else if (food.meal === "Dinner") {
+                      return <img className="food-img" src={pup} />;
                     } else {
                       return <div>catch all</div>;
                     }
@@ -72,7 +74,7 @@ export default function OneAnimal() {
             } else if (animal?.type === "Cat") {
               return <img className="animal-image-main" src={dog} />;
             } else {
-              return <div>catch all</div>;
+              return <img className="animal-image-main" src={pancakes} />;
             }
           })()}
         </div>

@@ -17,12 +17,19 @@
   color: white;
   font-family: 'Ranchers', cursive;
   font-size: 3rem;
+
 }
 
 .animalsIndex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+}
+
+.animalsbackground {
+  background-color: #f06592;
+  height: 100vh;
 }
 
 .indexAnimal {

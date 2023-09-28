@@ -9,7 +9,7 @@ const foodSchema = new Schema(
     },
     meal: {
       type: String,
-      // default: "Breakfast",
+      default: "Breakfast"
     },
     icons: []
   },

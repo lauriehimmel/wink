@@ -18,7 +18,7 @@ export async function create(data) {
     body: JSON.stringify(data),
   });
   if (res.ok) {
-    console.log(res)
+    console.log(res);
     return res.json();
   } else {
     throw new Error("Invalid Request");
@@ -53,12 +53,11 @@ export async function update(id, formData) {
     },
     body: JSON.stringify(formData),
   });
-  console.log(res)
+  console.log(res);
   if (res.ok) {
-    console.log(res)
+    console.log(res);
     return res.json();
   } else {
     throw new Error("Invalid Request");
   }
 }
-
