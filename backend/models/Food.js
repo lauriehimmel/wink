@@ -11,6 +11,7 @@ const foodSchema = new Schema(
       type: String,
       // default: "Breakfast",
     },
+    icons: []
   },
   {
     timestamps: true,

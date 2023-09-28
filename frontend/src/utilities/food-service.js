@@ -17,3 +17,12 @@ export async function createFood(foodData) {
     return new Error(err)
 ;  }
 }
+
+// export async function generateIcon(formData){
+//   try {
+//     const data = await foodAPI.generateIcon(formData)
+//     return data;
+//   } catch (err) {
+//     return err;
+//   }
+// }

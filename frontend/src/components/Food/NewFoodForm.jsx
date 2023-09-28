@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { createFood } from "../../utilities/food-service";
+import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
@@ -41,20 +41,19 @@ export default function NewFoodForm({}) {
   }
   async function addFood(id) {
     let animalFoods = animal.foods;
-    console.log('animalFoods', animalFoods)
-    animalFoods.push(id);
-    console.log('animalFoods', animalFoods)
+    await animalFoods.push(id);
     const updatedAnimal = {
       // ...animal,
       foods: animalFoods,
     };
     updateAnimal(animal._id, updatedAnimal)
   }
-
+  
   async function handleSubmit(e) {
     e.preventDefault();
+    // const newIcon = generateIcon(e.target.name);
     const newFood = await createFood(foodForm);
-    console.log('newFood', newFood)
+    // newFood.icons.push(newIcon);
     addFood(newFood._id);
     setFoodForm(initState);
     navigate("/animals");
