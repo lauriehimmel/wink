@@ -11,6 +11,7 @@ export async function foodIndex() {
 }
 
 export async function createFood(data) {
+  console.log('data', data)
   const res = await fetch(`${BASE_URL}/food`, {
     method: "POST",
     headers: {

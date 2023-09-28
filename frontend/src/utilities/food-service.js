@@ -11,6 +11,7 @@ export async function foodIndex() {
 
 export async function createFood(foodData) {
   try {
+    console.log('foodData', foodData)
     const data = await foodAPI.createFood(foodData);
     return data;
   } catch (err) {

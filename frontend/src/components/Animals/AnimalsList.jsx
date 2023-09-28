@@ -41,7 +41,7 @@ export default function AnimalsList({ location }) {
   ) : (
     <>
       {location !== "homepage" ? (
-        <>
+<div className="animalsbackground">
         <div className="animalsIndex">
           {animals.map((animal) => (
             <div key={animal._id} className="indexAnimal">
@@ -54,7 +54,7 @@ export default function AnimalsList({ location }) {
             </div>
           ))}
           </div>
-        </>
+          </div>
       ) : (
         <>
           {firstFourAnimals?.map((animal) => (
