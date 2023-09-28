@@ -7,3 +7,36 @@
  .animalslist p {
   font-size: 1.5rem;
  }
+
+ .animalsIndex img {
+  height: 10rem;
+  padding: 2rem
+}
+
+.animalsIndex .animalName, .animal-name {
+  color: white;
+  font-family: 'Ranchers', cursive;
+  font-size: 3rem;
+}
+
+.animalsIndex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.indexAnimal {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-body {
+  display: flex;
+}
+
+.animal-header {
+  margin: 2rem;
+}

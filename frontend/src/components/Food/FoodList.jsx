@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { foodIndex } from "../../utilities/food-service";
+import pancakes from "../../assets/pancakes.svg";
 
 
 
@@ -8,6 +9,7 @@ export default function FoodList() {
   const [isLoading, setIsLoading] = useState(true);
   const [food, setFood] = useState(null);
   const navigate = useNavigate();
+  const images = [pancakes]
 
   async function handleRequest() {
     const foods = await foodIndex();
@@ -32,9 +34,11 @@ export default function FoodList() {
             <p>
               {food.name} 
             </p>
-            {/* <button onClick={() => navigate(`/food/${food._id}`)}>
-              hi!
-            </button> */}
+            <div>
+              {/* {food.meal = "Breakfast" && ( */}
+              <img src={pancakes} />
+              {/* )} */}
+            </div>
           </div>
         ))}
     </>

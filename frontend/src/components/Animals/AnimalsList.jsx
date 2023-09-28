@@ -27,7 +27,6 @@ export default function AnimalsList({ location }) {
       setIsLoading(false);
 
       const firstAnimals = [];
-      console.log("firstAnimals", firstAnimals);
       for (let i = 0; i < 4; i++) {
         firstAnimals.push(animals[i]);
       }
@@ -43,16 +42,18 @@ export default function AnimalsList({ location }) {
     <>
       {location !== "homepage" ? (
         <>
+        <div className="animalsIndex">
           {animals.map((animal) => (
-            <div key={animal._id} className="animalslist">
+            <div key={animal._id} className="indexAnimal">
               <div onClick={() => navigate(`/animals/${animal._id}`)}>
                 <img src={dog} />
               </div>
-              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+              <div className="animalName"onClick={() => navigate(`/animals/${animal._id}`)}>
                 {animal.name} the {animal.type}
               </div>
             </div>
           ))}
+          </div>
         </>
       ) : (
         <>

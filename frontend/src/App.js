@@ -10,6 +10,7 @@ import FoodList from './components/Food/FoodList';
 import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
 import NewFoodForm from './components/Food/NewFoodForm';
+import AnimalsIndex from './pages/AnimalsIndex';
 
 function App() {
   return (
