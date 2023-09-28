@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 import NewFoodForm from "../Food/NewFoodForm";
-import dog from "../../assets/dog-02.png";
-import pup from "../../assets/pup.svg";
+import pup from "../../assets/Dog.svg";
+import Dog from "../../assets/dog-02.png";
 import pancakes from "../../assets/pancakes.svg";
 import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
@@ -13,13 +13,9 @@ export default function OneAnimal() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState(null);
-  const [display, setDisplay] = useState(false);
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
-  const [date, setDate] = useState(new Date());
-  const [food, setFood] = useState();
   const [addFood, setAddFood] = useState(false)
-  const dateClicked = new Date();
 
   async function lastFed(e) {
     const clickedFood = await showFood(e.target.id);
@@ -125,11 +121,11 @@ export default function OneAnimal() {
         <div>
           {(() => {
             if (animal?.type === "Dog") {
-              return <img className="animal-image-main" src={pup} />;
+              return <img className="animal-image-main" src={Dog} />;
             } else if (animal?.type === "Cat") {
-              return <img className="animal-image-main" src={dog} />;
+              return <img className="animal-image-main" src={pup} />;
             } else {
-              return <img className="animal-image-main" src={pancakes} />;
+              return <img className="animal-image-main" src={pasta} />;
             }
           })()}
         </div>

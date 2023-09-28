@@ -4,7 +4,7 @@ import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
-export default function NewFoodForm({setAddFood}) {
+export default function NewFoodForm({setAddFood, setNotHungry}) {
   const foods = [
     // {foodName: "-"},
     { meal: "Breakfast" },
@@ -47,6 +47,7 @@ export default function NewFoodForm({setAddFood}) {
       foods: animalFoods,
     };
     updateAnimal(animal._id, updatedAnimal)
+    if (animal.hunger <= 0) setNotHungry(prevState => !prevState)
   }
   
   async function handleSubmit(e) {
