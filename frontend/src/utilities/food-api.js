@@ -27,16 +27,3 @@ export async function createFood(data) {
   }
 }
 
-// export async function generateIcon() {
-//   const res = await fetch(`${BASE_URL}/food/icon`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     }
-//   });
-//   if (res.ok) {
-//     return res.json();
-//   } else {
-//     return new Error("Invalid Request")
-//   }
-// }

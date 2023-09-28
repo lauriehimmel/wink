@@ -63,7 +63,7 @@ export default function AnimalsList({ location }) {
                 <img src={dog} />
               </div>
               <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                {animal.name}
+                {animal?.name}
               </div>
             </div>
           ))}

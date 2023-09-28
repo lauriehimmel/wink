@@ -9,9 +9,13 @@ const foodSchema = new Schema(
     },
     meal: {
       type: String,
-      default: "Breakfast"
+      default: "Breakfast",
     },
-    icons: []
+    icons: [],
+    date: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

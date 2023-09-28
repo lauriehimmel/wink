@@ -10,6 +10,7 @@ const animalSchema = new Schema(
       default: "Dog",
     },
     foods: { type: [Schema.Types.ObjectId], ref: "Food" },
+    hunger: {type: Number, default: 0}
   },
   {
     timestamps: true,
