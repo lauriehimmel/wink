@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal } from "../../utilities/animal-service";
 import NewFoodForm from "../Food/NewFoodForm";
 import dog from "../../assets/dog-02.png";
+import pup from "../../assets/pup.svg";
+import pancakes from "../../assets/pancakes.svg";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -17,7 +19,6 @@ export default function OneAnimal() {
     }
     getAnimal();
   }, []);
-  console.log("animal", animal);
 
   useEffect(() => {
     setIsLoading(false);
@@ -34,24 +35,37 @@ export default function OneAnimal() {
           {animal?.name} the {animal?.type}
         </div>
         <div>
-          <button onClick={() => navigate(`/animals/${animal._id}/update`)}>
+          <button className="editbutton" onClick={() => navigate(`/animals/${animal._id}/update`)}>
             Edit
           </button>
         </div>
       </div>
       <div className="animal-body">
         <div>
-          <div>
+          <div className="foodbackground">
             {animal?.foods.map((food) => (
-              <div key={food._id}>{food.name}</div>
+              <div key={food._id}>
+                {food.name}
+                <div>
+                  {(() => {
+                    if (food.meal === "Lunch") {
+                      return <img className="food-img" src={pancakes} />;
+                    } else if (food.meal === "Breakfast") {
+                      return <img className="food-img" src={dog} />;
+                    } else {
+                      return <div>catch all</div>;
+                    }
+                  })()}
+                </div>
+              </div>
             ))}
           </div>
           <NewFoodForm />
         </div>
         <div>
-          <img src={dog} />
+          <img className="animal-image-main" src={pup} />
         </div>
-        <div>placeholder</div>
+        <div className="foodbackground">placeholder</div>
       </div>
     </>
   );

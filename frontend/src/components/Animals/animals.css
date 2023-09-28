@@ -35,8 +35,50 @@
 
 .animal-body {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: .2rem;
 }
 
 .animal-header {
   margin: 2rem;
+}
+
+.food-img {
+  width: 2rem;
+}
+
+.animal-image-main {
+  width: 33vw;
+  background-color: blue;;
+}
+
+.foodbackground {
+  background-color: white;
+  height: 20rem;
+  width: 20rem;
+}
+
+.editbutton {
+  padding: .5rem 1rem;
+  font-size: 1.2rem;
+  border-width: 2px;
+}
+
+.addtopantry {
+  font-size: 1.2rem;
+  padding: .7rem;
+}
+
+.foodname {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.newfoodform {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem
 }
