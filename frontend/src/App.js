@@ -1,5 +1,5 @@
 import './App.css';
-import Header from '/Users/lauriehimmel/sei/projects/wink/frontend/src/components/Header/header.jsx';
+import Header from './components/Header/header.jsx';
 import AnimalsList from './components/Animals/AnimalsList';
 import Homepage from './pages/Homepage/homepage.jsx'
 import { Link, Route, Routes } from "react-router-dom";
