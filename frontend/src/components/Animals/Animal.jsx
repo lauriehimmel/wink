@@ -83,11 +83,7 @@ export default function OneAnimal() {
     //   changeHunger();
     }, [animal]);
     
-  return isLoading ? (
-    <>
-      <h1>Loading</h1>
-    </>
-  ) : (
+  return (
     <>
       <div className="animal-header">
         <div className="animal-name">
