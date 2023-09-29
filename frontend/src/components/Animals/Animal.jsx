@@ -46,13 +46,13 @@ export default function OneAnimal() {
     };
     updateAnimal(animal._id, updatedHunger);
   }
-
+  
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
     let newClicks;
     clickAmount <= 0
-      ? (newClicks = clickAmount)
-      : (newClicks = clickAmount - 1);
+    ? (newClicks = clickAmount)
+    : (newClicks = clickAmount - 1);
     await setClickAmount(newClicks);
     const hungerClicks = {
       ...animal,
@@ -64,8 +64,11 @@ export default function OneAnimal() {
 
   useEffect(() => {
     async function getAnimal() {
+      console.log('hi2')
       const animal = await showAnimal(id);
+      console.log('hi3')
       setAnimal(animal);
+      console.log('hi4')
     }
     getAnimal();
   }, [addFood]);
@@ -80,9 +83,8 @@ export default function OneAnimal() {
         new Date(animal?.lastFed).toISOString().split("T")[0]
     )
       changeHunger();
-      console.log(animal?.color)
-  }, [animal]);
-
+    }, [animal]);
+    
   return isLoading ? (
     <>
       <h1>Loading</h1>
@@ -96,6 +98,8 @@ export default function OneAnimal() {
           </p>
           <p>
             {animal?.name}'s hunger level: {clickAmount}
+            <progress id="health" value={clickAmount} max="100"></progress>
+            
           </p>
         </div>
         <div>
@@ -111,7 +115,7 @@ export default function OneAnimal() {
         <div>
           <div className="foodbackground">
             <div className="foodgrid">
-              {animal?.foods.map((food) => (
+              {animal?.foods?.map((food) => (
                 <div key={food._id}>
                   {food.name}
                   <div>

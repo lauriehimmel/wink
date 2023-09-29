@@ -41,19 +41,24 @@ export default function NewFoodForm({setAddFood, setNotHungry}) {
   }
   async function addFood(id) {
     let animalFoods = animal.foods;
+    console.log('animalFoods', animalFoods)
     await animalFoods.push(id);
+    console.log('animalFoods', animalFoods)
+    setAddFood(console.log('hi'), prevState => !prevState)
     const updatedAnimal = {
       // ...animal,
       foods: animalFoods,
     };
-    setAddFood(prevState => !prevState)
+    console.log('updatedAnimal', updatedAnimal)
     updateAnimal(animal._id, updatedAnimal)
+    console.log('animal', animal)
     // if (animal.hunger <= 0) setNotHungry(prevState => !prevState)
   }
   
   async function handleSubmit(e) {
     e.preventDefault();
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
+    console.log('newFood', newFood)
     addFood(newFood._id);
     setFoodForm(initState);
   }

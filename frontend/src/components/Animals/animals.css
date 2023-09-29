@@ -152,3 +152,9 @@
 .foodgrid div {
   width: 4em;
 }
+
+progress::-webkit-progress-bar {
+  background-color: green;}
+progress::-webkit-progress-value {
+  background-color: red;
+}
