@@ -10,15 +10,15 @@ import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 
-export default function FoodList({ animal }) {
+export default function FoodList({ animal}) {
 
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const [clickAmount, setClickAmount] = useState();
+  // const [clickAmount, setClickAmount] = useState();
   const [addFood, setAddFood] = useState(false);
-  const today = new Date();
-  let hungerChange;
+  // const today = new Date();
+  // let hungerChange;
 
   // update animal.lastFed
   async function lastFed() {
@@ -30,36 +30,36 @@ export default function FoodList({ animal }) {
   }
 
   // increase hunger based on date
-  function changeHunger() {
-    let todayDate = new Date(today);
-    let fedDate = new Date(animal?.lastFed);
-    let hungerLevel = Math.floor(
-      (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
-    );
-    hungerLevel > 0
-      ? (hungerChange = animal?.hunger + hungerLevel)
-      : (hungerChange = animal?.hunger);
-    const updatedHunger = {
-      ...animal,
-      hunger: hungerChange,
-    };
-    updateAnimal(animal._id, updatedHunger);
-  }
+  // function changeHunger() {
+  //   let todayDate = new Date(today);
+  //   let fedDate = new Date(animal?.lastFed);
+  //   let hungerLevel = Math.floor(
+  //     (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
+  //   );
+  //   hungerLevel > 0
+  //     ? (hungerChange = animal?.hunger + hungerLevel)
+  //     : (hungerChange = animal?.hunger);
+  //   const updatedHunger = {
+  //     ...animal,
+  //     hunger: hungerChange,
+  //   };
+  //   updateAnimal(animal._id, updatedHunger);
+  // }
 
   // decreases hunger on screen + updates animal.lastFed
-  async function decrementItem() {
-    let newClicks;
-    clickAmount <= 0
-      ? (newClicks = clickAmount)
-      : (newClicks = clickAmount - 1);
-    await setClickAmount(newClicks);
-    const hungerClicks = {
-      ...animal,
-      hunger: clickAmount - 1,
-    };
-    updateAnimal(animal._id, hungerClicks);
-    lastFed();
-  }
+  // async function decrementItem() {
+  //   let newClicks;
+  //   clickAmount <= 0
+  //     ? (newClicks = clickAmount)
+  //     : (newClicks = clickAmount - 1);
+  //   await setClickAmount(newClicks);
+  //   const hungerClicks = {
+  //     ...animal,
+  //     hunger: clickAmount - 1,
+  //   };
+  //   updateAnimal(animal._id, hungerClicks);
+  //   lastFed();
+  // }
 
   return (
     <div>
@@ -75,7 +75,7 @@ export default function FoodList({ animal }) {
                   if (food?.meal === "Lunch") {
                     return (
                       <img
-                        onClick={decrementItem}
+                        // onClick={decrementItem}
                         className="food-img"
                         id={food._id}
                         src={sandwich}
@@ -85,7 +85,7 @@ export default function FoodList({ animal }) {
                     return (
                       <img
                         id={food._id}
-                        onClick={decrementItem}
+                        // onClick={decrementItem}
                         className="food-img"
                         src={pancakes}
                       />
@@ -94,7 +94,7 @@ export default function FoodList({ animal }) {
                     return (
                       <img
                         id={food._id}
-                        onClick={decrementItem}
+                        // onClick={decrementItem}
                         className="food-img"
                         src={pasta}
                       />

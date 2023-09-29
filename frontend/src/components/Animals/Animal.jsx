@@ -20,33 +20,33 @@ export default function OneAnimal() {
   const [clickAmount, setClickAmount] = useState();
   const [addFood, setAddFood] = useState(false);
   const today = new Date();
-  let hungerChange;
+  // let hungerChange;
 
   // update animal.lastFed
-  async function lastFed() {
-    const fed = new Date();
-    const newFedDate = {
-      lastFed: fed,
-    };
-    if (animal) updateAnimal(animal._id, newFedDate);
-  }
+  // async function lastFed() {
+  //   const fed = new Date();
+  //   const newFedDate = {
+  //     lastFed: fed,
+  //   };
+  //   if (animal) updateAnimal(animal._id, newFedDate);
+  // }
 
   // increase hunger based on date
-  function changeHunger() {
-    let todayDate = new Date(today);
-    let fedDate = new Date(animal?.lastFed);
-    let hungerLevel = Math.floor(
-      (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
-    );
-    hungerLevel > 0
-      ? (hungerChange = animal?.hunger + hungerLevel)
-      : (hungerChange = animal?.hunger);
-    const updatedHunger = {
-      ...animal,
-      hunger: hungerChange,
-    };
-    updateAnimal(animal._id, updatedHunger);
-  }
+  // function changeHunger() {
+  //   let todayDate = new Date(today);
+  //   let fedDate = new Date(animal?.lastFed);
+  //   let hungerLevel = Math.floor(
+  //     (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
+  //   );
+  //   hungerLevel > 0
+  //     ? (hungerChange = animal?.hunger + hungerLevel)
+  //     : (hungerChange = animal?.hunger);
+  //   const updatedHunger = {
+  //     ...animal,
+  //     hunger: hungerChange,
+  //   };
+  //   updateAnimal(animal._id, updatedHunger);
+  // }
   
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
@@ -60,7 +60,7 @@ export default function OneAnimal() {
       hunger: clickAmount - 1,
     };
     updateAnimal(animal._id, hungerClicks);
-    lastFed();
+    // lastFed();
   }
 
   useEffect(() => {
@@ -75,12 +75,12 @@ export default function OneAnimal() {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
     // increase hunger if animal.lastFed is not today
-    if (
-      animal &&
-      new Date(today).toISOString().split("T")[0] !==
-        new Date(animal?.lastFed).toISOString().split("T")[0]
-    )
-      changeHunger();
+    // if (
+    //   animal &&
+    //   new Date(today).toISOString().split("T")[0] !==
+    //     new Date(animal?.lastFed).toISOString().split("T")[0]
+    // )
+    //   changeHunger();
     }, [animal]);
     
   return isLoading ? (
@@ -111,8 +111,10 @@ export default function OneAnimal() {
       </div>
       <div className="animal-body">
         <div>
-          <FoodList animal={animal} />
-          <div className="foodbackground">
+          <div onClick={decrementItem}>
+          <FoodList animal={animal}/>
+          </div>
+          {/* <div className="foodbackground">
             <div className="foodgrid">
               {animal?.foods.map((food) => (
                 <div key={food._id}>
@@ -154,7 +156,7 @@ export default function OneAnimal() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
           <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal}/>
         </div>
         <div>
