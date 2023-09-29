@@ -80,11 +80,11 @@ export default function AnimalsList({ location }) {
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {(() => {
                     if (animal?.type === "Dog") {
-                      return <img src={Dog} />;
+                      return <img style={{'background': `${animal.color}`}} src={Dog} />;
                     } else if (animal?.type === "Cat") {
-                      return <img src={pup} />;
+                      return <img style={{'background': `${animal.color}`}} src={pup} />;
                     } else {
-                      return <img src={pasta} />;
+                      return <img style={{'background': `${animal.color}`}} src={pasta} />;
                     }
                   })()}
                 </div>
@@ -108,9 +108,9 @@ export default function AnimalsList({ location }) {
                     if (animal?.type === "Dog") {
                       return <img style={{'background': `${animal.color}`}} src={Dog} />;
                     } else if (animal?.type === "Cat") {
-                      return <img src={pup} />;
+                      return <img style={{'background': `${animal.color}`}} src={pup} />;
                     } else if (animal?.type === "Frog"){
-                      return <img src={pasta} />;
+                      return <img style={{'background': `${animal.color}`}} src={pasta} />;
                     } 
                   })()}
                 </div>

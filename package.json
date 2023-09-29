@@ -6,7 +6,11 @@
     "mongodb": "^6.1.0",
     "morgan": "^1.10.0",
     "oauth": "^0.10.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.2",
-    "react-router-dom": "^6.16.0"
+    "react-router-dom": "^6.16.0",
+    "survey-core": "^1.9.110",
+    "survey-react-ui": "^1.9.110"
   }
 }
