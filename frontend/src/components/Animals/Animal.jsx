@@ -64,8 +64,11 @@ export default function OneAnimal() {
 
   useEffect(() => {
     async function getAnimal() {
+      console.log('hi2')
       const animal = await showAnimal(id);
+      console.log('hi3')
       setAnimal(animal);
+      console.log('hi4')
     }
     getAnimal();
   }, [addFood]);
@@ -112,7 +115,7 @@ export default function OneAnimal() {
         <div>
           <div className="foodbackground">
             <div className="foodgrid">
-              {animal?.foods.map((food) => (
+              {animal?.foods?.map((food) => (
                 <div key={food._id}>
                   {food.name}
                   <div>
