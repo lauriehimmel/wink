@@ -9,7 +9,8 @@ import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
-import { SketchPicker } from "react-color";
+import FoodList from "./animalFoods";
+
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -64,14 +65,11 @@ export default function OneAnimal() {
 
   useEffect(() => {
     async function getAnimal() {
-      console.log('hi2')
-      const animal = await showAnimal(id);
-      console.log('hi3')
-      setAnimal(animal);
-      console.log('hi4')
+      const updatedAnimal = await showAnimal(id);
+      setAnimal(updatedAnimal);
     }
     getAnimal();
-  }, [addFood]);
+  }, [animal?.foods.length]);
 
   useEffect(() => {
     setClickAmount(animal?.hunger);
@@ -113,13 +111,16 @@ export default function OneAnimal() {
       </div>
       <div className="animal-body">
         <div>
+          <FoodList animal={animal} />
           <div className="foodbackground">
             <div className="foodgrid">
-              {animal?.foods?.map((food) => (
+              {animal?.foods.map((food) => (
                 <div key={food._id}>
                   {food.name}
                   <div>
                     {(() => {
+                    // MAKE THIS OWN COMPONENT
+                    // BIG FOOD IMAGES, ARROWS TO GO BETWEEN
                       if (food?.meal === "Lunch") {
                         return (
                           <img
@@ -129,7 +130,7 @@ export default function OneAnimal() {
                             src={sandwich}
                           />
                         );
-                      } else if (food.meal === "Breakfast") {
+                      } else if (food?.meal === "Breakfast") {
                         return (
                           <img
                             id={food._id}
@@ -138,7 +139,7 @@ export default function OneAnimal() {
                             src={pancakes}
                           />
                         );
-                      } else if (food.meal === "Dinner") {
+                      } else if (food?.meal === "Dinner") {
                         return (
                           <img
                             id={food._id}
@@ -147,19 +148,18 @@ export default function OneAnimal() {
                             src={pasta}
                           />
                         );
-                      } else {
-                        return <div>catch all</div>;
-                      }
+                      } 
                     })()}
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <NewFoodForm setAddFood={setAddFood} />
+          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal}/>
         </div>
         <div>
           {(() => {
+            // MAKE THIS OWN COMPONENT
             if (animal?.type === "Dog") {
               return (
                 <img

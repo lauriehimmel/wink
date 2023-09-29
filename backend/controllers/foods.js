@@ -23,7 +23,6 @@ async function foodIndex(req, res) {
 
 async function createFood(req, res) {
   try {
-    // generateIcon(req, res)
     res.status(201).json(await Food.create(req.body));
   } catch (error) {
     res.status(400).json(error);
