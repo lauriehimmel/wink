@@ -145,4 +145,10 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.foodgrid div {
+  width: 4em;
 }

@@ -43,7 +43,6 @@ async function destroy(req, res) {
 
 async function update(req, res) {
   try {
-    console.log('req.body', req.body)
     res.json(await Animal.findByIdAndUpdate(req.params.id, req.body));
   } catch (error) {
     res.status(400).json(error);
