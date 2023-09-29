@@ -48,22 +48,3 @@ async function update(req, res) {
     res.status(400).json(error);
   }
 }
-
-// async function update(req, res) {
-//   try {
-//     console.log("req.body", req.body);
-//     const result = await Animal.findByIdAndUpdate(
-//       req.params.id,
-//       {
-//         $set: { name: req.body.name },
-//         $set: { type: req.body.type },
-//         $push: { foods: req.body.foods },
-//       },
-//       { new: true}
-//     );
-//     console.log("result", result);
-//     res.json(result);
-//   } catch (error) {
-//     res.status(400).json(error);
-//   }
-// }

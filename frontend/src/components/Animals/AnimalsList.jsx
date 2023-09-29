@@ -3,7 +3,7 @@ import { getAnimals } from "../../utilities/animal-service";
 import { Link, useNavigate } from "react-router-dom";
 import "./animals.css";
 import pup from "../../assets/Dog.svg";
-import Dog from "../../assets/dog-02.png";
+import Dog from "../../assets/Dog-Sitting-Front-01.svg";
 import pasta from "../../assets/pasta.svg";
 
 export default function AnimalsList({ location }) {
@@ -106,7 +106,7 @@ export default function AnimalsList({ location }) {
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {(() => {
                     if (animal?.type === "Dog") {
-                      return <img src={Dog} />;
+                      return <img style={{'background': `${animal.color}`}} src={Dog} />;
                     } else if (animal?.type === "Cat") {
                       return <img src={pup} />;
                     } else if (animal?.type === "Frog"){

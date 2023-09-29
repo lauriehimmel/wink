@@ -16,64 +16,50 @@ export default function OneAnimal() {
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
   const [addFood, setAddFood] = useState(false);
-  const [previousFed, setPreviousFed] = useState();
   const today = new Date();
   let hungerChange;
 
-  async function lastFed(e) {
+  // update animal.lastFed
+  async function lastFed() {
     const fed = new Date();
     const newFedDate = {
-      ...animal,
       lastFed: fed,
     };
-    updateAnimal(animal._id, newFedDate);
-    // let hungerPains = ((today-fed)/(1000*60*60*24))
-    // console.log('hungerPains', hungerPains)
-    // hungerPains > 1 ? addHunger = Math.floor(clickAmount+ hungerPains) : addHunger = 0
-    // const newHungerLevel = hungerPains + animal.hunger
-    // const gettingHungry = {
-    //   ...animal,
-    //   hunger: newHungerLevel
-    // }
-    // console.log('gettingHungry', gettingHungry)
-    // updateAnimal(animal._id, gettingHungry);
-    // console.log(animal)
+    if(animal) updateAnimal(animal._id, newFedDate);
   }
+
+  // increase hunger based on date
   function changeHunger() {
     let todayDate = new Date(today);
     let fedDate = new Date(animal?.lastFed);
     let hungerLevel = Math.floor(
       (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
     );
-    console.log(hungerLevel);
-    hungerLevel > 0 ?  hungerChange = animal?.hunger + hungerLevel :  hungerChange = animal?.hunger;
+    hungerLevel > 0
+      ? (hungerChange = animal?.hunger + hungerLevel)
+      : (hungerChange = animal?.hunger);
     const updatedHunger = {
       ...animal,
-      hunger: hungerChange
-    }
-    updateAnimal(animal._id, updatedHunger)
+      hunger: hungerChange,
+    };
+    updateAnimal(animal._id, updatedHunger);
   }
 
-  
-  function incrementItem() {
+  // decreases hunger on screen + updates animal.lastFed
+  async function decrementItem() {
     let newClicks;
     clickAmount <= 0
-    ? (newClicks = clickAmount)
-    : (newClicks = clickAmount - 1);
-    // clickAmount <= 0 ? newClicks = clickAmount + 1 : newClicks = clickAmount;
-    setClickAmount(newClicks);
+      ? (newClicks = clickAmount)
+      : (newClicks = clickAmount - 1);
+    await setClickAmount(newClicks);
     const hungerClicks = {
       ...animal,
       hunger: clickAmount - 1,
     };
     updateAnimal(animal._id, hungerClicks);
+    lastFed();
   }
-  
-  function feedAnimal(e) {
-    incrementItem();
-    lastFed(e);
-  }
-  
+
   useEffect(() => {
     async function getAnimal() {
       const animal = await showAnimal(id);
@@ -81,15 +67,15 @@ export default function OneAnimal() {
     }
     getAnimal();
   }, [addFood]);
-  
+
+
   useEffect(() => {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
-    if (animal)changeHunger()
-    // console.log(today)
-    // console.log(animal?.lastFed)
+    // increase hunger if animal.lastFed is not today
+    if (animal && new Date(today).toISOString().split('T')[0] !== new Date(animal?.lastFed).toISOString().split('T')[0]) changeHunger();
   }, [animal]);
-  
+
   return isLoading ? (
     <>
       <h1>Loading</h1>
@@ -126,7 +112,7 @@ export default function OneAnimal() {
                       if (food?.meal === "Lunch") {
                         return (
                           <img
-                            onClick={feedAnimal}
+                            onClick={decrementItem}
                             className="food-img"
                             id={food._id}
                             src={sandwich}
@@ -136,7 +122,7 @@ export default function OneAnimal() {
                         return (
                           <img
                             id={food._id}
-                            onClick={feedAnimal}
+                            onClick={decrementItem}
                             className="food-img"
                             src={pancakes}
                           />
@@ -145,7 +131,7 @@ export default function OneAnimal() {
                         return (
                           <img
                             id={food._id}
-                            onClick={feedAnimal}
+                            onClick={decrementItem}
                             className="food-img"
                             src={pasta}
                           />
