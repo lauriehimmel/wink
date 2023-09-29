@@ -4,7 +4,7 @@ import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
-export default function NewFoodForm({setAddFood, setNotHungry}) {
+export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
   const foods = [
     // {foodName: "-"},
     { meal: "Breakfast" },
@@ -14,7 +14,7 @@ export default function NewFoodForm({setAddFood, setNotHungry}) {
 
   let initState = {
     name: "",
-    meal: ""
+    meal: "Breakfast"
   };  
 
   const { id } = useParams();
@@ -40,19 +40,17 @@ export default function NewFoodForm({setAddFood, setNotHungry}) {
     setFormValue(e.target.value)
   }
   async function addFood(id) {
-    let animalFoods = animal.foods;
-    console.log('animalFoods', animalFoods)
-    await animalFoods.push(id);
-    console.log('animalFoods', animalFoods)
-    setAddFood(console.log('hi'), prevState => !prevState)
+    let animalFoods = [...animal.foods.map(f => f._id)];
+    animalFoods.push(id);
+    // setAddFood(prevState => !prevState)
     const updatedAnimal = {
-      // ...animal,
+      ...animal,
       foods: animalFoods,
     };
     console.log('updatedAnimal', updatedAnimal)
-    updateAnimal(animal._id, updatedAnimal)
-    console.log('animal', animal)
-    // if (animal.hunger <= 0) setNotHungry(prevState => !prevState)
+    const updatedData = await updateAnimal(animal._id, updatedAnimal)
+    console.log('updatedData in new food form', updatedData)
+    handleAnimalUpdate(updatedData)
   }
   
   async function handleSubmit(e) {
