@@ -3,11 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 import NewFoodForm from "../Food/NewFoodForm";
 import pup from "../../assets/Dog.svg";
-import Dog from "../../assets/dog-02.png";
+import Dog from "../../assets/Dog-Sitting-Front-01.svg";
 import pancakes from "../../assets/pancakes.svg";
 import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
+import React from "react";
+import { SketchPicker } from "react-color";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -25,7 +27,7 @@ export default function OneAnimal() {
     const newFedDate = {
       lastFed: fed,
     };
-    if(animal) updateAnimal(animal._id, newFedDate);
+    if (animal) updateAnimal(animal._id, newFedDate);
   }
 
   // increase hunger based on date
@@ -68,12 +70,17 @@ export default function OneAnimal() {
     getAnimal();
   }, [addFood]);
 
-
   useEffect(() => {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
     // increase hunger if animal.lastFed is not today
-    if (animal && new Date(today).toISOString().split('T')[0] !== new Date(animal?.lastFed).toISOString().split('T')[0]) changeHunger();
+    if (
+      animal &&
+      new Date(today).toISOString().split("T")[0] !==
+        new Date(animal?.lastFed).toISOString().split("T")[0]
+    )
+      changeHunger();
+      console.log(animal?.color)
   }, [animal]);
 
   return isLoading ? (
@@ -150,11 +157,29 @@ export default function OneAnimal() {
         <div>
           {(() => {
             if (animal?.type === "Dog") {
-              return <img className="animal-image-main" src={Dog} />;
+              return (
+                <img
+                  style={{ background: `${animal?.color}` }}
+                  className="animal-image-main"
+                  src={Dog}
+                />
+              );
             } else if (animal?.type === "Cat") {
-              return <img className="animal-image-main" src={pup} />;
+              return (
+                <img
+                  style={{ background: `${animal?.color}` }}
+                  className="animal-image-main"
+                  src={pup}
+                />
+              );
             } else {
-              return <img className="animal-image-main" src={pasta} />;
+              return (
+                <img
+                  style={{ background: `${animal?.color}` }}
+                  className="animal-image-main"
+                  src={pasta}
+                />
+              );
             }
           })()}
         </div>

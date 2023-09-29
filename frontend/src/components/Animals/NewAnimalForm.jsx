@@ -3,12 +3,11 @@ import { createAnimal, showAnimal } from "../../utilities/animal-service";
 import { useNavigate } from "react-router";
 
 export default function NewAnimalForm() {
-
   let initState = {
     name: "",
-    type: "Dog"
+    type: "Dog",
+    color: "#89aee1"
   };
-
   const [newForm, setNewForm] = useState(initState);
   const navigate = useNavigate();
 
@@ -53,6 +52,23 @@ export default function NewAnimalForm() {
             <option value="Frog">Frog</option>
           </select>
         </label>
+        
+        <label className="formLabel" htmlFor="color">
+          <div className="labeltext">What color is your pet?</div>
+          <input
+            type="text"
+            name="color"
+            id="color"
+            className="forminput"
+            placeholder="enter a hex code!"
+            pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            title="Hex codes start with '#' and are followed by six letters (A-F, upper or lower case) and/or numbers (1-9). Make sure your code is a valid hex code! ;)"
+            value={newForm.color}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
         </div>
         <input className="form-submit" type="submit" value="Adopt!" />
       </form>

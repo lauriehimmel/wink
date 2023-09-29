@@ -11,6 +11,7 @@ import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
 import NewFoodForm from './components/Food/NewFoodForm';
 import AnimalsIndex from './pages/AnimalsIndex';
+import Test from './components/test/test.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/newfood" element={<NewFoodForm />} />
         <Route path="/foodlist" element={<FoodList />} />
+        {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
     </div>
   );

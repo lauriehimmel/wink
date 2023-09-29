@@ -10,7 +10,7 @@
 
  .animalsIndex img {
   height: 10rem;
-  padding: 2rem
+  margin: 2rem
 }
 
 .animalsIndex .animalName, .animal-name ,.animal-form h1 {
@@ -56,8 +56,8 @@
 }
 
 .animal-image-main {
-  width: 33vw;
-  background-color: blue;
+  width: 15vw;
+  /* background-color: blue; */
 }
 
 .foodbackground {
