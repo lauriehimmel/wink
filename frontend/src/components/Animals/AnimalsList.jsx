@@ -80,7 +80,7 @@ export default function AnimalsList({ location }) {
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {(() => {
                     if (animal?.type === "Dog") {
-                      return <img style={{'background': `${animal.color}`}} src={Dog} />;
+                      return <img style={{'backgroundcolor': `${animal.color}`}} src={Dog} />;
                     } else if (animal?.type === "Cat") {
                       return <img style={{'background': `${animal.color}`}} src={pup} />;
                     } else {
