@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 import NewFoodForm from "../Food/NewFoodForm";
 import pup from "../../assets/Dog.svg";
 import Dog from "../../assets/Dog-Sitting-Front-01.svg";
-// import pancakes from "../../assets/pancakes.svg";
-// import sandwich from "../../assets/sandwich.svg";
+import pancakes from "../../assets/pancakes.svg";
+import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
-// import { showFood, updateFood } from "../../utilities/food-service";
+import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "./animalFoods";
 
 
 export default function OneAnimal() {
-  // const { id } = useParams();
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [animal, setAnimal] = useState(null);
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
   const [addFood, setAddFood] = useState(false);
-
-  // const today = new Date();
+  const today = new Date();
   // let hungerChange;
 
   // update animal.lastFed
@@ -64,7 +63,7 @@ export default function OneAnimal() {
     // lastFed();
   }
 
-  useEffect((id) => {
+  useEffect(() => {
     async function getAnimal() {
       const updatedAnimal = await showAnimal(id);
       setAnimal(updatedAnimal);
@@ -166,30 +165,27 @@ export default function OneAnimal() {
             if (animal?.type === "Dog") {
               return (
                 <img
-                alt="cartoon of one eyed dog"
-                style={{ background: `${animal?.color}` }}
-                className="animal-image-main"
-                src={Dog}
+                  style={{ background: `${animal?.color}` }}
+                  className="animal-image-main"
+                  src={Dog}
                 />
-                );
-              } else if (animal?.type === "Cat") {
-                return (
-                  <img
-                  alt="cartoon of one eyed cat"
+              );
+            } else if (animal?.type === "Cat") {
+              return (
+                <img
                   style={{ background: `${animal?.color}` }}
                   className="animal-image-main"
                   src={pup}
-                  />
-                  );
-                } else {
-                  return (
-                    <img
-                    alt="cartoon of one eyed animal"
-                    style={{ background: `${animal?.color}` }}
-                    className="animal-image-main"
-                    src={pasta}
-                    />
-                    );
+                />
+              );
+            } else {
+              return (
+                <img
+                  style={{ background: `${animal?.color}` }}
+                  className="animal-image-main"
+                  src={pasta}
+                />
+              );
             }
           })()}
         </div>
