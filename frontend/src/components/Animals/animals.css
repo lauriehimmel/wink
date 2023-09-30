@@ -139,6 +139,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
   /* justify-content: space-around; */
 }
 
@@ -157,23 +158,16 @@
   width: 4em;
 }
 
-
-
-/* progress[value] {
-  -webkit-appearance: none;
-   appearance: none;
-
-  width: 250px;
-  height: 20px;
+.formcolorbox {
+  width:1rem;
+  height: 1rem;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+.nofoodsyet {
+  align-self: center;
+  font-family: "schoolbell-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #65489d;
+  font-size: 2rem;
 }
-
-progress[value="30"]::-webkit-progress-value {
-background-color: green;
-  border-radius: 2px; 
-} */

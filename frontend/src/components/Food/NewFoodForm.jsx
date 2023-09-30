@@ -6,20 +6,19 @@ import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
   const meals = [
-    // {foodName: "-"},
     { meal: "Breakfast", id:1 },
     { meal: "Lunch", id:2 },
     { meal: "Dinner", id:3 },
   ];
 
   const foodOptions = [
-    { foodOption: "Kibble", id:1 },
-    { foodOption: "Salmon", id:2 },
-    { foodOption: "Cheese", id:3 },
-    { foodOption: "Greenies", id:4 },
-    { foodOption: "Steak", id:5 },
-    { foodOption: "Chicken", id:6 },
-    { foodOption: "Peanut butter", id:7 },
+    { name: "Kibble", id:1 },
+    { name: "Salmon", id:2 },
+    { name: "Cheese", id:3 },
+    { name: "Greenies", id:4 },
+    { name: "Steak", id:5 },
+    { name: "Chicken", id:6 },
+    { name: "Peanut butter", id:7 },
   ]
 
   let initState = {
@@ -43,7 +42,6 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
   
   function handleChange(e) {
     const formData = {
-      // ...foodForm,
       [e.target.name]: e.target.value,
     };
     setFoodForm(formData);
@@ -81,20 +79,17 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
             ))}
           </select>
         </label>
-
         <section className="foodname">
         <label htmlFor="name">
           <div className="labeltext">Select a meal</div>
           <select name="name" onChange={handleChange}>
-            {foodOptions.map((option) => (
-              <option name="name" id="name" value={option.foodOption} key={option.id}>
-                {option.foodOption}
+            {foodOptions.map((name) => (
+              <option name="name" id="name" value={name.name} key={name.id}>
+                {name.name}
               </option>
             ))}
           </select>
         </label>
-
-
         <input className="purplebutton addtopantry" type="submit" value="Add to pantry!" />
         </section>
       </form>

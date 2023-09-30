@@ -21,18 +21,19 @@ export default function FoodList() {
   }
 
   useEffect(() => {
+    setIsLoading(false);
     handleRequest();
-  }, []);
+  }, [food]);
 
   return isLoading ? (
     <>
-      <h1>Loading</h1>
+      <p className="nofoodsyet">No foods yet!</p>
     </>
   ) : (
     <>
       {food?.map((food) => (
         <div key={food._id} className="foodList">
-          <FoodImages food={food} />
+          <FoodImages food={food} setFood={setFood} />
         </div>
       ))}
     </>
