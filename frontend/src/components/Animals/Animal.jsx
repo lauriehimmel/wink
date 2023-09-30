@@ -97,7 +97,6 @@ export default function OneAnimal() {
           <p>
             {animal?.name}'s hunger level: {clickAmount}
             <progress id="health" value={clickAmount} max="100"></progress>
-            
           </p>
         </div>
         <div>
