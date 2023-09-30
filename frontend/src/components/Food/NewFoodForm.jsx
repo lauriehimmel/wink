@@ -7,9 +7,9 @@ import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
   const foods = [
     // {foodName: "-"},
-    { meal: "Breakfast" },
-    { meal: "Lunch" },
-    { meal: "Dinner" },
+    { meal: "Breakfast", id:1 },
+    { meal: "Lunch", id:2 },
+    { meal: "Dinner", id:3 },
   ];
 
   let initState = {
@@ -47,16 +47,13 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
       ...animal,
       foods: animalFoods,
     };
-    console.log('updatedAnimal', updatedAnimal)
     const updatedData = await updateAnimal(animal._id, updatedAnimal)
-    console.log('updatedData in new food form', updatedData)
     handleAnimalUpdate(updatedData)
   }
   
   async function handleSubmit(e) {
     e.preventDefault();
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
-    console.log('newFood', newFood)
     addFood(newFood._id);
     setFoodForm(initState);
   }
@@ -68,7 +65,7 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
           <div className="labeltext">Select a meal</div>
           <select name="meal" onChange={handleChange}>
             {foods.map((food) => (
-              <option name="meal" id="meal" value={food.meal} key={food._id}>
+              <option name="meal" id="meal" value={food.meal} key={food.id}>
                 {food.meal}
               </option>
             ))}
@@ -81,6 +78,7 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
             type="text"
             name="name"
             id="name"
+            key={foodForm.name}
             placeholder="yummy!"
             value={foodForm.name}
             onChange={handleChange}

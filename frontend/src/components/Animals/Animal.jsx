@@ -11,7 +11,6 @@ import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "./animalFoods";
 
-
 export default function OneAnimal() {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -47,13 +46,13 @@ export default function OneAnimal() {
   //   };
   //   updateAnimal(animal._id, updatedHunger);
   // }
-  
+
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
     let newClicks;
     clickAmount <= 0
-    ? (newClicks = clickAmount)
-    : (newClicks = clickAmount - 1);
+      ? (newClicks = clickAmount)
+      : (newClicks = clickAmount - 1);
     await setClickAmount(newClicks);
     const hungerClicks = {
       ...animal,
@@ -81,8 +80,8 @@ export default function OneAnimal() {
     //     new Date(animal?.lastFed).toISOString().split("T")[0]
     // )
     //   changeHunger();
-    }, [animal]);
-    
+  }, [animal]);
+
   return isLoading ? (
     <>
       <h1>Loading</h1>
@@ -111,7 +110,7 @@ export default function OneAnimal() {
       <div className="animal-body">
         <div>
           <div onClick={decrementItem}>
-          <FoodList animal={animal}/>
+            <FoodList animal={animal}/>
           </div>
           {/* <div className="foodbackground">
             <div className="foodgrid">
@@ -156,7 +155,7 @@ export default function OneAnimal() {
               ))}
             </div>
           </div> */}
-          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal}/>
+          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
         </div>
         <div>
           {(() => {

@@ -29,7 +29,7 @@ export default function FoodList() {
     </>
   ) : (
     <>
-        {food.map((food) => (
+        {food?.map((food) => (
           <div key={food._id} className="foodList">
             <p>
               {food.name} 
