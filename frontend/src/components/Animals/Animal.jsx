@@ -9,8 +9,7 @@ import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
-import FoodList from "./animalFoods";
-
+import FoodList from "../Food/FoodList";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -47,13 +46,13 @@ export default function OneAnimal() {
   //   };
   //   updateAnimal(animal._id, updatedHunger);
   // }
-  
+
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
     let newClicks;
     clickAmount <= 0
-    ? (newClicks = clickAmount)
-    : (newClicks = clickAmount - 1);
+      ? (newClicks = clickAmount)
+      : (newClicks = clickAmount - 1);
     await setClickAmount(newClicks);
     const hungerClicks = {
       ...animal,
@@ -81,8 +80,8 @@ export default function OneAnimal() {
     //     new Date(animal?.lastFed).toISOString().split("T")[0]
     // )
     //   changeHunger();
-    }, [animal]);
-    
+  }, [animal]);
+
   return isLoading ? (
     <>
       <h1>Loading</h1>
@@ -97,7 +96,6 @@ export default function OneAnimal() {
           <p>
             {animal?.name}'s hunger level: {clickAmount}
             <progress id="health" value={clickAmount} max="100"></progress>
-            
           </p>
         </div>
         <div>
@@ -111,8 +109,12 @@ export default function OneAnimal() {
       </div>
       <div className="animal-body">
         <div>
-          <div onClick={decrementItem}>
-          <FoodList animal={animal}/>
+        <div className="foodbackground">
+        <div>
+          <div className="foodgrid" onClick={decrementItem}>
+            <FoodList animal={animal}/>
+          </div>
+          </div>
           </div>
           {/* <div className="foodbackground">
             <div className="foodgrid">
@@ -157,7 +159,7 @@ export default function OneAnimal() {
               ))}
             </div>
           </div> */}
-          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal}/>
+          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
         </div>
         <div>
           {(() => {

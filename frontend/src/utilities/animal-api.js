@@ -45,8 +45,6 @@ export async function show(id) {
 }
 
 export async function update(id, formData) {
-  console.log('id', id)
-  console.log('data', formData)
   const res = await fetch(`${BASE_URL}/animals/${id}`, {
     method: "PUT",
     headers: {
