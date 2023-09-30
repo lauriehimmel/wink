@@ -9,7 +9,7 @@ import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
-import FoodList from "./animalFoods";
+import FoodList from "../Food/FoodList";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -109,8 +109,12 @@ export default function OneAnimal() {
       </div>
       <div className="animal-body">
         <div>
-          <div onClick={decrementItem}>
+        <div className="foodbackground">
+        <div>
+          <div className="foodgrid" onClick={decrementItem}>
             <FoodList animal={animal}/>
+          </div>
+          </div>
           </div>
           {/* <div className="foodbackground">
             <div className="foodgrid">

@@ -1,4 +1,4 @@
-.foodList {
-  display: flex;
-  flex-wrap: wrap;
+.food-img {
+  width: 5rem;
 }
+

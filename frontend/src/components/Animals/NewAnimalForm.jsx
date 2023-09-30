@@ -6,10 +6,21 @@ export default function NewAnimalForm() {
   let initState = {
     name: "",
     type: "Dog",
-    color: "#89aee1"
+    color: "White"
   };
   const [newForm, setNewForm] = useState(initState);
   const navigate = useNavigate();
+const colors = [
+  {color: "Brown", id: 1},
+  {color: "Grey", id: 2},
+  {color: "White", id: 3},
+  {color: "Red", id: 4},
+  {color: "Orange", id: 5},
+  {color: "Yellow", id: 6},
+  {color: "Green", id: 7},
+  {color: "Blue", id: 8},
+  {color: "Purple", id: 9}
+]
 
   function handleChange(e) {
     const formData = {
@@ -17,6 +28,7 @@ export default function NewAnimalForm() {
       [e.target.name]: e.target.value,
     };
     setNewForm(formData);
+    console.log('newForm', newForm)
   }
 
   async function handleSubmit(e) {
@@ -52,23 +64,16 @@ export default function NewAnimalForm() {
             <option value="Frog">Frog</option>
           </select>
         </label>
-        
         <label className="formLabel" htmlFor="color">
           <div className="labeltext">What color is your pet?</div>
-          <input
-            type="text"
-            name="color"
-            id="color"
-            className="forminput"
-            placeholder="enter a hex code!"
-            pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            title="Hex codes start with '#' and are followed by six letters (A-F, upper or lower case) and/or numbers (1-9). Make sure your code is a valid hex code! ;)"
-            value={newForm.color}
-            onChange={handleChange}
-            required
-          />
+          <select name="color" value={newForm.color} onChange={handleChange}>
+            {colors.map((color) => (
+              <option name="color" id="color" value={color.color} key={color.id}>
+                {color.color}
+              </option>
+            ))}
+          </select>
         </label>
-
         </div>
         <input className="form-submit" type="submit" value="Adopt!" />
       </form>

@@ -51,23 +51,15 @@
   margin: 2rem;
 }
 
-.food-img {
+/* .food-img {
   width: 5rem;
-}
+} */
 
 .animal-image-main {
   width: 15vw;
   /* background-color: blue; */
 }
 
-.foodbackground {
-  background-color: white;
-  height: 20rem;
-  width: 20rem;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-around;
-}
 
 .editbutton {
   padding: 0.5rem 1rem;
@@ -139,15 +131,27 @@
   padding: 0.2rem;
 }
 
+.foodbackground {
+  background-color: white;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* justify-content: space-around; */
+}
+
 .foodgrid {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
   align-items: center;
 }
-/* awef */
+
 
 .foodgrid div {
   width: 4em;
