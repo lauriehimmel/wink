@@ -6,7 +6,7 @@ import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import FoodImages from "./FoodImage";
 
-export default function FoodList() {
+export default function FoodList({decrementItem}) {
   let id;
   const [isLoading, setIsLoading] = useState(true);
   const [food, setFood] = useState(null);
@@ -23,9 +23,9 @@ export default function FoodList() {
 
   const handleDelete = async (e) => {
     try {
-      console.log(e.target.id)
+      console.log("handleDelete e.target.id", e.target.id);
       const deletedFood = await deleteFood(e.target.id);
-      console.log("deletedFood", deletedFood);
+      console.log("handleDelete deletedFood", deletedFood);
     } catch (err) {
       console.log(err);
     }
@@ -44,9 +44,9 @@ export default function FoodList() {
     <>
       {food?.map((food) => (
         <div key={food._id} className="foodList">
-          <FoodImages food={food} setFood={setFood} />
-          <button id={food._id} onClick={handleDelete}>
-            Delete
+          <FoodImages food={food} setFood={setFood}  onClick={decrementItem}/>
+          <button className="deletebutton" id={food._id} onClick={handleDelete}>
+            x
           </button>
         </div>
       ))}

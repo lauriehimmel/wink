@@ -111,8 +111,8 @@ export default function OneAnimal() {
         <div>
           <div className="foodbackground">
             <div>
-              <div className="foodgrid" onClick={decrementItem}>
-                <FoodList animal={animal} />
+              <div className="foodgrid">
+                <FoodList animal={animal} decrementItem={decrementItem}/>
               </div>
             </div>
           </div>

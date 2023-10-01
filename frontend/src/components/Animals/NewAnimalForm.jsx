@@ -28,7 +28,6 @@ const colors = [
       [e.target.name]: e.target.value,
     };
     setNewForm(formData);
-    console.log('newForm', newForm)
   }
 
   async function handleSubmit(e) {
@@ -67,7 +66,7 @@ const colors = [
         </label>
         <label className="formLabel" htmlFor="color">
           <div className="labeltext">What color is your pet?</div>
-          <select name="color" value={newForm.color} onChange={handleChange} style={{"background-color": `${newForm.color}`}}>
+          <select name="color" value={newForm.color} onChange={handleChange} style={{"backgroundColor": `${newForm.color}`}}>
             {colors.map((color) => (
               <option name="color" id="color" value={color.color} key={color.id}>
                 {color.color}

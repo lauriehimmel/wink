@@ -1,47 +1,57 @@
 import { deleteFood, foodIndex } from "../../utilities/food-service";
 
-import pancakes from "../../assets/pancakes.svg";
-import sandwich from "../../assets/sandwich.svg";
-import pasta from "../../assets/pasta.svg";
+import kibble from "../../assets/kibble.svg";
+import steak from "../../assets/steak-01.svg";
+import cheese from "../../assets/cheese.svg";
+import peanutbutter from "../../assets/peanutbutter.svg";
 import './foods.css'
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 
 
-export default function FoodImages({ food, setFood }) {
+export default function FoodImages({ food, setFood, decrementItem }) {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
-  const images = [pancakes];
-
-
 
   return (
     <div key={food._id}>
-      {food.name}
+      {/* {food.name} */}
       <div>
         {(() => {
-          if (food?.meal === "Lunch") {
+          if (food?.name === "Kibble") {
             return (
               <img
                 className="food-img"
                 id={food._id}
-                src={sandwich}
+                src={kibble}
+                onClick={decrementItem}
               />
             );
-          } else if (food?.meal === "Breakfast") {
+          } else if (food?.name === "Steak") {
             return (
               <img
                 id={food._id}
                 className="food-img"
-                src={pancakes}
+                src={steak}
+                onClick={decrementItem}
               />
             );
-          } else if (food?.meal === "Dinner") {
+          } else if(food?.name === "Cheese") {
             return (
               <img
                 id={food._id}
                 className="food-img"
-                src={pasta}
+                src={cheese}
+                onClick={decrementItem}
+              />
+            );
+          } else if(food?.name === "Peanut butter") {
+            return (
+              <img
+                id={food._id}
+                className="food-img"
+                src={peanutbutter}
+                onClick={decrementItem}
               />
             );
           }

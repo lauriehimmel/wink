@@ -39,7 +39,9 @@ export async function updateFood(id, data) {
 
 export async function deleteFood(id) {
   try {
+    console.log('id service', id)
     const deletedFood = await foodAPI.destroyFood(id);
+    console.log('deletedfood service', deletedFood)
     return deletedFood;
   } catch (err) {
     throw err;
