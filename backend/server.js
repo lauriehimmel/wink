@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
 app.set("port", process.env.PORT || 8000);
 
 app.use(cors({
-    origin: FRONTENDURL,
+    origin: "*",
     methods: "GET, POST, PUT, DELETE",
     credentials: true,
   }))
