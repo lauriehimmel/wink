@@ -4,7 +4,6 @@ import Raccoon from "../../assets/raccoon.svg";
 import Pig from "../../assets/pig.svg";
 
 export default function AnimalImage({ animal }) {
-  console.log('animalimage', animal)
   return (
     <>
       {(() => {

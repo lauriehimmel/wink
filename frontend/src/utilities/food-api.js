@@ -52,9 +52,11 @@ export async function updateFood(id, formData) {
 
 
 export async function destroyFood(id) {
+  console.log('id api', id)
   const res = await fetch(`${BASE_URL}/food/${id}`, {
     method: "DELETE",
   });
+  console.log('res api', res)
   if (res.ok) {
     return res.json();
   } else {

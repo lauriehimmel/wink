@@ -13,12 +13,9 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
 
   const foodOptions = [
     { name: "Kibble", id:1 },
-    { name: "Salmon", id:2 },
-    { name: "Cheese", id:3 },
-    { name: "Greenies", id:4 },
-    { name: "Steak", id:5 },
-    { name: "Chicken", id:6 },
-    { name: "Peanut butter", id:7 },
+    { name: "Cheese", id:2 },
+    { name: "Steak", id:3 },
+    { name: "Peanut butter", id:4 },
   ]
 
   let initState = {
