@@ -8,6 +8,7 @@ import FoodList from './components/Food/FoodList';
 import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
 import NewFoodForm from './components/Food/NewFoodForm';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/foodlist" element={<FoodList />} />
         {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 }

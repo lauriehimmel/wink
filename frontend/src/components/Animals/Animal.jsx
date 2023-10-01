@@ -6,7 +6,6 @@ import pup from "../../assets/Dog.svg";
 import Dog from "../../assets/Dog-Sitting-Front-01.svg";
 import pancakes from "../../assets/pancakes.svg";
 import sandwich from "../../assets/sandwich.svg";
-import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "../Food/FoodList";
