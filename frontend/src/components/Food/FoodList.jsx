@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
 import { deleteFood, foodIndex } from "../../utilities/food-service";
-import pancakes from "../../assets/pancakes.svg";
-import sandwich from "../../assets/sandwich.svg";
-import pasta from "../../assets/pasta.svg";
 import FoodImages from "./FoodImage";
 
 export default function FoodList({decrementItem}) {
   let id;
   const [isLoading, setIsLoading] = useState(true);
   const [food, setFood] = useState(null);
-  const navigate = useNavigate();
-  const images = [pancakes];
 
   async function handleRequest() {
     const foods = await foodIndex();
@@ -23,9 +17,7 @@ export default function FoodList({decrementItem}) {
 
   const handleDelete = async (e) => {
     try {
-      console.log("handleDelete e.target.id", e.target.id);
       const deletedFood = await deleteFood(e.target.id);
-      console.log("handleDelete deletedFood", deletedFood);
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +36,7 @@ export default function FoodList({decrementItem}) {
     <>
       {food?.map((food) => (
         <div key={food._id} className="foodList">
-          <FoodImages food={food} setFood={setFood}  onClick={decrementItem}/>
+          <FoodImages food={food} setFood={setFood}  decrementItem={decrementItem}/>
           <button className="deletebutton" id={food._id} onClick={handleDelete}>
             x
           </button>

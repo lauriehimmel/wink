@@ -91,3 +91,34 @@
               </div>
             </div>
           ))} */}
+
+
+
+// GLITTER!!!
+{/* <a href="https://www.glitter-graphics.com/myspace/text_generator.php">
+<img src="https://dl3.glitter-graphics.net/empty.gif"/>
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://text.glitter-graphics.net/sblue/l.gif" />
+<img src="https://text.glitter-graphics.net/sblue/a.gif" />
+<img src="https://text.glitter-graphics.net/sblue/u.gif" />
+<img src="https://text.glitter-graphics.net/sblue/r.gif" />
+<img src="https://text.glitter-graphics.net/sblue/i.gif" />
+<img src="https://text.glitter-graphics.net/sblue/e.gif" />
+<img src="https://dl3.glitter-graphics.net/empty.gif" />
+<img src="https://text.glitter-graphics.net/sblue/h.gif" />
+<img src="https://text.glitter-graphics.net/sblue/i.gif" />
+<img src="https://text.glitter-graphics.net/sblue/m.gif" />
+<img src="https://text.glitter-graphics.net/sblue/m.gif" />
+<img src="https://text.glitter-graphics.net/sblue/e.gif" />
+<img src="https://text.glitter-graphics.net/sblue/l.gif" />
+</a> */}

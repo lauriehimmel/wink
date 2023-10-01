@@ -5,6 +5,7 @@ var cors = require("cors")
 var morgan = require("morgan")
 var animalRouter = require('./routes/animals')
 var foodRouter = require('./routes/foods')
+var activityRouter = require('./routes/activities')
 
 var { PORT } = process.env;
 var express = require("express");
@@ -17,6 +18,7 @@ app.use(morgan("dev"));
 
 app.use('/animals', animalRouter)
 app.use('/food', foodRouter)
+app.use('/activity', activityRouter)
 
 app.get("/", (req, res) => {
     res.send("hello world");

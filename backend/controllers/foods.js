@@ -1,9 +1,6 @@
 const axios = require('axios');
 const { Food } = require("../models");
 const express = require("express");
-const OAuth = require("oauth");
-var API_KEY = process.env.REACT_APP_API_KEY;
-var API_SECRET = process.env.REACT_APP_API_SECRET;
 
 module.exports = {
   foodIndex,

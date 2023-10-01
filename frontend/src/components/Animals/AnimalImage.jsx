@@ -1,7 +1,7 @@
-import Dog from "../../assets/Dog-Sitting-Front-01.svg";
-import Otter from "../../assets/otter.svg";
-import Raccoon from "../../assets/raccoon.svg";
-import Pig from "../../assets/pig.svg";
+import Dog from "../../assets/animals/dog-sitting.svg";
+import Otter from "../../assets/animals/otter.svg";
+import Raccoon from "../../assets/animals/raccoon.svg";
+import Pig from "../../assets/animals/pig.svg";
 
 export default function AnimalImage({ animal }) {
   return (

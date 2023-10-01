@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { getAnimals } from "../../utilities/animal-service";
 import { Link, useNavigate } from "react-router-dom";
 import "./animals.css";
-import pup from "../../assets/Dog.svg";
-import Dog from "../../assets/Dog-Sitting-Front-01.svg";
 import AnimalImage from "./AnimalImage";
 
 export default function AnimalsList({ location }) {
