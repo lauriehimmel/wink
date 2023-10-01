@@ -69,7 +69,7 @@ export default function OneAnimal() {
   useEffect(() => {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
-    console.log('animal', animal)
+    console.log("animal", animal);
     // increase hunger if animal.lastFed is not today
     // if (
     //   animal &&
@@ -109,14 +109,14 @@ export default function OneAnimal() {
           <div className="foodbackground">
             <div>
               <div className="foodgrid">
-                <FoodList animal={animal} decrementItem={decrementItem}/>
+                <FoodList animal={animal} decrementItem={decrementItem} />
               </div>
             </div>
           </div>
           <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
         </div>
         <div>
-  < AnimalImage animal={animal}/>
+          <AnimalImage animal={animal} />
         </div>
         <div className="foodbackground">placeholder</div>
       </div>
