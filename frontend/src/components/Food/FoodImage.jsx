@@ -1,18 +1,18 @@
-import { foodIndex } from "../../utilities/food-service";
+import { deleteFood, foodIndex } from "../../utilities/food-service";
 
 import pancakes from "../../assets/pancakes.svg";
 import sandwich from "../../assets/sandwich.svg";
 import pasta from "../../assets/pasta.svg";
 import './foods.css'
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 
 export default function FoodImages({ food, setFood }) {
-
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const images = [pancakes];
+
 
 
   return (
@@ -47,7 +47,7 @@ export default function FoodImages({ food, setFood }) {
           }
         })()}
       </div>
-      Delete
+
     </div>
   );
 }

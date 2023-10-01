@@ -66,7 +66,6 @@ export default function OneAnimal() {
     async function getAnimal() {
       const updatedAnimal = await showAnimal(id);
       setAnimal(updatedAnimal);
-      console.log('updatedAnimal', updatedAnimal)
     }
     getAnimal();
   }, [animal?.foods.length]);

@@ -49,3 +49,16 @@ export async function updateFood(id, formData) {
     throw new Error("Invalid Request");
   }
 }
+
+
+export async function destroyFood(id) {
+  const res = await fetch(`${BASE_URL}/food/${id}`, {
+    method: "DELETE",
+  });
+  if (res.ok) {
+    return res.json();
+  } else {
+    throw new Error("Invalid Request");
+  }
+}
+
