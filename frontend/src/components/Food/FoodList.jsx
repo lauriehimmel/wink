@@ -21,9 +21,10 @@ export default function FoodList() {
     }
   }
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (e) => {
     try {
-      const deletedFood = await deleteFood(id);
+      console.log(e.target.id)
+      const deletedFood = await deleteFood(e.target.id);
       console.log("deletedFood", deletedFood);
     } catch (err) {
       console.log(err);
