@@ -36,11 +36,12 @@ export async function updateFood(id, data) {
   }
 }
 
-// export async function generateIcon(formData){
-//   try {
-//     const data = await foodAPI.generateIcon(formData)
-//     return data;
-//   } catch (err) {
-//     return err;
-//   }
-// }
+
+export async function deleteFood(id) {
+  try {
+    const deletedFood = await foodAPI.destroyFood(id);
+    return deletedFood;
+  } catch (err) {
+    throw err;
+  }
+}

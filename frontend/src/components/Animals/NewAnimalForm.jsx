@@ -11,9 +11,9 @@ export default function NewAnimalForm() {
   const [newForm, setNewForm] = useState(initState);
   const navigate = useNavigate();
 const colors = [
-  {color: "Brown", id: 1},
-  {color: "Grey", id: 2},
-  {color: "White", id: 3},
+  {color: "White", id: 1},
+  {color: "Brown", id: 2},
+  {color: "Grey", id: 3},
   {color: "Red", id: 4},
   {color: "Orange", id: 5},
   {color: "Yellow", id: 6},
@@ -60,13 +60,14 @@ const colors = [
           <div className="labeltext">What kind of animal are you adopting?</div>
           <select className="dropdown" name="type" value={newForm.type} onChange={handleChange}>
             <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Frog">Frog</option>
+            <option value="Raccoon">Raccoon</option>
+            <option value="Otter">Otter</option>
+            <option value="Pig">Pig</option>
           </select>
         </label>
         <label className="formLabel" htmlFor="color">
           <div className="labeltext">What color is your pet?</div>
-          <select name="color" value={newForm.color} onChange={handleChange}>
+          <select name="color" value={newForm.color} onChange={handleChange} style={{"background-color": `${newForm.color}`}}>
             {colors.map((color) => (
               <option name="color" id="color" value={color.color} key={color.id}>
                 {color.color}

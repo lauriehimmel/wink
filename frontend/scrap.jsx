@@ -32,3 +32,62 @@
             required
           />
         </label> */}
+
+
+// UNNECESSARY
+         {/* <div className="foodbackground">
+            <div className="foodgrid">
+              {animal?.foods.map((food) => (
+                <div key={food._id}>
+                  {food.name}
+                  <div>
+                    {(() => {
+                    // MAKE THIS OWN COMPONENT
+                    // BIG FOOD IMAGES, ARROWS TO GO BETWEEN
+                      if (food?.meal === "Lunch") {
+                        return (
+                          <img
+                            onClick={decrementItem}
+                            className="food-img"
+                            id={food._id}
+                            src={sandwich}
+                          />
+                        );
+                      } else if (food?.meal === "Breakfast") {
+                        return (
+                          <img
+                            id={food._id}
+                            onClick={decrementItem}
+                            className="food-img"
+                            src={pancakes}
+                          />
+                        );
+                      } else if (food?.meal === "Dinner") {
+                        return (
+                          <img
+                            id={food._id}
+                            onClick={decrementItem}
+                            className="food-img"
+                            src={pasta}
+                          />
+                        );
+                      } 
+                    })()}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div> */}
+
+
+// SHOWS FIRST 4 ANIMALS IN ARRAY IN RANDOM ORDER
+          {/* {firstFourAnimals?.map((animal) => (
+            <div key={animal._id} className="animalslist">
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                <img src={dog} />
+              </div>
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                {animal?.name}
+              </div>
+            </div>
+          ))} */}

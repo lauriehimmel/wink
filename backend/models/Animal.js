@@ -6,7 +6,7 @@ const animalSchema = new Schema(
     name: String,
     type: {
       type: String,
-      enum: ["Dog", "Cat", "Frog"],
+      enum: ["Dog", "Raccoon", "Otter", "Pig"],
       default: "Dog",
     },
     foods: { type: [Schema.Types.ObjectId], ref: "Food" },

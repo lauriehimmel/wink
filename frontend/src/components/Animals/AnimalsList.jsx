@@ -80,11 +80,11 @@ export default function AnimalsList({ location }) {
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {(() => {
                     if (animal?.type === "Dog") {
-                      return <img style={{'backgroundcolor': `${animal.color}`}} src={Dog} />;
+                      return <img style={{'background-color': `${animal.color}`}} src={Dog} />;
                     } else if (animal?.type === "Cat") {
-                      return <img style={{'background': `${animal.color}`}} src={pup} />;
+                      return <img style={{'background-color': `${animal.color}`}} src={pup} />;
                     } else {
-                      return <img style={{'background': `${animal.color}`}} src={pasta} />;
+                      return <img style={{'background-color': `${animal.color}`}} src={pasta} />;
                     }
                   })()}
                 </div>
@@ -120,16 +120,6 @@ export default function AnimalsList({ location }) {
               </div>
             ))}
           </>
-          {/* {firstFourAnimals?.map((animal) => (
-            <div key={animal._id} className="animalslist">
-              <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                <img src={dog} />
-              </div>
-              <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                {animal?.name}
-              </div>
-            </div>
-          ))} */}
         </>
       )}
     </>

@@ -10,6 +10,7 @@ import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "../Food/FoodList";
+import AnimalImage from "./AnimalImage";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -19,33 +20,33 @@ export default function OneAnimal() {
   const [clickAmount, setClickAmount] = useState();
   const [addFood, setAddFood] = useState(false);
   const today = new Date();
-  // let hungerChange;
+  let hungerChange;
 
   // update animal.lastFed
-  // async function lastFed() {
-  //   const fed = new Date();
-  //   const newFedDate = {
-  //     lastFed: fed,
-  //   };
-  //   if (animal) updateAnimal(animal._id, newFedDate);
-  // }
+  async function lastFed() {
+    const fed = new Date();
+    const newFedDate = {
+      lastFed: fed,
+    };
+    if (animal) updateAnimal(animal._id, newFedDate);
+  }
 
   // increase hunger based on date
-  // function changeHunger() {
-  //   let todayDate = new Date(today);
-  //   let fedDate = new Date(animal?.lastFed);
-  //   let hungerLevel = Math.floor(
-  //     (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
-  //   );
-  //   hungerLevel > 0
-  //     ? (hungerChange = animal?.hunger + hungerLevel)
-  //     : (hungerChange = animal?.hunger);
-  //   const updatedHunger = {
-  //     ...animal,
-  //     hunger: hungerChange,
-  //   };
-  //   updateAnimal(animal._id, updatedHunger);
-  // }
+  function changeHunger() {
+    let todayDate = new Date(today);
+    let fedDate = new Date(animal?.lastFed);
+    let hungerLevel = Math.floor(
+      (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
+    );
+    hungerLevel > 0
+      ? (hungerChange = animal?.hunger + hungerLevel)
+      : (hungerChange = animal?.hunger);
+    const updatedHunger = {
+      ...animal,
+      hunger: hungerChange,
+    };
+    updateAnimal(animal._id, updatedHunger);
+  }
 
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
@@ -59,7 +60,7 @@ export default function OneAnimal() {
       hunger: clickAmount - 1,
     };
     updateAnimal(animal._id, hungerClicks);
-    // lastFed();
+    lastFed();
   }
 
   useEffect(() => {
@@ -109,87 +110,17 @@ export default function OneAnimal() {
       </div>
       <div className="animal-body">
         <div>
-        <div className="foodbackground">
-        <div>
-          <div className="foodgrid" onClick={decrementItem}>
-            <FoodList animal={animal}/>
-          </div>
-          </div>
-          </div>
-          {/* <div className="foodbackground">
-            <div className="foodgrid">
-              {animal?.foods.map((food) => (
-                <div key={food._id}>
-                  {food.name}
-                  <div>
-                    {(() => {
-                    // MAKE THIS OWN COMPONENT
-                    // BIG FOOD IMAGES, ARROWS TO GO BETWEEN
-                      if (food?.meal === "Lunch") {
-                        return (
-                          <img
-                            onClick={decrementItem}
-                            className="food-img"
-                            id={food._id}
-                            src={sandwich}
-                          />
-                        );
-                      } else if (food?.meal === "Breakfast") {
-                        return (
-                          <img
-                            id={food._id}
-                            onClick={decrementItem}
-                            className="food-img"
-                            src={pancakes}
-                          />
-                        );
-                      } else if (food?.meal === "Dinner") {
-                        return (
-                          <img
-                            id={food._id}
-                            onClick={decrementItem}
-                            className="food-img"
-                            src={pasta}
-                          />
-                        );
-                      } 
-                    })()}
-                  </div>
-                </div>
-              ))}
+          <div className="foodbackground">
+            <div>
+              <div className="foodgrid" onClick={decrementItem}>
+                <FoodList animal={animal} />
+              </div>
             </div>
-          </div> */}
+          </div>
           <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
         </div>
         <div>
-          {(() => {
-            // MAKE THIS OWN COMPONENT
-            if (animal?.type === "Dog") {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={Dog}
-                />
-              );
-            } else if (animal?.type === "Cat") {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={pup}
-                />
-              );
-            } else {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={pasta}
-                />
-              );
-            }
-          })()}
+  < AnimalImage animal={animal}/>
         </div>
         <div className="foodbackground">placeholder</div>
       </div>
