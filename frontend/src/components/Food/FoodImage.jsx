@@ -1,9 +1,9 @@
 import { deleteFood, foodIndex } from "../../utilities/food-service";
 
-import kibble from "../../assets/kibble.svg";
-import steak from "../../assets/steak-01.svg";
-import cheese from "../../assets/cheese.svg";
-import peanutbutter from "../../assets/peanutbutter.svg";
+import kibble from "../../assets/food/kibble.svg";
+import steak from "../../assets/food/steak-01.svg";
+import cheese from "../../assets/food/cheese.svg";
+import peanutbutter from "../../assets/food/peanutbutter.svg";
 import './foods.css'
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";

@@ -3,7 +3,7 @@ import AnimalsList from "../../components/Animals/AnimalsList";
 import NewAnimalForm from "../../components/Animals/NewAnimalForm";
 import Header from "../../components/Header/header";
 import AnimalOfTheDay from "../../components/Animals/animalOfTheDay";
-import dog from "../../assets/dog-02.png";
+import dog from "../../assets/animals/dog-sitting.svg";
 import "./homepage.css";
 
 export default function Home() {
