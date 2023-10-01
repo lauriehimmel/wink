@@ -1,5 +1,4 @@
 module.exports = {
   Animal: require('./Animal'),
-  Food: require('./Food'),
-  Activity: require('./Activity')
+  Food: require('./Food')
 }

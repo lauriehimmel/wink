@@ -12,5 +12,8 @@
     "react-router-dom": "^6.16.0",
     "survey-core": "^1.9.110",
     "survey-react-ui": "^1.9.110"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
