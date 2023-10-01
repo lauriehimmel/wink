@@ -56,3 +56,11 @@ button, .purplebutton, .form-submit, .dropdown {
   font-weight: 400;
   font-style: normal;
 }
+
+.footer {
+  padding: 5rem 0 2rem 0;
+  color: black;
+  background-color: #f06592;
+  width: 100%;
+  text-align: center;
+}

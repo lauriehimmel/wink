@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./animals.css";
 import pup from "../../assets/Dog.svg";
 import Dog from "../../assets/Dog-Sitting-Front-01.svg";
-import pasta from "../../assets/pasta.svg";
+import AnimalImage from "./AnimalImage";
 
 export default function AnimalsList({ location }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -78,15 +78,7 @@ export default function AnimalsList({ location }) {
             {animals.map((animal) => (
               <div key={animal._id} className="indexAnimal">
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                  {(() => {
-                    if (animal?.type === "Dog") {
-                      return <img style={{'background-color': `${animal.color}`}} src={Dog} />;
-                    } else if (animal?.type === "Cat") {
-                      return <img style={{'background-color': `${animal.color}`}} src={pup} />;
-                    } else {
-                      return <img style={{'background-color': `${animal.color}`}} src={pasta} />;
-                    }
-                  })()}
+                  < AnimalImage animal={animal}/>
                 </div>
                 <div
                   className="animalName"
@@ -104,15 +96,7 @@ export default function AnimalsList({ location }) {
             {randomAnimal?.map((animal) => (
               <div key={animal?._id} className="animalslist">
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                  {(() => {
-                    if (animal?.type === "Dog") {
-                      return <img style={{'background': `${animal.color}`}} src={Dog} />;
-                    } else if (animal?.type === "Cat") {
-                      return <img style={{'background': `${animal.color}`}} src={pup} />;
-                    } else if (animal?.type === "Frog"){
-                      return <img style={{'background': `${animal.color}`}} src={pasta} />;
-                    } 
-                  })()}
+                 < AnimalImage animal={animal}/>
                 </div>
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {animal?.name}
