@@ -10,6 +10,7 @@ import pasta from "../../assets/pasta.svg";
 import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "../Food/FoodList";
+import AnimalImage from "./AnimalImage";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -119,33 +120,7 @@ export default function OneAnimal() {
           <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
         </div>
         <div>
-          {(() => {
-            if (animal?.type === "Dog") {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={Dog}
-                />
-              );
-            } else if (animal?.type === "Cat") {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={pup}
-                />
-              );
-            } else {
-              return (
-                <img
-                  style={{ background: `${animal?.color}` }}
-                  className="animal-image-main"
-                  src={pasta}
-                />
-              );
-            }
-          })()}
+  < AnimalImage animal={animal}/>
         </div>
         <div className="foodbackground">placeholder</div>
       </div>

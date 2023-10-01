@@ -60,8 +60,9 @@ const colors = [
           <div className="labeltext">What kind of animal are you adopting?</div>
           <select className="dropdown" name="type" value={newForm.type} onChange={handleChange}>
             <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Frog">Frog</option>
+            <option value="Raccoon">Raccoon</option>
+            <option value="Otter">Otter</option>
+            <option value="Pig">Pig</option>
           </select>
         </label>
         <label className="formLabel" htmlFor="color">

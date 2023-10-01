@@ -78,3 +78,16 @@
               ))}
             </div>
           </div> */}
+
+
+// SHOWS FIRST 4 ANIMALS IN ARRAY IN RANDOM ORDER
+          {/* {firstFourAnimals?.map((animal) => (
+            <div key={animal._id} className="animalslist">
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                <img src={dog} />
+              </div>
+              <div onClick={() => navigate(`/animals/${animal._id}`)}>
+                {animal?.name}
+              </div>
+            </div>
+          ))} */}
