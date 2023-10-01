@@ -74,8 +74,8 @@ export default function AnimalsList({ location }) {
         <div className="animalsbackground">
           <div className="animalsIndex">
             {animals.map((animal) => (
-              <div key={animal._id} className="indexAnimal">
-                <div onClick={() => navigate(`/animals/${animal._id}`)}>
+              <div className="indexAnimal">
+                <div key={animal._id} onClick={() => navigate(`/animals/${animal._id}`)}>
                   < AnimalImage animal={animal}/>
                 </div>
                 <div

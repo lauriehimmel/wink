@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteFood, foodIndex } from "../../utilities/food-service";
 import FoodImages from "./FoodImage";
+import { findAnimalByFoodId } from "../../utilities/animal-service";
 
 export default function FoodList({decrementItem}) {
   let id;
@@ -22,6 +23,7 @@ export default function FoodList({decrementItem}) {
       console.log(err);
     }
   };
+
 
   useEffect(() => {
     setIsLoading(false);

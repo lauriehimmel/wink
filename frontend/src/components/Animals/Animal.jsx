@@ -69,6 +69,7 @@ export default function OneAnimal() {
   useEffect(() => {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
+    console.log('animal', animal)
     // increase hunger if animal.lastFed is not today
     // if (
     //   animal &&

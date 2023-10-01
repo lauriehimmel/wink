@@ -58,3 +58,17 @@ export async function update(id, formData) {
     throw new Error("Invalid Request");
   }
 }
+
+export async function findAnimalByFoodId(foodId){
+  const res = await fetch(`${BASE_URL}/animals/food/${foodId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.ok) {
+      return res.json();
+    } else {
+      return new Error("Invalid Request");
+    }
+}

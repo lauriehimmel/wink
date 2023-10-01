@@ -45,13 +45,16 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
     setFormValue(e.target.value)
   }
   async function addFood(id) {
+    console.log('animal', animal)
     let foodList = [...animal.foods.map(f => f._id)];
+    console.log('FoodList', foodList)
     foodList.push(id);
-    // setAddFood(prevState => !prevState)
+    console.log('FoodList', foodList)
     const updatedAnimal = {
       ...animal,
       foods: foodList,
     };
+    console.log('updatedAnimal', updatedAnimal)
     const updatedData = await updateAnimal(animal._id, updatedAnimal)
     handleAnimalUpdate(updatedData)
   }
