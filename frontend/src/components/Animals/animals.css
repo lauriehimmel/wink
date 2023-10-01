@@ -29,8 +29,8 @@
 
 .animalsbackground {
   background-color: #f06592;
-  height: 100%;
-  /* padding-bottom: 10% */
+  height: auto;
+  min-height: 70vh;
 }
 
 .indexAnimal {
