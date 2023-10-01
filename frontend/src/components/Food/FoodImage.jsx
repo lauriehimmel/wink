@@ -47,6 +47,7 @@ export default function FoodImages({ food, setFood }) {
           }
         })()}
       </div>
+      Delete
     </div>
   );
 }
