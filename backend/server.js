@@ -29,9 +29,10 @@ app.get("/", (req, res) => {
 app.set("port", process.env.PORT || 8000);
 
 app.use(cors({
-    origin: "*",
-    methods: "GET, POST, PUT, DELETE",
-    credentials: true,
+    "origin": "*",
+    "methods": "GET, POST, PUT, DELETE",
+    "credentials": true,
+    "optionsSuccessStatus": 200
   }))
 
 app.listen(app.get("port"), () => {

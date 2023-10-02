@@ -7,7 +7,6 @@ module.exports = {
   show,
   destroy,
   update,
-  findAnimalbyFoodId,
 };
 
 async function index(req, res) {
