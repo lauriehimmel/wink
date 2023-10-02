@@ -35,9 +35,10 @@ Inspired by Tamagotchi and my one-eyed dog Roux. ❤️
 - hunger/happiness bar styling based on how hungry/happy pet is
 
 ## Resources/Inspiration
-- [Kibble image](https://www.freepik.com/free-vector/mascots-bags-food-set_5141995.htm#query=kibble&position=4&from_view=search&track=sph) by studiogstock on Freepik
-- [Cheese image](https://www.freepik.com/free-vector/cheese-plate_32354323.htm#query=cheese&position=4&from_view=search&track=sph) by brgfx on Freepik
-- [Pig image](https://www.freepik.com/free-vector/cute-pig-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-flat_40513463.htm#query=cute%20pig%20cartoon&position=0&from_view=keyword&track=ais) by catalyststuff on Freepik
-- [Dog image](https://www.brittany-england.com/) by Britt England
+- Dog image[by Britt England](https://www.brittany-england.com/) 
+- Kibble image [by studiogstock on Freepik](https://www.freepik.com/free-vector/mascots-bags-food-set_5141995.htm#query=kibble&position=4&from_view=search&track=sph)
+- Cheese image [by brgfx on Freepik](https://www.freepik.com/free-vector/cheese-plate_32354323.htm#query=cheese&position=4&from_view=search&track=sph) 
+- Pig image [by catalyststuff on Freepik](https://www.freepik.com/free-vector/cute-pig-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-flat_40513463.htm#query=cute%20pig%20cartoon&position=0&from_view=keyword&track=ais)
+- Peanut butter image [by brgfx on Freepik](https://www.freepik.com/free-vector/peanut-butter-elements-icons-set_40367911.htm)
 - [General design inspiration](https://www.creativebloq.com/news/retro-modern-websites)
 - [Glitter copyright text](https://www.glitter-graphics.com/graphics/602494)
