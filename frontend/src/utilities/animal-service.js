@@ -45,13 +45,3 @@ export async function updateAnimal(id, data) {
   }
 }
 
-export async function findAnimalByFoodId(foodId) {
-  try {
-    const data = await animalAPI.findAnimalByFoodId(foodId);
-    return data;
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-}
-
