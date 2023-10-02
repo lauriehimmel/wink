@@ -7,14 +7,8 @@ export async function index() {
     mode:"cors",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
-      mode:"cors"
     },
-  });
+    })
   if (res.ok) {
     return res.json();
   } else {
@@ -29,11 +23,6 @@ export async function create(data) {
     mode:"cors",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
     },
     body: JSON.stringify(data),
   });
@@ -51,11 +40,6 @@ export async function destroy(id) {
     mode:"cors",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
     },
     body: JSON.stringify(id),
   });
@@ -68,18 +52,13 @@ export async function destroy(id) {
 
 export async function show(id) {
   const res = await fetch(`${BASE_URL}/animals/${id}`, {
-    method: "POST",
+    method: "GET",
     // credentials: "include",
     mode:"cors",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
-    },
-    body: JSON.stringify(id),
+    // headers: {
+    //   "Content-Type": "application/json",
+    // },
+    // body: JSON.stringify(id),
   });
   if (res.ok) {
     return res.json();
@@ -95,11 +74,6 @@ export async function update(id, formData) {
     mode:"cors",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Headers":
-        "Origin, X-Requested-With, Content-Type, Accept",
-      "Access-Control-Allow-Credentials": true,
-      "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
     },
     body: JSON.stringify(formData),
   });

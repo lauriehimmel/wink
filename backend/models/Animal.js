@@ -21,8 +21,3 @@ const animalSchema = new Schema(
 
 module.exports = mongoose.model("Animal", animalSchema);
 
-// images: {type:[Schema.Types.ObjectId], ref: "Image"},
-// activities: {type:[Schema.Types.ObjectId], ref: "Activity"},
-
-//   health: Number,
-// happiness: Number
