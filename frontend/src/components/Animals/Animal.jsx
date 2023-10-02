@@ -13,7 +13,7 @@ export default function OneAnimal() {
   const [animal, setAnimal] = useState(null);
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
-  const [addFood, setAddFood] = useState(false);
+  const [addFoodState, setAddFoodState] = useState(false);
   const today = new Date();
   let hungerChange;
 
@@ -64,21 +64,13 @@ export default function OneAnimal() {
       setAnimal(updatedAnimal);
     }
     getAnimal();
-  }, [animal?.foods.length]);
+  }, [animal]);
 
   useEffect(() => {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
-    console.log("animal", animal);
-    // increase hunger if animal.lastFed is not today
-    // if (
-    //   animal &&
-    //   new Date(today).toISOString().split("T")[0] !==
-    //     new Date(animal?.lastFed).toISOString().split("T")[0]
-    // )
-    //   changeHunger();
   }, [animal]);
-
+  
   return isLoading ? (
     <>
       <h1>Loading</h1>
@@ -99,7 +91,7 @@ export default function OneAnimal() {
           <button
             className="editbutton"
             onClick={() => navigate(`/animals/${animal._id}/update`)}
-          >
+            >
             Edit
           </button>
         </div>
@@ -109,11 +101,11 @@ export default function OneAnimal() {
           <div className="foodbackground">
             <div>
               <div className="foodgrid">
-                <FoodList animal={animal} decrementItem={decrementItem} />
+                <FoodList animal={animal} decrementItem={decrementItem} setAnimal={setAnimal}/>
               </div>
             </div>
           </div>
-          <NewFoodForm setAddFood={setAddFood} handleAnimalUpdate={setAnimal} />
+          <NewFoodForm setAddFoodState={setAddFoodState} setAnimal={setAnimal} animal={animal}/>
         </div>
         <div>
           <AnimalImage animal={animal} />
@@ -123,3 +115,14 @@ export default function OneAnimal() {
     </>
   );
 }
+
+
+
+
+// increase hunger if animal.lastFed is not today
+// if (
+//   animal &&
+//   new Date(today).toISOString().split("T")[0] !==
+//     new Date(animal?.lastFed).toISOString().split("T")[0]
+// )
+//   changeHunger();
