@@ -78,7 +78,7 @@ export default function NewAnimalForm() {
               <option value="Frog">Frog</option>
             </select>
           </label>
-          <label className="formLabel" htmlFor="color">
+          <label htmlFor="color">
           <div className="labeltext">What color is {animal?.name} now?</div>
           <select name="color" defaultValue={animal.color} onChange={handleChange}>
             {colors.map((color) => (
