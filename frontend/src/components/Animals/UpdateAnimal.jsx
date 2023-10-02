@@ -74,8 +74,9 @@ export default function NewAnimalForm() {
             <div className="labeltext">Did {animal?.name} shapeshift?</div>
             <select name="type" value={animal.type} onChange={handleChange}>
               <option value="Dog">Dog</option>
-              <option value="Cat">Cat</option>
-              <option value="Frog">Frog</option>
+              <option value="Otter">Otter</option>
+              <option value="Raccoon">Raccoon</option>
+              <option value="Pig">Pig</option>
             </select>
           </label>
           <label htmlFor="color">
