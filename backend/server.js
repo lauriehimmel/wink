@@ -1,6 +1,7 @@
 require("dotenv").config();
 require('./config/db.connection.js')
 
+
 var cors = require("cors")
 var morgan = require("morgan")
 var animalRouter = require('./routes/animals')
@@ -10,6 +11,7 @@ var foodRouter = require('./routes/foods')
 var { PORT } = process.env;
 var express = require("express");
 var app = express();
+app.options('*', cors())
 
 const FRONTENDURL= process.env.FRONTENDURL
 

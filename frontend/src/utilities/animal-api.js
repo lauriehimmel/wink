@@ -4,6 +4,7 @@ export async function index() {
   const res = await fetch(`${BASE_URL}/animals`, {
     method: "GET",
     credentials: "include",
+    mode:"cors",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
@@ -11,6 +12,7 @@ export async function index() {
         "Origin, X-Requested-With, Content-Type, Accept",
       "Access-Control-Allow-Credentials": true,
       "Access-Control-Allow-Methods": "POST, PUT, PATCH, GET, DELETE",
+      mode:"cors"
     },
   });
   if (res.ok) {
@@ -24,6 +26,7 @@ export async function create(data) {
   const res = await fetch(`${BASE_URL}/animals`, {
     method: "POST",
     credentials: "include",
+    mode:"cors",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
@@ -45,6 +48,7 @@ export async function destroy(id) {
   const res = await fetch(`${BASE_URL}/animals/${id}`, {
     method: "DELETE",
     credentials: "include",
+    mode:"cors",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
@@ -66,6 +70,7 @@ export async function show(id) {
   const res = await fetch(`${BASE_URL}/animals/${id}`, {
     method: "POST",
     credentials: "include",
+    mode:"cors",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
@@ -87,6 +92,7 @@ export async function update(id, formData) {
   const res = await fetch(`${BASE_URL}/animals/${id}`, {
     method: "PUT",
     credentials: "include",
+    mode:"cors",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
