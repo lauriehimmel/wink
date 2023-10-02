@@ -3,7 +3,10 @@ import Otter from "../../assets/animals/otter.svg";
 import Raccoon from "../../assets/animals/raccoon.svg";
 import Pig from "../../assets/animals/pig.svg";
 
-export default function AnimalImage({ animal }) {
+export default function AnimalImage({ animal, location }) {
+  let classFromLocation;
+  location !== 'homepage' ? classFromLocation = 'showpage-image' : classFromLocation = 'homepage-image';
+  
   return (
     <>
       {(() => {
@@ -11,7 +14,7 @@ export default function AnimalImage({ animal }) {
           return (
             <img
               style={{ background: `${animal?.color}` }}
-              className="animal-image-main"
+              className={classFromLocation}
               src={Dog}
             />
           );
@@ -19,7 +22,7 @@ export default function AnimalImage({ animal }) {
           return (
             <img
               style={{ background: `${animal?.color}` }}
-              className="animal-image-main"
+              className={classFromLocation}
               src={Otter}
             />
           );
@@ -27,7 +30,7 @@ export default function AnimalImage({ animal }) {
           return (
             <img
               style={{ background: `${animal?.color}` }}
-              className="animal-image-main"
+              className={classFromLocation}
               src={Pig}
             />
           );
@@ -35,7 +38,7 @@ export default function AnimalImage({ animal }) {
           return (
             <img
               style={{ background: `${animal?.color}` }}
-              className="animal-image-main"
+              className={classFromLocation}
               src={Raccoon}
             />
           );

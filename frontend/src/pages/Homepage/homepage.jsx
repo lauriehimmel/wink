@@ -20,12 +20,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
+        {/* <div>
           <h1 className="homeheaders">Pet of the Day</h1>
           <div className="home-animalofday">
             <AnimalOfTheDay />
           </div>
-        </div>
+        </div> */}
         <div>
           <h1 onClick={() => navigate("/adopt")} className="homeheaders">
             Adopt a Pet

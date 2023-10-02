@@ -78,14 +78,14 @@ export default function OneAnimal() {
   ) : (
     <>
       <div className="animal-header">
-        <div className="animal-name">
-          <p>
+        <div>
+          <div className="animal-name">
             {animal?.name} the {animal?.type}
-          </p>
-          <p>
+          </div>
+          <div className="hungerlevel">
             {animal?.name}'s hunger level: {clickAmount}
             <progress id="health" value={clickAmount} max="100"></progress>
-          </p>
+          </div>
         </div>
         <div>
           <button
@@ -108,9 +108,9 @@ export default function OneAnimal() {
           <NewFoodForm setAddFoodState={setAddFoodState} setAnimal={setAnimal} animal={animal}/>
         </div>
         <div>
-          <AnimalImage animal={animal} />
+          <AnimalImage animal={animal} location={'showpage'}/>
         </div>
-        <div className="foodbackground">placeholder</div>
+        {/* <div className="foodbackground">placeholder</div> */}
       </div>
     </>
   );
