@@ -50,3 +50,11 @@ async function updateFood(req, res) {
   }
 }
 
+
+async function findFoodByAnimalId(req, res) {
+  try {
+    res.status(201).json(await Food.find({ foods: req.params.foodid }));
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}

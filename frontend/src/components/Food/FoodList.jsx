@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { deleteFood, foodIndex } from "../../utilities/food-service";
 import FoodImages from "./FoodImage";
-import { findAnimalByFoodId } from "../../utilities/animal-service";
+import { findAnimalByFoodId, showAnimal } from "../../utilities/animal-service";
+import { useParams } from "react-router";
 
-export default function FoodList({decrementItem}) {
-  let id;
+export default function FoodList({animal, decrementItem, setAnimal}) {
+  const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [food, setFood] = useState(null);
+  const [deletedFoods, setDeletedFoods] = useState();
 
   async function handleRequest() {
-    const foods = await foodIndex();
-    if (foods.length) {
+    if (animal?.foods?.length >=0) {
+      const foods = animal.foods
       setFood(foods);
       setIsLoading(false);
     }
@@ -19,16 +21,32 @@ export default function FoodList({decrementItem}) {
   const handleDelete = async (e) => {
     try {
       const deletedFood = await deleteFood(e.target.id);
+      const animalMinusDeleted = animal.foods.pop(deletedFood)
+      setAnimal(animalMinusDeleted);
     } catch (err) {
       console.log(err);
     }
   };
 
+  useEffect(() => {
+    async function selectAnimal() {
+      setAnimal(animal);
+    }
+    selectAnimal();
+  }, []);
+  
+  useEffect(() => {
+    async function selectAnimal() {
+      setAnimal(animal);
+    }
+    selectAnimal();
+  }, [animal]);
+
 
   useEffect(() => {
     setIsLoading(false);
     handleRequest();
-  }, [food]);
+  }, [animal?.foods]);
 
   return isLoading ? (
     <>

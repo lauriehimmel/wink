@@ -4,7 +4,7 @@ import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
 
-export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
+export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
   const meals = [
     { meal: "Breakfast", id:1 },
     { meal: "Lunch", id:2 },
@@ -25,17 +25,24 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
 
   const { id } = useParams();
   const [foodForm, setFoodForm] = useState(initState);
-  const [animal, setAnimal] = useState();
+  const [thisAnimal, setThisAnimal] = useState();
   const [formvalue, setFormValue] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
     async function selectAnimal() {
-      const animal = await showAnimal(id);
-      setAnimal(animal);
+      setThisAnimal(animal);
     }
     selectAnimal();
   }, []);
+  
+  useEffect(() => {
+    async function selectAnimal() {
+      setThisAnimal(animal);
+    }
+    selectAnimal();
+  }, [animal]);
+
   
   function handleChange(e) {
     const formData = {
@@ -45,24 +52,21 @@ export default function NewFoodForm({setAddFood, handleAnimalUpdate}) {
     setFormValue(e.target.value)
   }
   async function addFood(id) {
-    console.log('animal', animal)
-    let foodList = [...animal.foods.map(f => f._id)];
-    console.log('FoodList', foodList)
+    const foodList = [...thisAnimal.foods.map(f => f._id)];
     foodList.push(id);
-    console.log('FoodList', foodList)
     const updatedAnimal = {
-      ...animal,
+      ...thisAnimal,
       foods: foodList,
     };
-    console.log('updatedAnimal', updatedAnimal)
-    const updatedData = await updateAnimal(animal._id, updatedAnimal)
-    handleAnimalUpdate(updatedData)
+    const updatedData = await updateAnimal(thisAnimal._id, updatedAnimal)
+    setAnimal(updatedData)
   }
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
     addFood(newFood._id);
+    setAddFoodState(newFood._id)
     setFoodForm(initState);
   }
 
