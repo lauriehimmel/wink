@@ -23,6 +23,8 @@ Inspired by Tamagotchi and my one-eyed dog Roux. ❤️
 ## Known Issues
 - adding foods too fast breaks the app
 - slow loading
+- paginate foods so they don't overflow their container when more than 9 are added
+- stop ability to feed pet when Hunger = 0
 
 ## Icebox Features
 - user authentication
