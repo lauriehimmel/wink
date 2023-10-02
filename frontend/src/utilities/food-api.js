@@ -1,7 +1,9 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export async function foodIndex() {
-  const res = await fetch(`${BASE_URL}/food`, { method: "GET" });
+  const res = await fetch(`${BASE_URL}/food`, { method: "GET",
+  mode:"cors",
+});
   if (res.ok) {
     return res.json();
   } else {
@@ -12,6 +14,8 @@ export async function foodIndex() {
 export async function createFood(data) {
   const res = await fetch(`${BASE_URL}/food`, {
     method: "POST",
+    mode:"cors",
+
     headers: {
       "Content-Type": "application/json",
     },
@@ -38,6 +42,8 @@ export async function showFood(id) {
 export async function updateFood(id, formData) {
   const res = await fetch(`${BASE_URL}/food/${id}`, {
     method: "PUT",
+    mode:"cors",
+
     headers: {
       "Content-Type": "application/json",
     },
