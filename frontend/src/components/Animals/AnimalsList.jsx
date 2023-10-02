@@ -94,7 +94,7 @@ export default function AnimalsList({ location }) {
             {randomAnimal?.map((animal) => (
               <div key={animal?._id} className="animalslist">
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
-                 < AnimalImage animal={animal}/>
+                 < AnimalImage animal={animal} location={'homepage'}/>
                 </div>
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
                   {animal?.name}

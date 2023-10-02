@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Homepage />}/>
+        <Route exact path="/" element={<Homepage />}/>
         <Route path="/animals" element={<AnimalsList />} />
         <Route path="/animals/:id" element={<ShowAnimal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />

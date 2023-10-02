@@ -14,7 +14,6 @@
 }
 
 .animalsIndex .animalName,
-.animal-name,
 .animal-form h1 {
   color: white;
   font-family: "Ranchers", cursive;
@@ -53,8 +52,12 @@
 }
 
 
-.animal-image-main {
-  height: 15vh;
+.homepage-image {
+  height: 30vh;
+}
+
+.showpage-image {
+  height: 70vh;
 }
 
 
@@ -75,12 +78,6 @@
   gap: 1rem;
 }
 
-.newfoodform {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem;
-}
 
 .animal-form {
   background-color: #f06592;
@@ -115,6 +112,7 @@
   font-style: italic;
   display: flex;
   text-align: right;
+  justify-content: center;
 }
 
 .labels {
@@ -167,4 +165,25 @@
   font-style: normal;
   color: #65489d;
   font-size: 2rem;
+}
+
+.hungerlevel {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.animal-name, .hungerlevel {
+  color: white;
+  font-family: "Ranchers", cursive;
+}
+
+.animal-name {
+  font-size: 3rem;
+}
+
+.hungerlevel {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

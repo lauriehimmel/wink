@@ -8,6 +8,20 @@ export default function NewAnimalForm() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const colors = [
+    {color: "White", id: 1, hexcode: "#ffffff"},
+    {color: "Brown", id: 2, hexcode: "#7B3F00"},
+    {color: "Grey", id: 3, hexcode: "#C0C0C0"},
+    {color: "Black", id: 4, hexcode: "#36454F"},
+    {color: "Red", id: 5, hexcode: "red"},
+    {color: "Orange", id: 6, hexcode: "orange"},
+    {color: "Yellow", id: 7, hexcode: "yellow"},
+    {color: "Green", id: 8, hexcode: "#93C572"},
+    {color: "Blue", id: 9, hexcode: "#6495ED"},
+    {color: "Purple", id: 10, hexcode: "#CF9FFF"},
+    {color: "Pink", id: 11, hexcode: "#FF69B4"}
+  ]
+
   async function handleRequest() {
     try {
       const animalData = await showAnimal(id);
@@ -64,6 +78,16 @@ export default function NewAnimalForm() {
               <option value="Frog">Frog</option>
             </select>
           </label>
+          <label className="formLabel" htmlFor="color">
+          <div className="labeltext">What color is {animal?.name} now?</div>
+          <select name="color" defaultValue={animal.color} onChange={handleChange}>
+            {colors.map((color) => (
+              <option name="color" id="color" value={color.hexcode} key={color.id}>
+                {color.color}
+              </option>
+            ))}
+          </select>
+        </label>
           <input className="form-submit" type="submit" value="Update!" />
         </form>
       </div>
