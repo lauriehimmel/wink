@@ -25,6 +25,7 @@ Inspired by Tamagotchi and my one-eyed dog Roux. ❤️
 - slow loading
 - paginate foods so they don't overflow their container when more than 9 are added
 - stop ability to feed pet when Hunger = 0
+- not mobile-friendly
 
 ## Icebox Features
 - user authentication
