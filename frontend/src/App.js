@@ -22,7 +22,6 @@ function App() {
         <Route path="/adopt" element={<Adopt />} />
         <Route path="/newfood" element={<NewFoodForm />} />
         <Route path="/foodlist" element={<FoodList />} />
-        {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
       <Footer />
     </div>

@@ -8,7 +8,7 @@ import './foods.css'
 export default function FoodImages({ food, decrementItem }) {
 
   return (
-    <div key={food._id}>
+    <div key={food?._id}>
         {(() => {
           if (food?.name === "Kibble") {
             return (
