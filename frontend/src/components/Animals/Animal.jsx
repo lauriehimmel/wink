@@ -99,17 +99,15 @@ export default function OneAnimal() {
         </div>
       </div>
       <div className="animal-body">
-        <div>
+        <div className="foodform-foodimages">
           <div className="foodbackground">
-            <div>
-              <div className="foodgrid">
+              {/* <div> */}
                 <FoodList
                   animal={animal}
                   decrementItem={decrementItem}
                   setAnimal={setAnimal}
                 />
-              </div>
-            </div>
+              {/* </div> */}
           </div>
           <NewFoodForm
             setAddFoodState={setAddFoodState}
