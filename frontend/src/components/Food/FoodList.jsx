@@ -5,6 +5,7 @@ import FoodImages from "./FoodImage";
 export default function FoodList({ animal, decrementItem, setAnimal }) {
   const [isLoading, setIsLoading] = useState(true);
   const [food, setFood] = useState(null);
+  let idx = 0;
 
   async function handleRequest() {
     if (animal?.foods?.length >= 0) {
@@ -37,10 +38,11 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
     }
     selectAnimal();
   }, [animal]);
-
+  
   useEffect(() => {
     setIsLoading(false);
     handleRequest();
+    // console.log(animal?.foods)
   }, [animal?.foods]);
 
   return isLoading ? (
@@ -49,7 +51,22 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
     </>
   ) : (
     <>
-      {food?.map((food) => (
+     <div key={animal?.foods[idx]} className="foodList">
+          <FoodImages
+            food={animal?.foods[idx]}
+            setFood={setFood}
+            decrementItem={decrementItem}
+          />
+          <button className="deletebutton" id={animal?.foods[idx]._id} onClick={handleDelete}>
+            x
+          </button>
+        </div>
+    </>
+  );
+}
+
+
+      {/* {food?.map((food) => (
         <div key={food._id} className="foodList">
           <FoodImages
             food={food}
@@ -60,7 +77,4 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
             x
           </button>
         </div>
-      ))}
-    </>
-  );
-}
+      ))} */}

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 import NewFoodForm from "../Food/NewFoodForm";
-import { showFood, updateFood } from "../../utilities/food-service";
 import React from "react";
 import FoodList from "../Food/FoodList";
 import AnimalImage from "./AnimalImage";
@@ -17,33 +16,39 @@ export default function OneAnimal() {
   const today = new Date();
   let hungerChange;
 
-  // update animal.lastFed
-  async function lastFed() {
-    const fed = new Date();
-    const newFedDate = {
-      lastFed: fed,
-    };
-    if (animal) updateAnimal(animal._id, newFedDate);
-  }
 
-  // increase hunger based on date
-  function changeHunger() {
-    let todayDate = new Date(today);
-    let fedDate = new Date(animal?.lastFed);
-    let hungerLevel = Math.floor(
-      (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
-    );
-    hungerLevel > 0
-      ? (hungerChange = animal?.hunger + hungerLevel)
-      : (hungerChange = animal?.hunger);
-    const updatedHunger = {
-      ...animal,
-      hunger: hungerChange,
-    };
-    updateAnimal(animal._id, updatedHunger);
-  }
+  // *****in progress - updating Animal's hunger based on how long it's been since last feed
+  // async function lastFed() {
+  //   const fed = new Date(today);
+  //   console.log("this", fed);
+  //   const newFedDate = {
+  //     lastFed: fed,
+  //   };
+  //   console.log(newFedDate);
+  //   const new1 = animal?.lastFed
+  //   console.log(new1)
+  //   if (animal) updateAnimal(animal._id, newFedDate);
+    // console.log(new Date(today).toDateString())
+    // if (animal?.lastFed.toDateString() !== new Date(today).toDateString())
+    // {changeHunger();}
+  // }
 
-  // decreases hunger on screen + updates animal.lastFed
+  // function changeHunger() {
+  //   let todayDate = new Date(today);
+  //   let fedDate = new Date(animal?.lastFed);
+  //   let hungerLevel = Math.floor(
+  //     (todayDate.getTime() - fedDate.getTime()) / (1000 * 60 * 60 * 24)
+  //   );
+  //   hungerLevel > 0
+  //     ? (hungerChange = animal?.hunger + hungerLevel)
+  //     : (hungerChange = animal?.hunger);
+  //   const updatedHunger = {
+  //     ...animal,
+  //     hunger: hungerChange,
+  //   };
+  //   updateAnimal(animal._id, updatedHunger);
+  // }
+
   async function decrementItem() {
     let newClicks = clickAmount;
     if (clickAmount > 0) {
@@ -54,20 +59,17 @@ export default function OneAnimal() {
         hunger: clickAmount - 1,
       };
       updateAnimal(animal._id, hungerClicks);
-      lastFed();
+      // lastFed();
     }
   }
 
   useEffect(() => {
+    setClickAmount(animal?.hunger);
     async function getAnimal() {
       const updatedAnimal = await showAnimal(id);
       setAnimal(updatedAnimal);
     }
     getAnimal();
-  }, [animal]);
-
-  useEffect(() => {
-    setClickAmount(animal?.hunger);
     setIsLoading(false);
   }, [animal]);
 
@@ -118,16 +120,7 @@ export default function OneAnimal() {
         <div>
           <AnimalImage animal={animal} location={"showpage"} />
         </div>
-        {/* <div className="foodbackground">placeholder</div> */}
       </div>
     </>
   );
 }
-
-// increase hunger if animal.lastFed is not today
-// if (
-//   animal &&
-//   new Date(today).toISOString().split("T")[0] !==
-//     new Date(animal?.lastFed).toISOString().split("T")[0]
-// )
-//   changeHunger();
