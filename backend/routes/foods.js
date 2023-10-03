@@ -9,5 +9,4 @@ router.post("/", foodCtrl.createFood);
 router.delete("/:id", foodCtrl.destroyFood);
 router.put("/:id", foodCtrl.updateFood);
 
-
 module.exports = router

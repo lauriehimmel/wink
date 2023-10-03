@@ -3,30 +3,31 @@ import { useNavigate, useParams } from "react-router";
 import { createFood, generateIcon } from "../../utilities/food-service";
 import { showAnimal, updateAnimal } from "../../utilities/animal-service";
 
-
 export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
   const meals = [
     { meal: "Breakfast", id:1 },
     { meal: "Lunch", id:2 },
     { meal: "Dinner", id:3 },
   ];
-
+  
   const foodOptions = [
     { name: "Kibble", id:1 },
     { name: "Cheese", id:2 },
     { name: "Steak", id:3 },
     { name: "Peanut butter", id:4 },
   ]
-
+  
   let initState = {
     name: "Kibble",
     meal: "Breakfast"
   };  
-
+  
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true)
   const [foodForm, setFoodForm] = useState(initState);
   const [thisAnimal, setThisAnimal] = useState();
   const [formvalue, setFormValue] = useState();
+  const [disableButton, setDisableButton] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
       setThisAnimal(animal);
     }
     selectAnimal();
+    setIsLoading(false)
   }, [animal]);
 
   
@@ -64,13 +66,20 @@ export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setDisableButton(true)
+    setTimeout(function(){setDisableButton(false)}, 1000)
     const newFood = await createFood({name: e.target.name.value, meal: e.target.meal.value});
     addFood(newFood._id);
     setAddFoodState(newFood._id)
     setFoodForm(initState);
   }
 
-  return (
+  return isLoading ? (
+    <>
+      <div className="loading">Loading</div>
+    </>
+  ) : (
+    <>
     <div>
       <form className="newfoodform" onSubmit={handleSubmit}>
         <label htmlFor="meal">
@@ -94,9 +103,10 @@ export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
             ))}
           </select>
         </label>
-        <input className="purplebutton addtopantry" type="submit" value="Add to pantry!" />
+        <input className="purplebutton addtopantry" type="submit" value="Add to pantry!" disabled={disableButton}/>
         </section>
       </form>
     </div>
+    </>
   );
 }

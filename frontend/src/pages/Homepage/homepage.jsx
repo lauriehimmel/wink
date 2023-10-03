@@ -1,8 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AnimalsList from "../../components/Animals/AnimalsList";
-import NewAnimalForm from "../../components/Animals/NewAnimalForm";
-import Header from "../../components/Header/header";
-import AnimalOfTheDay from "../../components/Animals/animalOfTheDay";
 import dog from "../../assets/animals/dog-sitting.svg";
 import "./homepage.css";
 
@@ -20,18 +17,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <div>
-          <h1 className="homeheaders">Pet of the Day</h1>
-          <div className="home-animalofday">
-            <AnimalOfTheDay />
-          </div>
-        </div> */}
         <div>
           <h1 onClick={() => navigate("/adopt")} className="homeheaders">
             Adopt a Pet
           </h1>
           <div className="home-adopt">
-            <img className="homeheaders" src={dog} />
+            <img className="homeheaders" src={dog} alt="cartoon of a smling dog"/>
           </div>
         </div>
       </div>
