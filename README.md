@@ -8,19 +8,23 @@ Inspired by [Tamagotchi](https://tamagotchi.com/) and my one-eyed dog Roux. ‚ù§Ô
 Wink is deployed on Netlify, find it [here](https://winkfriends.netlify.app/)!
 
 ## Screenshots
-**Wink homepage:** features 4 random pets and a link to adopt a pet. **To come:** Pet of the Day
-![Homepage](library/screenshots/Homepage.png)
+**WINK HOMEPAGE:** features 4 random pets and a link to adopt a pet.   
+**TO COME:** Pet of the Day
+![Homepage](library/screenshots/Homepage.png)  
 
-**All Pets:** features all pets that have been created.
-![All animals](library/screenshots/AnimalIndex.png)
+**ALL PETS:** features all pets that have been created.  
+![All animals](library/screenshots/AnimalIndex.png)  
 
-**Individual Pet:** showcases an individual animal, including their image, hunger level, and available foods. **To come:** Username of pet creator, styling for hunger level, toys and happiness level.
-![Show animal](library/screenshots/ShowAnimal.png)
+**INDIVIDUAL PET:** showcases an individual animal, including their image, hunger level, and available foods.   
+**TO COME:** Username of pet creator, styling for hunger level, toys and happiness level.
+![Show animal](library/screenshots/ShowAnimal.png)  
 
-**Create animal form:** create the animal you'd like to adopt - name it and choose the animal type and color. **To come:** Possible implementation of 3rd-party API to expand available animal options.
-![Create animal form](library/screenshots/CreateAnimal.png)
+**CREATE ANIMAL FORM:** create the animal you'd like to adopt - name it and choose the animal type and color.  
+**TO COME:** Possible implementation of 3rd-party API to expand available animal options.
+![Create animal form](library/screenshots/CreateAnimal.png)  
 
-**Update animal form:** make changes to your animal. **To come:** Only the animal's creator can edit animal.
+**UPDATE ANIMAL FORM:** make changes to your animal.  
+**TO COME:** Only the animal's creator can edit animal.
 ![Update animal form](library/screenshots/UpdateAnimal.png)
 
 ## Technologies Used
@@ -42,6 +46,12 @@ Wink is deployed on Netlify, find it [here](https://winkfriends.netlify.app/)!
 - Create animations: ex. the animal "eats" food when it is fed
 - Hunger/happiness bar styling: the progress bar will change colors based on how hungry/happy the animal is
 - Utilize a 3rd-party API for more flexibility in animal creation
+
+## Current User Flow
+- User arrives on the homepage.
+- If user clicks on any of the 4 randomly-selected pets that have already been created, they will be taken to the animal's individual page, where they can add and delete available foods, edit the animal, or feed it.
+- If the user clicks "All pets" or "Visit the pets", they will be taken to a page that showcases every animal that has been created.
+- If the user clicks "New pet", "Adopt a Pet", or the image of the dog on the homepage, they will be taken to a form that allows them to create a pet of their own.
 
 ## Resources and Inspiration
 I used the following assets as the basis for the assets you see on Wink.
