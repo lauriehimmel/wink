@@ -45,17 +45,17 @@ export default function OneAnimal() {
 
   // decreases hunger on screen + updates animal.lastFed
   async function decrementItem() {
-    let newClicks;
-    clickAmount <= 0
-      ? (newClicks = clickAmount)
-      : (newClicks = clickAmount - 1);
-    await setClickAmount(newClicks);
-    const hungerClicks = {
-      ...animal,
-      hunger: clickAmount - 1,
-    };
-    updateAnimal(animal._id, hungerClicks);
-    lastFed();
+    let newClicks = clickAmount;
+    if (clickAmount > 0) {
+      newClicks--;
+      setClickAmount(newClicks);
+      const hungerClicks = {
+        ...animal,
+        hunger: clickAmount - 1,
+      };
+      updateAnimal(animal._id, hungerClicks);
+      lastFed();
+    }
   }
 
   useEffect(() => {
@@ -70,10 +70,10 @@ export default function OneAnimal() {
     setClickAmount(animal?.hunger);
     setIsLoading(false);
   }, [animal]);
-  
+
   return isLoading ? (
     <>
-      <h1>Loading</h1>
+      <div className="loading">Loading</div>
     </>
   ) : (
     <>
@@ -91,7 +91,7 @@ export default function OneAnimal() {
           <button
             className="editbutton"
             onClick={() => navigate(`/animals/${animal._id}/update`)}
-            >
+          >
             Edit
           </button>
         </div>
@@ -101,23 +101,28 @@ export default function OneAnimal() {
           <div className="foodbackground">
             <div>
               <div className="foodgrid">
-                <FoodList animal={animal} decrementItem={decrementItem} setAnimal={setAnimal}/>
+                <FoodList
+                  animal={animal}
+                  decrementItem={decrementItem}
+                  setAnimal={setAnimal}
+                />
               </div>
             </div>
           </div>
-          <NewFoodForm setAddFoodState={setAddFoodState} setAnimal={setAnimal} animal={animal}/>
+          <NewFoodForm
+            setAddFoodState={setAddFoodState}
+            setAnimal={setAnimal}
+            animal={animal}
+          />
         </div>
         <div>
-          <AnimalImage animal={animal} location={'showpage'}/>
+          <AnimalImage animal={animal} location={"showpage"} />
         </div>
         {/* <div className="foodbackground">placeholder</div> */}
       </div>
     </>
   );
 }
-
-
-
 
 // increase hunger if animal.lastFed is not today
 // if (

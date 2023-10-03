@@ -1,22 +1,14 @@
-import { deleteFood, foodIndex } from "../../utilities/food-service";
-
 import kibble from "../../assets/food/kibble.svg";
 import steak from "../../assets/food/steak-01.svg";
 import cheese from "../../assets/food/cheese.svg";
 import peanutbutter from "../../assets/food/peanutbutter.svg";
 import './foods.css'
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
 
 
-export default function FoodImages({ food, setFood, decrementItem }) {
-  const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
+export default function FoodImages({ food, decrementItem }) {
 
   return (
     <div key={food._id}>
-      {/* {food.name} */}
-      <div>
         {(() => {
           if (food?.name === "Kibble") {
             return (
@@ -56,7 +48,6 @@ export default function FoodImages({ food, setFood, decrementItem }) {
             );
           }
         })()}
-      </div>
 
     </div>
   );

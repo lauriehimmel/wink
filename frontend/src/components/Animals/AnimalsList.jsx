@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { getAnimals } from "../../utilities/animal-service";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./animals.css";
 import AnimalImage from "./AnimalImage";
 
 export default function AnimalsList({ location }) {
   const [isLoading, setIsLoading] = useState(true);
   const [animals, setAnimals] = useState(null);
-  const [firstFourAnimals, setFirstFourAnimals] = useState(null);
   const [randomAnimal, setRandomAnimal] = useState();
   const navigate = useNavigate();
 
@@ -22,17 +21,6 @@ export default function AnimalsList({ location }) {
   useEffect(() => {
     handleRequest();
   }, []);
-
-  // useEffect(() => {
-  //   if (animals) {
-  //     setIsLoading(false);
-  //     const firstAnimals = [];
-  //     for (let i = 0; i < 4; i++) {
-  //       firstAnimals.push(animals[i]);
-  //     }
-  //     setFirstFourAnimals(firstAnimals);
-  //   }
-  // }, [animals]);
 
   useEffect(() => {
     if (animals) {
@@ -90,7 +78,6 @@ export default function AnimalsList({ location }) {
         </div>
       ) : (
         <>
-          <>
             {randomAnimal?.map((animal) => (
               <div key={animal?._id} className="animalslist">
                 <div onClick={() => navigate(`/animals/${animal._id}`)}>
@@ -101,7 +88,6 @@ export default function AnimalsList({ location }) {
                 </div>
               </div>
             ))}
-          </>
         </>
       )}
     </>

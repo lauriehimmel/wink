@@ -9,8 +9,4 @@ router.get("/:id", animalCtrl.show)
 router.delete("/:id", animalCtrl.destroy)
 router.put("/:id", animalCtrl.update)
 
-
-
-
-
 module.exports = router
