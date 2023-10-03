@@ -22,7 +22,6 @@ Inspired by Tamagotchi and my one-eyed dog Roux. ❤️
 
 ## Known Issues
 - ~~adding foods too fast breaks the app~~
-- slow loading
 - paginate foods so they don't overflow their container when more than 9 are added
 - ~~stop ability to feed pet when Hunger = 0~~
 
@@ -33,6 +32,7 @@ Inspired by Tamagotchi and my one-eyed dog Roux. ❤️
 - "pet of the day" on homepage
 - animations (ex. pet eating animation when you feed it)
 - hunger/happiness bar styling based on how hungry/happy pet is
+- update hunger based on time since animal was last fed
 
 ## Resources/Inspiration
 - Dog image [by Britt England](https://www.brittany-england.com/) 
