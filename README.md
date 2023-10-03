@@ -61,5 +61,6 @@ I used the following assets as the basis for the assets you see on Wink.
 - Pig image [by catalyststuff on Freepik](https://www.freepik.com/free-vector/cute-pig-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-flat_40513463.htm#query=cute%20pig%20cartoon&position=0&from_view=keyword&track=ais)
 - Peanut butter image [by brgfx on Freepik](https://www.freepik.com/free-vector/peanut-butter-elements-icons-set_40367911.htm)
 - [Glitter copyright text](https://www.glitter-graphics.com/graphics/602494)
+  
 I found a lot of general inspiration for creating a 90s-style website, and especially found this list to be helpful.
 - [General design inspiration](https://www.creativebloq.com/news/retro-modern-websites)
