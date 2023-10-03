@@ -5,24 +5,23 @@ Wink is a full-stack MERN app that allows you to create and interact with digita
 Inspired by [Tamagotchi](https://tamagotchi.com/) and my one-eyed dog Roux. ❤️
 
 ## Deployed Application
-Wink is deployed on [Netlify](https://winkfriends.netlify.app/).
+Wink is deployed on Netlify, find it [here](https://winkfriends.netlify.app/)!
 
 ## Screenshots
+**Wink homepage:** features 4 random pets and a link to adopt a pet. **To come:** Pet of the Day
 ![Homepage](library/screenshots/Homepage.png)
-Wink homepage: features 4 random pets and an "adopt animal" option.
 
-
+**All Pets:** features all pets that have been created.
 ![All animals](library/screenshots/AnimalIndex.png)
-All animals: lists all animals created.
 
+**Individual Pet:** showcases an individual animal, including their image, hunger level, and available foods. **To come:** Username of pet creator, styling for hunger level, toys and happiness level.
 ![Show animal](library/screenshots/ShowAnimal.png)
-Individual animal page: showcases an individual animal, including their image, hunger level, and available foods.
 
+**Create animal form:** create the animal you'd like to adopt - name it and choose the animal type and color. **To come:** Possible implementation of 3rd-party API to expand available animal options.
 ![Create animal form](library/screenshots/CreateAnimal.png)
-Create animal form: create the animal you'd like to adopt - name it and choose the animal type and color.
 
+**Update animal form:** make changes to your animal. **To come:** Only the animal's creator can edit animal.
 ![Update animal form](library/screenshots/UpdateAnimal.png)
-Update animal form: want to make changes to your animal? Make those changes with this form.
 
 ## Technologies Used
 - Mongo DB
