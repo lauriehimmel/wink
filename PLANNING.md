@@ -1,5 +1,5 @@
 # Wink
-(description)
+Wink is a full-stack MERN application that allows users to create and interact with digital pets.
 
 ## Models
 ### Animal Model
@@ -8,34 +8,15 @@
 | _id                 | ObjectId          |
 | name                | String            |
 | type                | String            |
-| Image               | [Image Schema]    |
-| Activities          | [Activity Schema] |
 | Foods               | [Food Schema]     |
 | Health              | Number            |
-| Happiness           | Number            |
 | timestamps          | true              |
-
-### Image Model
-| Property            | DataType        |
-| ------------------- | --------------- |
-| _id                 | ObjectId        |
-| url                 | String          |
-| creatureId          | String          |
-
-### Activity Model
-| Property            | DataType        |
-| ------------------- | --------------- |
-| _id                 | ObjectId        |
-| name                | String          |
-| creatureId          | String          |
-| timestamps          | true            |
 
 ### Food Model
 | Property            | DataType        |
 | ------------------- | --------------- |
 | _id                 | ObjectId        |
 | name                | String          |
-| creatureId          | String          |
 | timestamps          | true            |
 
 ## User Stories
