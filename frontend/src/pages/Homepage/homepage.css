@@ -32,10 +32,18 @@
 
 .home-animallist {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 33vw;
   align-items: center;
   justify-content: space-around;
+  justify-content: center;
+}
+
+.centerlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 2000px) {
@@ -46,7 +54,7 @@
     width: 100%;
     align-items: center;
     gap: 1rem;
-    padding-top: 2rem;
+    /* padding-top: 2rem; */
   }
 }
 

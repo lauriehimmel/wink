@@ -7,7 +7,7 @@ export default function Home() {
   const navigate = useNavigate();
   return (
       <div className="homepage">
-        <div>
+        <div className="centerlist">
           <h1 className="homeheaders" onClick={() => navigate("/animals")}>
             Visit the Pets
           </h1>
