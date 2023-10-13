@@ -16,7 +16,6 @@ export default function OneAnimal() {
   const today = new Date();
   let hungerChange;
 
-
   // *****in progress - updating Animal's hunger based on how long it's been since last feed
   // async function lastFed() {
   //   const fed = new Date(today);
@@ -28,9 +27,9 @@ export default function OneAnimal() {
   //   const new1 = animal?.lastFed
   //   console.log(new1)
   //   if (animal) updateAnimal(animal._id, newFedDate);
-    // console.log(new Date(today).toDateString())
-    // if (animal?.lastFed.toDateString() !== new Date(today).toDateString())
-    // {changeHunger();}
+  // console.log(new Date(today).toDateString())
+  // if (animal?.lastFed.toDateString() !== new Date(today).toDateString())
+  // {changeHunger();}
   // }
 
   // function changeHunger() {
@@ -85,9 +84,19 @@ export default function OneAnimal() {
             {animal?.name} the {animal?.type}
           </div>
           <div className="hungerlevel">
-            {animal?.name}'s hunger level: {clickAmount}
-            <progress id="health" value={clickAmount} max="100"></progress>
-            <div className="clicktofeed">Click a food item to feed {animal?.name}!</div>
+            {animal?.name}'s hunger level: {animal?.hunger}
+            <progress id="health" value={animal?.hunger} max="100"></progress>
+            <>
+              {animal?.hunger > 0 ? (
+                <div className="clicktofeed">
+                  Click a food item to feed {animal?.name}!
+                </div>
+              ) : (
+                <div className="clicktofeed">
+                  {animal?.name} isn't hungry right now! &#9786;
+                </div>
+              )}
+            </>
           </div>
         </div>
         <div>
@@ -102,13 +111,13 @@ export default function OneAnimal() {
       <div className="animal-body">
         <div className="foodform-foodimages">
           <div className="foodbackground">
-              {/* <div> */}
-                <FoodList
-                  animal={animal}
-                  decrementItem={decrementItem}
-                  setAnimal={setAnimal}
-                />
-              {/* </div> */}
+            {/* <div> */}
+            <FoodList
+              animal={animal}
+              decrementItem={decrementItem}
+              setAnimal={setAnimal}
+            />
+            {/* </div> */}
           </div>
           <NewFoodForm
             setAddFoodState={setAddFoodState}
