@@ -12,7 +12,7 @@
   font-weight: 800;
   font-style: normal;
   color: white;
-  font-size: 9rem;
+  font-size: 15vw;
   text-decoration: none;
   padding-top: .8rem;
 }
@@ -20,5 +20,5 @@
 .header-nav {
   font-family: 'Ranchers', cursive;
   color: white;
-  font-size: 2.5rem;
+  font-size: 5vw;
 }
