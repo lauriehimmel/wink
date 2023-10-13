@@ -39,7 +39,6 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
 
   function leftFood() {
     if (idx !== 0) {
-      console.log(idx);
       let newIdx = idx - 1;
       setIdx(newIdx);
     } else if (idx === 0) {
@@ -50,7 +49,6 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
 
   function rightFood() {
     if (idx !== animal?.foods?.length - 1) {
-      console.log(idx);
       let newIdx = idx + 1;
       setIdx(newIdx);
     } else if (idx === animal?.foods?.length - 1) {
@@ -106,7 +104,7 @@ export default function FoodList({ animal, decrementItem, setAnimal }) {
             </div>
           </div>
         ) : (
-          <div className="emptypantry">Pantry is empty!</div>
+          <div className="emptypantry">Stock up!</div>
         )}
       </div>
     </>
