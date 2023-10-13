@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   background-color: #f06592;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .home-animallist {
