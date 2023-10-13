@@ -79,7 +79,7 @@ export default function NewAnimalForm() {
               <option value="Pig">Pig</option>
             </select>
           </label>
-          <label htmlFor="color">
+          {/* <label htmlFor="color">
             <div className="labeltext">What color is {animal?.name} now?</div>
             <select
               name="color"
@@ -97,6 +97,21 @@ export default function NewAnimalForm() {
                 </option>
               ))}
             </select>
+          </label> */}
+          <label className="formLabel" htmlFor="color">
+            <div className="labeltext">What color is {animal?.name} now?</div>
+            <input
+              type="text"
+              name="color"
+              id="color"
+              className="forminput"
+              placeholder="enter a hex code!"
+              pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+              title="Hex codes start with '#' and are followed by six letters (A-F, upper or lower case) and/or numbers (1-9). Make sure your code is a valid hex code! ;)"
+              defaultValue={animal.color}
+              onChange={handleChange}
+              required
+            />
           </label>
           <input className="form-submit" type="submit" value="Update!" />
         </form>
