@@ -6,7 +6,7 @@ export default function NewAnimalForm() {
   let initState = {
     name: "",
     type: "Dog",
-    color: "White",
+    // color: "#CF9FFF",
   };
   const [newForm, setNewForm] = useState(initState);
   const navigate = useNavigate();
