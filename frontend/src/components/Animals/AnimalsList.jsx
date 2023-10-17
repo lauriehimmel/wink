@@ -12,6 +12,7 @@ export default function AnimalsList({ location }) {
 
   async function handleRequest() {
     const animalData = await getAnimals();
+    console.log('here', animalData)
     if (animalData) {
       setAnimals(animalData);
       setIsLoading(false);
