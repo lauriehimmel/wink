@@ -5,6 +5,7 @@ import NewFoodForm from "../Food/NewFoodForm";
 import React from "react";
 import FoodList from "../Food/FoodList";
 import AnimalImage from "./AnimalImage";
+import AnimalEating from "./AnimalEating";
 
 export default function OneAnimal() {
   const { id } = useParams();
@@ -13,6 +14,7 @@ export default function OneAnimal() {
   const navigate = useNavigate();
   const [clickAmount, setClickAmount] = useState();
   const [addFoodState, setAddFoodState] = useState(false);
+  const [isEating, setIsEating] = useState(false)
   const today = new Date();
   let hungerChange;
 
@@ -58,6 +60,10 @@ export default function OneAnimal() {
         hunger: clickAmount - 1,
       };
       updateAnimal(animal._id, hungerClicks);
+      setIsEating(true);
+      setTimeout(() => {
+        setIsEating(false)}, 2000
+      )
       // lastFed();
     }
   }
@@ -126,7 +132,11 @@ export default function OneAnimal() {
           />
         </div>
         <div>
-          <AnimalImage animal={animal} location={"showpage"} />
+          {isEating ? (
+          <AnimalEating animal={animal} location={"showpage"} /> 
+          ): (
+          <AnimalImage animal={animal} location={"showpage"} /> 
+          )}
         </div>
       </div>
     </>
