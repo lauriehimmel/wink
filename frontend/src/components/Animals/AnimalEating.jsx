@@ -14,7 +14,7 @@ export default function AnimalEating({ animal, location }) {
           return (
             <img
               style={{ background: `${animal?.color}` }}
-              className={classFromLocation}
+              className="dog-eating"
               src={Dog}
             />
           );
