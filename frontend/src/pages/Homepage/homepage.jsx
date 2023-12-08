@@ -8,6 +8,7 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <>
+    <div className="homepageborder">
     <Header />
       <div className="homepage">
         <div>About Wink</div>
@@ -30,6 +31,7 @@ export default function Home() {
             <img className="homeheaders" src={dog} alt="cartoon of a smling dog"/>
           </div>
         </div>
+      </div>
       </div>
       </div>
       </>

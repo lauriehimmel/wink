@@ -5,7 +5,8 @@
 .App {
   text-align: center;
   background-color: #f06592;
-  height: 100dvh;
+  padding-top: 2rem;
+  /* height: 100dvh; */
 }
 
 button {

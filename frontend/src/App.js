@@ -9,7 +9,7 @@ import Adopt from './pages/Adopt/Adopt';
 import ShowAnimal from './pages/Show/show';
 import NewFoodForm from './components/Food/NewFoodForm';
 import Footer from './components/Footer/Footer';
-import WelcomePage from './components/Welcome/Welcome.jsx';
+import WelcomePage from './pages/Welcome/Welcome.jsx';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route exact path="/" element={<Homepage />}/>
-        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/welcome" element={<WelcomePage/>} />
         <Route path="/animals" element={<AnimalsList />} />
         <Route path="/animals/:id" element={<ShowAnimal />} />
         <Route path="/animals/:id/update" element={<UpdateAnimal />} />
