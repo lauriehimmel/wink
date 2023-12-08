@@ -82,7 +82,7 @@ export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
     <>
     <div>
       <form className="newfoodform" onSubmit={handleSubmit}>
-        <label htmlFor="meal">
+        {/* <label htmlFor="meal">
           <div className="labeltext">Select a meal</div>
           <select name="meal" onChange={handleChange}>
             {meals.map((meal) => (
@@ -91,7 +91,7 @@ export default function NewFoodForm({setAddFoodState, setAnimal, animal}) {
               </option>
             ))}
           </select>
-        </label>
+        </label> */}
         <section className="foodname">
         <label htmlFor="name">
           <div className="labeltext">Select a meal</div>

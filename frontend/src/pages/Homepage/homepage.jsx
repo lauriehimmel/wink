@@ -2,10 +2,13 @@ import { useNavigate } from "react-router-dom";
 import AnimalsList from "../../components/Animals/AnimalsList";
 import dog from "../../assets/animals/dog-sitting.svg";
 import "./homepage.css";
+import Header from "../../components/Header/header";
 
 export default function Home() {
   const navigate = useNavigate();
   return (
+    <>
+    <Header />
       <div className="homepage">
         <div>About Wink</div>
         <div className="belowAbout">
@@ -29,5 +32,6 @@ export default function Home() {
         </div>
       </div>
       </div>
+      </>
   );
 }

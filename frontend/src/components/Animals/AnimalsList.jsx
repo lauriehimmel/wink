@@ -3,6 +3,7 @@ import { getAnimals } from "../../utilities/animal-service";
 import { useNavigate } from "react-router-dom";
 import "./animals.css";
 import AnimalImage from "./AnimalImage";
+import Header from "../Header/header";
 
 export default function AnimalsList({ location }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -53,7 +54,7 @@ export default function AnimalsList({ location }) {
     }
   }, [animals]);
 
-  return isLoading ? (
+  return (isLoading ? (
     <>
       <h1>Loading</h1>
     </>
@@ -61,6 +62,7 @@ export default function AnimalsList({ location }) {
     <>
       {location !== "homepage" ? (
         <div className="animalsbackground">
+          <Header />
           <div className="animalsIndex">
             {animals?.map((animal) => (
               <div className="indexAnimal">
@@ -92,5 +94,5 @@ export default function AnimalsList({ location }) {
         </>
       )}
     </>
-  );
+  ));
 }

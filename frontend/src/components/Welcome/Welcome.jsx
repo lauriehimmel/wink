@@ -1,4 +1,4 @@
-export default function AboutWink () {
+export default function WelcomePage () {
     return (
         <>
         <div>Welcome to Wink!</div>
